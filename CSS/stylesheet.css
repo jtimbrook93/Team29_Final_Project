@@ -12,14 +12,14 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
-  background: lightcoral;
+  background: #a6c4AA;
   margin: 0;
   font-family: sans-serif
 }
 header {
   color: white;
   padding: 1em;
-  background: indianred;
+  background: green;
   text-align: center;
 }
 header h1 {
@@ -41,7 +41,7 @@ header nav a {
 a {
   outline: none;
   text-decoration: none;
-  color: lightcoral;
+  color: green;
 }
 footer {
   color: white;
@@ -55,7 +55,7 @@ h1, h2, h3, h4, h5, h6 {
 h2 {
   font-size: 20pt;
   font-weight: 400;
-  color: indianred;
+  color: green;
 }
 p {
   margin: 0;
@@ -68,13 +68,13 @@ div {
   background: white;
 }
 div h3 {
-  color: indianred;
+  color: green;
 }
 div p {
-  color: lightcoral;
+  color: green;
 }
 main {
-  background: lavenderblush;
+  background: green;
   padding-bottom: 1.5em;
 }
 main section,
@@ -88,13 +88,13 @@ main article {
   border-radius: 3px;
 }
 main article p {
-  color: indianred;
+  color: green;
   line-height: 1.5;
 }
 .capsule {
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid lightpink;
+  border: 1px solid #1e5631;
 }
 .capsule  + .capsule {
   border-top: none;
@@ -133,7 +133,7 @@ main article p {
     border-color: black;
   }
   #formtitle {
-    color: lightcoral;
+    color: green;
     font-weight: bold;
   }
 
@@ -174,7 +174,7 @@ main article p {
   }
 
   button {
-    background-color: lightcoral;
+    background-color: green;
     color: white;
     border: 1px solid black;
     border-radius: 4px;
