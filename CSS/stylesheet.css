@@ -1,0 +1,182 @@
+* {
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-kerning: auto;
+}
+html {
+  line-height: 1.4;
+  font-weight: 400;
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  background: lightcoral;
+  margin: 0;
+  font-family: sans-serif
+}
+header {
+  color: white;
+  padding: 1em;
+  background: indianred;
+  text-align: center;
+}
+header h1 {
+  margin: 0;
+}
+header nav {
+  display: block;
+  overflow: hidden;
+}
+header nav a {
+  display: inline-block;
+  padding: .75em;
+  color: white;
+  font-weight: 600;
+  text-transform: lowercase;
+  width: 33.33%;
+  float: left;
+}
+a {
+  outline: none;
+  text-decoration: none;
+  color: lightcoral;
+}
+footer {
+  color: white;
+  padding: 2em;
+  text-align: center;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 .5em 0;
+  letter-spacing: -.02em;
+}
+h2 {
+  font-size: 20pt;
+  font-weight: 400;
+  color: indianred;
+}
+p {
+  margin: 0;
+}
+p + p {
+  margin-top: .75em;
+}
+div {
+  padding: 1.5em;
+  background: white;
+}
+div h3 {
+  color: indianred;
+}
+div p {
+  color: lightcoral;
+}
+main {
+  background: lavenderblush;
+  padding-bottom: 1.5em;
+}
+main section,
+main aside {
+  padding: 1.5em;
+  padding-bottom: 0;
+}
+main article {
+  padding: 1.5em;
+  background: white;
+  border-radius: 3px;
+}
+main article p {
+  color: indianred;
+  line-height: 1.5;
+}
+.capsule {
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid lightpink;
+}
+.capsule  + .capsule {
+  border-top: none;
+}
+.capsule:first-of-type {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.capsule:last-of-type {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+@media (min-width: 800px) {
+  header,
+  main {
+    overflow: hidden;
+  }
+  main section,
+  main aside {
+    float: left;
+    width: 40%;
+  }
+  main section {
+    width: 60%;
+    padding-right: 0;
+  }
+  header h1 {
+    float: left;
+  }
+  header nav {
+    float: right;
+  }
+  .img {
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+  }
+  #formtitle {
+    color: lightcoral;
+    font-weight: bold;
+  }
+
+/*Sorttable plugin*/
+
+  th[role=columnheader]:not(.no-sort) {
+  	cursor: pointer;
+  }
+
+  th[role=columnheader]:not(.no-sort):after {
+  	content: '';
+  	float: right;
+  	margin-top: 7px;
+  	border-width: 0 4px 4px;
+  	border-style: solid;
+  	border-color: #404040 transparent;
+  	visibility: hidden;
+  	opacity: 0;
+  	-ms-user-select: none;
+  	-webkit-user-select: none;
+  	-moz-user-select: none;
+  	user-select: none;
+  }
+
+  th[aria-sort=ascending]:not(.no-sort):after {
+  	border-bottom: none;
+  	border-width: 4px 4px 0;
+  }
+
+  th[aria-sort]:not(.no-sort):after {
+  	visibility: visible;
+  	opacity: 0.4;
+  }
+
+  th[role=columnheader]:not(.no-sort):hover:after {
+  	visibility: visible;
+  	opacity: 1;
+  }
+
+  button {
+    background-color: lightcoral;
+    color: white;
+    border: 1px solid black;
+    border-radius: 4px;
+  }
+}
