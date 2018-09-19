@@ -38,10 +38,16 @@ header nav a {
   width: 33.33%;
   float: left;
 }
+header nav a:hover {
+  color: #a6c4AA;
+}
 a {
   outline: none;
   text-decoration: none;
   color: green;
+}
+a:hover {
+  color: #a6c4AA;
 }
 footer {
   color: white;
