@@ -1,11 +1,15 @@
 <?php
 
-class Team
+class Client
 
 {
-  public $id;
-  public $name;
-  public $hourly_rate;
+  public $client_id;
+  public $client_name;
+  public $client_description;
+  public $sector;
+  public $sub_industry;
+  public $headquarters;
+
 
 
   public function __construct($data) {

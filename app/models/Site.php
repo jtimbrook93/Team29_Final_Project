@@ -1,16 +1,20 @@
 <?php
 
-class Work
+class Site
 
 {
 
-  public $id;
-  public $task_id;
-  public $team_id;
-  public $start;  //'YYYY-MM-DD'
-  public $stop;   //'YYYY-MM-DD', needs to be calculated
-  public $hours;
-  public $completion_estimate;
+  public $site_id;
+  public $client_id;
+  public $site_name;
+  public $site_description;  //'YYYY-MM-DD'
+  public $primary_contact;   //'YYYY-MM-DD', needs to be calculated
+  public $capacity;
+  public $address;
+  public $address_2;
+  public $city;
+  public $state;
+  public $zip;
 
   public function __construct($row) {
     $this->id = isset($row['id'])   ? intval($row['id']) : null;
