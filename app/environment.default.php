@@ -1,5 +1,5 @@
 <?php
 
-const DB_USER = 'root';
-const DB_PW = 'kelleymsis';
-const DB_NAME = 'hw1';
+const DB_USER = 'user';
+const DB_PW = 'pw';
+const DB_NAME = 'mysql:host=localhost;dbname=inclass';

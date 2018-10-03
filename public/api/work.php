@@ -1,20 +1,23 @@
 <?php
-
 require '../../app/common.php';
 
-$taskId = $_GET['taskId'] ?? 0;
 
-if ($taskId < 1) {
-  throw new Exception('Invalid Task ID');
+if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
+  require 'workPost.php';
+  exit;
 }
 
-// 1. Go to the database and get all work associated with the $taskId
-$workArr = Work::getAllWorkByTask($taskId);
+//get task ID check to see if task iD is set, if it is use it, if not use 0 instead
+$taskId = intval($_GET['taskId'] ?? 0);
 
-// 2. Convert to JSON
-$json = json_encode($workArr);
+if ($taskId < 1){
+  throw new Exception('Invalid Task ID');
+}
+//fetch all the work for that task id
+// go to the database and get stuff
+$workArr = Work::getWorkByTaskId($taskId);
 
-// 3. Print
-echo $json;
-
-echo 'Task id is:' . $taskId;
+$json = json_encode($workArr, JSON_PRETTY_PRINT);
+// convert to json and print
+header ('Content-type: application/json');
+echo json_encode($work);
