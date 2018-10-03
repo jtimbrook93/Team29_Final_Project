@@ -10,11 +10,12 @@ class Site
   public $site_description;  //'YYYY-MM-DD'
   public $primary_contact;   //'YYYY-MM-DD', needs to be calculated
   public $capacity;
-  public $address;
-  public $address_2;
+  public $address1;
+  public $address2;
   public $city;
   public $state;
   public $zip;
+  public $country;
 
   public function __construct($row) {
     $this->id = isset($row['id'])   ? intval($row['id']) : null;
