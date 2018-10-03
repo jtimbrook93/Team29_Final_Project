@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'
 
 require 'environment.php';
 //MODELS
-require 'models/Work.php';
-require 'models/Team.php';
-require 'models/Project.php';
-require 'models/Task.php';
+require 'models/Client.php';
+require 'models/Sensor.php';
+require 'models/Site.php';
+require 'models/Turbine.php';
