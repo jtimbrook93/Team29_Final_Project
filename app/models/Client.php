@@ -3,11 +3,11 @@
 class Client
 
 {
-  public $client_id;
-  public $client_name;
-  public $client_description;
-  public $sector;
-  public $sub_industry;
+  public $clientId;
+  public $clientName;
+  public $clientDescription;
+  public $gicsSector;
+  public $gicsSubIndustry;
   public $headquarters;
 
 
@@ -15,10 +15,12 @@ class Client
   public function __construct($data) {
    // creating a new object instance using 'id' as integer
 
-    $this->id = intval($data['id']);
-    $this->name = ($data['name']);
-    $this->hourly_rate = floatval($data['hourly_rate']);
-
+    $this->clientId = intval($data['id']);
+    $this->clientName = ($data['name']);
+    $this->clientDescription = ($data['description']);
+    $this->gicsSector = intval($data['description']);
+    $this->gicsSubIndustry = ($data['description']);
+    $this->headquarters = ($data['description']);
   }
   public static function fetchAll() {
 
@@ -26,7 +28,7 @@ class Client
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
 
     // 2. Prepare the query
-    $sql = 'SELECT * FROM Teams';
+    $sql = 'SELECT * FROM Client';
     $statement = $db->prepare($sql);
 
     // 3. Run the query
@@ -39,12 +41,31 @@ class Client
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
 
       // 4.a. For each row, make a new work php object
-      $teamItem =  new Team($row);
-      array_push($arr, $teamItem);
+      $clientItem =  new Client($row);
+      array_push($arr, $clientItem);
 
     }
 
     // 4.b. return the array of work objects
     return $arr;
   }
+  public function create(){
+  $db = new PDO(DB_NAME, DB_USER, DB_PW);
+
+sql = 'INSERT INTO Client (clientId, clientName, clientDescription, gicsSector, gicsSubIndustry, headquarters)
+      VALUES (?,?,?,?,?,?)';
 }
+$statement = $db->prepare($sql);
+
+// 3. Run the query
+$success = $statement->execute([
+  $this->clientId,
+  $this->clientName,
+  $this->clientDescription,
+  $this->gicsSector,
+  $this->gicsSubIndustry,
+  $this->headquarters
+]);
+  $this->id = $db->lastInsertId();
+}
+  }
