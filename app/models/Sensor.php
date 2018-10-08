@@ -6,7 +6,7 @@ class Sensor
   public $sensor_name;
   public $sensor_description;
   public $maintenance;
-  public $S;
+  public $;
   public $address;
 
 
