@@ -1,5 +1,5 @@
-var tasksApp = new Vue({
-  el: '#taskMain',
+var App = new Vue({
+  el: '#Main',
   data: {
     task: {
       id: 0,
