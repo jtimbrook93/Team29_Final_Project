@@ -4,44 +4,39 @@ class Site
 
 {
 
-  public $site_id;
-  public $client_id;
-  public $site_name;
-  public $site_description;  //'YYYY-MM-DD'
-  public $primary_contact;   //'YYYY-MM-DD', needs to be calculated
+  public $siteId;
+  public $clientId;
+  public $siteName;
+  public $siteDescription;  //'YYYY-MM-DD'
+  public $primaryContact;   //'YYYY-MM-DD', needs to be calculated
   public $capacity;
-  public $address1;
-  public $address2;
-  public $city;
-  public $state;
-  public $zip;
-  public $country;
+  public $addrLine1;
+  public $addrLine2;
+  public $addrCity;
+  public $addrState;
+  public $addrZip;
+  public $addrCountry;
 
-  public function __construct($row) {
-    $this->id = isset($row['id'])   ? intval($row['id']) : null;
+  public static function __construct($row) {
+    $this->siteId = isset($row['siteId'])   ? intval($row['siteId']) : null;
 
-    $this->task_id = intval($row['task_id']);
-    $this->team_id = intval($row['team_id']);
-    $this->start = $row['start_date'];
-    $this->hours = floatval($row['hours']);
+    $this->clientId = intval($row['clientId']);
+    $this->siteName = $row['siteName'];
+    $this->siteDescription = ($row['siteDescription']);
+    $this->primaryContact= ($row['primaryContact']);
+    $this->capacity = intval($row['capacity']);
+    $this->addrLine1 = $row['addrLine1'];
+    $this->addrLine2 = ($row['addrLine2']);
+    $this->addrCity = ($row['addrCity']);
+    $this->addrState = ($row['addrState']);
+    $this->addrZip = intval($row['addrZip'];
+    $this->addrCountry = ($row['addrCountry']);
 
-    // Calculate stop date
-
-    $hours = floor($this->hours);
-    $mins = intval(($this->hours - $hours) * 60); // Take advantage of one decimal place
-    $interval = 'PT'. ($hours ? $hours.'H' : '') . ($mins ? $mins.'M' : '');
-
-    $date = new DateTime($this->start);
-    $date->add(new DateInterval($interval));
-    $this->stop = $date->format('Y-m-d H:i:s');
-
-    $this->completion_estimate = intval($row['completion_estimate']);
   }
-public function create() {
-  $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+  public static function getAllSites(){
+  $db = new PDO(DB_NAME, DB_USER, DB_PW);
 
-$sql = 'INSERT INTO Work (team_id, task_id, start_date, hours, completion_estimate)
-        VALUES (?,?,?,?,?)';
+$sql = 'SELECT * FROM Site';
 
 
 
@@ -49,11 +44,46 @@ $sql = 'INSERT INTO Work (team_id, task_id, start_date, hours, completion_estima
 
   // 3. Run the query
   $success = $statement->execute([
-    $this->team_id,
-    $this->task_id,
-    $this->start,
-    $this->hours,
-    $this->completion_estimate
+
+
+  ]);
+  // 4. Handle the results
+  $arr = [];
+  while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+
+    // 4.a. For each row, make a new work php object
+    $siteItem =  new Site($row);
+    array_push($siteId, $clientId, $siteName, $siteDescription, $primaryContact, $capacity, $addrLine1, $addrLine2, $addrCity, $addrState, $addrZip, $addrCountry);
+  }
+
+  // 4.b. return the array of work objects
+  return $arr;
+  
+}
+
+public function create() {
+  $db = new PDO(DB_NAME, DB_USER, DB_PW);
+
+$sql = 'INSERT INTO SITE (siteId, clientId, siteName, siteDescription, primaryContact, capacity, addrLine1, addrLine2, addrCity, addrState, addrZip, addrCountry)
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?)';
+
+
+
+  $statement = $db->prepare($sql);
+
+  // 3. Run the query
+  $success = $statement->execute([
+    $this->clientId,
+    $this->siteName,
+    $this->siteDescription,
+    $this->primaryContact,
+    $this->capacity,
+    $this->addrLine1,
+    $this->addrLine2,
+    $this->addrCity,
+    $this->addrState,
+    $this->addrZip,
+    $this->addrCountry
   ]);
       $this->id = $db->lastInsertId();
 }
