@@ -25,7 +25,7 @@ class Sensor
 
     // 2. Prepare the query
     $sql = 'SELECT * FROM Sensor, Sensor_deploy
-          where Sensor.sensorId = Sensor_deploy.sensorId';
+          where Sensor.sensorId = Sensor_deploy.sensorId;';
     $statement = $db->prepare($sql);
 
     // 3. Run the query
