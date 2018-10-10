@@ -35,7 +35,7 @@ class Sensor
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
 
       // 4.a. For each row, make a new work php object
-      $clientItem =  new Sensor($row);
+      $sensorItem =  new Sensor($row);
       array_push($arr, $sensorItem);
 
     }
