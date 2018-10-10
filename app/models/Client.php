@@ -15,12 +15,12 @@ class Client
   public function __construct($data) {
    // creating a new object instance using 'id' as integer
 
-    $this->clientId = intval($data['id']);
-    $this->clientName = ($data['name']);
-    $this->clientDescription = ($data['description']);
-    $this->gicsSector = intval($data['description']);
-    $this->gicsSubIndustry = ($data['description']);
-    $this->headquarters = ($data['description']);
+    $this->clientId = intval($data['clientId']);
+    $this->clientName = ($data['clientName']);
+    $this->clientDescription = ($data['clientDescription']);
+    $this->gicsSector = intval($data['gicsSector']);
+    $this->gicsSubIndustry = ($data['gicsSubIndustry']);
+    $this->headquarters = ($data['headquarters']);
   }
   public static function fetchAll() {
 
