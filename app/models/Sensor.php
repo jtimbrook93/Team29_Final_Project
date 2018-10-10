@@ -5,7 +5,7 @@ class Sensor
   public $sensorId;
   public $sensorName;
   public $sensorDescription;
-  public $maintenance;
+  public $manufacturer;
   public $totalLifeExpectancyHours;
 
   public function __construct($data) {
@@ -14,7 +14,7 @@ class Sensor
     $this->sensorId = intval($data['sensorId']);
     $this->sensorName = ($data['sensorName']);
     $this->sensorDescription = ($data['sensorDescription']);
-    $this->maintenance = ($data['maintenance']);
+    $this->manufacturer = ($data['manufacturer']);
     $this->totalLifeExpectancyHours = intval($data['totalLifeExpectancyHours']);
 
   }
