@@ -5,7 +5,7 @@ require '../../app/common.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
   require 'dataPost.php';
   exit;
-
+}
 // go to the database and get stuff
 
 $clients = Client::fetchAll();
