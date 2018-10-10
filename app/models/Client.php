@@ -54,7 +54,6 @@ class Client
 
   $sql = 'INSERT INTO Client (clientId, clientName, clientDescription, gicsSector, gicsSubIndustry, headquarters)
       VALUES (?,?,?,?,?,?)';
-}
 $statement = $db->prepare($sql);
 
 // 3. Run the query
