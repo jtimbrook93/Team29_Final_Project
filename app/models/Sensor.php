@@ -11,11 +11,11 @@ class Sensor
   public function __construct($data) {
    // creating a new object instance using 'id' as integer
 
-    $this->sensorId = intval($data['id']);
-    $this->sensorName = ($data['name']);
-    $this->sensorDescription = ($data['description']);
-    $this->maintenance = ($data['description']);
-    $this->totalLifeExpectancyHours = intval($data['description']);
+    $this->sensorId = intval($data['sensorId']);
+    $this->sensorName = ($data['sensorName']);
+    $this->sensorDescription = ($data['sensorDescription']);
+    $this->maintenance = ($data['maintenance']);
+    $this->totalLifeExpectancyHours = intval($data['totalLifeExpectancyHours']);
 
   }
   public static function getAllSensors() {
