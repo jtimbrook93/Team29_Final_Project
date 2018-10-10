@@ -7,6 +7,10 @@ class Sensor
   public $sensorDescription;
   public $manufacturer;
   public $totalLifeExpectancyHours;
+  public $sensorDeployedId;
+  public $turbineDeployedId;
+  public $serialNumber;
+  public $deployedDate;
 
   public function __construct($data) {
    // creating a new object instance using 'id' as integer
@@ -16,6 +20,10 @@ class Sensor
     $this->sensorDescription = ($data['sensorDescription']);
     $this->manufacturer = ($data['manufacturer']);
     $this->totalLifeExpectancyHours = intval($data['totalLifeExpectancyHours']);
+    $this->$sensorDeployedId = intval($data['sensorDeployedId']);
+    $this->$turbineDeployedId = intval($data['turbineDeployedId']);
+    $this->$serialNumber = intval($data['serialNumber']);
+    $this->$deployedDate = ($data['deployedDate']);
 
   }
   public function getAllSensors() {
