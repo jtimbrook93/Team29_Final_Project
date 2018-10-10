@@ -18,7 +18,7 @@ class Sensor
     $this->totalLifeExpectancyHours = intval($data['totalLifeExpectancyHours']);
 
   }
-  public static function getAllSensors() {
+  public function getAllSensors() {
 
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
