@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
 }
 // go to the database and get stuff
 
-$clients = Client::fetchAll();
+$clientArr = Client::fetchAll();
 
 // convert to json and print
 $json = json_encode($clientArr, JSON_PRETTY_PRINT);
