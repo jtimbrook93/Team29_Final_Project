@@ -46,7 +46,7 @@ class Sensor
     return $arr;
   }
   public function create(){
-  $db = new PDO(DB_NAME, DB_USER, DB_PW);
+  $db = new PDO(DB_SERVER, DB_USER, DB_PW);
 
 sql = 'INSERT INTO Sensor (sensorId, sensorName, sensorDescription, maintenance, totalLifeExpectancyHours)
       VALUES (?,?,?,?,?)';

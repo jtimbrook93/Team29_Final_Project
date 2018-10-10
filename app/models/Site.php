@@ -34,7 +34,7 @@ class Site
 
   }
   public static function getAllSites(){
-  $db = new PDO(DB_NAME, DB_USER, DB_PW);
+  $db = new PDO(DB_SERVER, DB_USER, DB_PW);
 
 $sql = 'SELECT * FROM Site';
 
@@ -58,11 +58,11 @@ $sql = 'SELECT * FROM Site';
 
   // 4.b. return the array of work objects
   return $arr;
-  
+
 }
 
 public function create() {
-  $db = new PDO(DB_NAME, DB_USER, DB_PW);
+  $db = new PDO(DB_SERVER, DB_USER, DB_PW);
 
 $sql = 'INSERT INTO SITE (siteId, clientId, siteName, siteDescription, primaryContact, capacity, addrLine1, addrLine2, addrCity, addrState, addrZip, addrCountry)
         VALUES (?,?,?,?,?,?,?,?,?,?,?,?)';
