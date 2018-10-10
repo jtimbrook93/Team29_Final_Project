@@ -53,7 +53,7 @@ $sql = 'SELECT * FROM Site';
 
     // 4.a. For each row, make a new work php object
     $siteItem =  new Site($row);
-    array_push($siteId, $clientId, $siteName, $siteDescription, $primaryContact, $capacity, $addrLine1, $addrLine2, $addrCity, $addrState, $addrZip, $addrCountry);
+  array_push($arr, $siteItem);
   }
 
   // 4.b. return the array of work objects
