@@ -28,9 +28,7 @@ class Sensor
     $statement = $db->prepare($sql);
 
     // 3. Run the query
-    $success = $statement->execute(
-
-    );
+    $success = $statement->execute();
 
     // 4. Handle the results
     $arr = [];

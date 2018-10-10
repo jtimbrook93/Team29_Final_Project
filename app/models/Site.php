@@ -29,7 +29,7 @@ class Site
     $this->addrLine2 = ($row['addrLine2']);
     $this->addrCity = ($row['addrCity']);
     $this->addrState = ($row['addrState']);
-    $this->addrZip = intval($row['addrZip'];
+    $this->addrZip = intval($row['addrZip']);
     $this->addrCountry = ($row['addrCountry']);
 
   }
