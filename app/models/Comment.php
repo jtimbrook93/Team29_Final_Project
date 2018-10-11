@@ -3,12 +3,13 @@
 class Comment
 {
   public $id;
+  public $clientId;
   public $comment;
 
 
   public function __construct($row){
     $this->id = isset($row['id']) ? intval($row['id']) : null;
-
+    $this->clientId = ($row['clientId']);
     $this->comment = $row['comment'];
   }
 
@@ -44,8 +45,8 @@ class Comment
   public function create(){
   $db = new PDO(DB_SERVER, DB_USER, DB_PW);
 
-$sql = 'INSERT INTO Comments (id, comment)
-      VALUES (?,?)';
+$sql = 'INSERT INTO Comments (id, clientId, comment)
+      VALUES (?,?,?)';
 
 
 
@@ -54,6 +55,7 @@ $statement = $db->prepare($sql);
 // 3. Run the query
 $success = $statement->execute([
   $this->id,
+  $this->clientId,
   $this->comment
 ]);
   $this->id = $db->lastInsertId();
