@@ -2,8 +2,7 @@
 
 class KPI
 {
-  public $sensorDeployedId;
-  public $dataCollectedDate;
+  public $turbineDeployedId;
   public $output;
   public $heartRate;
   public $compressorEfficiency;
@@ -17,16 +16,15 @@ class KPI
 
      // creating a new object instance using 'id' as integer
 
-      $this->sensorDeployedId = intval($data['sensorDeployedId']);
-      $this->dataCollectedDate = ($data['dataCollectedDate']);
+      $this->turbineDeployedId = intval($data['turbineDeployedId']);
       $this->output = intval($data['output']);
-      $this->heartRate = ($data['heartRate']);
-      $this->compressorEfficiency = ($data['compressorEfficiency']);
-      $this->availability = ($data['availability']);
-      $this->reliability = ($data['reliability']);
-      $this->firedHours = ($data['firedHours']);
-      $this->trips = ($data['trips']);
-      $this->starts = ($data['starts']);
+      $this->heartRate = floatval($data['heartRate']);
+      $this->compressorEfficiency = floatval($data['compressorEfficiency']);
+      $this->availability = floatval($data['availability']);
+      $this->reliability = floatval($data['reliability']);
+      $this->firedHours = floatval($data['firedHours']);
+      $this->trips = intval($data['trips']);
+      $this->starts = intval($data['starts']);
 
 
 
@@ -37,8 +35,12 @@ class KPI
       $db = new PDO(DB_SERVER, DB_USER, DB_PW);
 
       // 2. Prepare the query
-      $sql = 'SELECT turbineId, turbineName, siteId, siteName
-              FROM Site, Turbine';
+      $sql = 'SELECT turbineDeployedId, AVG(output), avg(heartRate), avg(compressorEfficiency),
+              avg(availability), avg(reliability), avg(firedHours), avg(trips), avg(starts)
+              FROM Time_Series_for_KPI
+              INNER JOIN Sensor_deploy
+              ON Time_Series_for_KPI.sensorDeployedId = Sensor_deploy.sensorDeployedId
+              WHERE Sensor_deploy.turbineDeployedId = (?);';
 
       $statement = $db->prepare($sql);
 
