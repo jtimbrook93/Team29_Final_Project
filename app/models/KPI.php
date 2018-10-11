@@ -2,7 +2,6 @@
 
 class KPI
 {
-  public $sensorDeployedId;
   public $turbineDeployedId;
   public $output;
   public $heartRate;
@@ -16,7 +15,6 @@ class KPI
     public function __construct($data) {
 
      // creating a new object instance using 'id' as integer
-      $this->sensorDeployedId = ($data['sensorDeployedId']);
       $this->turbineDeployedId = ($data['turbineDeployedId']);
       $this->output = ($data['output']);
       $this->heartRate = ($data['heartRate']);
