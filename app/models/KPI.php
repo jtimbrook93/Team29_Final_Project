@@ -2,6 +2,7 @@
 
 class KPI
 {
+  public $sensorDeployedId;
   public $turbineDeployedId;
   public $output;
   public $heartRate;
@@ -15,7 +16,7 @@ class KPI
     public function __construct($data) {
 
      // creating a new object instance using 'id' as integer
-
+      $this->sensorDeployedId = ($data['sensorDeployedId']);
       $this->turbineDeployedId = ($data['turbineDeployedId']);
       $this->output = ($data['output']);
       $this->heartRate = ($data['heartRate']);
@@ -40,7 +41,7 @@ class KPI
               FROM Time_Series_for_KPI
               INNER JOIN Sensor_deploy
               ON Time_Series_for_KPI.sensorDeployedId = Sensor_deploy.sensorDeployedId
-              WHERE Sensor_deploy.turbineDeployedId = ?';
+              WHERE Sensor_deploy.turbineDeployedId = ?;';
 
       $statement = $db->prepare($sql);
 
