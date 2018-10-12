@@ -39,7 +39,7 @@ class KPIdata
       $db = new PDO(DB_SERVER, DB_USER, DB_PW);
 
       // 2. Prepare the query
-      $sql = 'SELECT turbineDeployedId, Time_Series_for_KPI.sensorDeployedId, dataCollectedDate, ?
+      $sql = 'SELECT turbineDeployedId, Time_Series_for_KPI.sensorDeployedId, dataCollectedDate,output, heartRate, compressorEfficiency, availability, reliability, firedHours, trips, starts
               FROM Time_Series_for_KPI
               INNER JOIN Sensor_deploy
               ON Time_Series_for_KPI.sensorDeployedId = Sensor_deploy.sensorDeployedId';
