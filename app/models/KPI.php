@@ -22,8 +22,8 @@ class KPI
       $this->availability = doubleval($data['availability']);
       $this->reliability = doubleval($data['reliability']);
       $this->firedHours = doubleval($data['firedHours']);
-      $this->trips = doubleval($data['trips']);
-      $this->starts = doubleval($data['starts']);
+      $this->trips = intval($data['trips']);
+      $this->starts = intval($data['starts']);
 
 
 

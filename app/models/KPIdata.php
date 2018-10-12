@@ -42,7 +42,7 @@ class KPIdata
       $sql = 'SELECT turbineDeployedId, Time_Series_for_KPI.sensorDeployedId, dataCollectedDate, ?
               FROM Time_Series_for_KPI
               INNER JOIN Sensor_deploy
-              ON Time_Series_for_KPI.sensorDeployedId = Sensor_deploy.sensorDeployedId;';
+              ON Time_Series_for_KPI.sensorDeployedId = Sensor_deploy.sensorDeployedId';
 
       $statement = $db->prepare($sql);
 
