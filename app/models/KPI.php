@@ -34,12 +34,11 @@ class KPI
       $db = new PDO(DB_SERVER, DB_USER, DB_PW);
 
       // 2. Prepare the query
-      $sql = 'SELECT turbineDeployedId, AVG(output), avg(heartRate), avg(compressorEfficiency),
+      $sql = 'SELECT Turbine_deploy.turbineDeployedId, Time_Series_for_KPI.sensorDeployedId, AVG(output), avg(heartRate), avg(compressorEfficiency),
               avg(availability), avg(reliability), avg(firedHours), avg(trips), avg(starts)
-              FROM Time_Series_for_KPI
-              INNER JOIN Sensor_deploy
-              ON Time_Series_for_KPI.sensorDeployedId = Sensor_deploy.sensorDeployedId
-              WHERE Sensor_deploy.turbineDeployedId = 1;';
+              from Time_Series_for_KPI, Sensor_deploy, Turbine_deploy
+              where Time_Series_for_KPI.sensorDeployedId = Sensor_deploy.sensorDeployedId and Sensor_deploy.turbineDeployedId = Turbine_deploy.turbineDeployedId
+              ';
 
       $statement = $db->prepare($sql);
 
