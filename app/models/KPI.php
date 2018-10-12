@@ -39,7 +39,7 @@ class KPI
               FROM Time_Series_for_KPI
               INNER JOIN Sensor_deploy
               ON Time_Series_for_KPI.sensorDeployedId = Sensor_deploy.sensorDeployedId
-              WHERE Sensor_deploy.turbineDeployedId = ?;';
+              WHERE Sensor_deploy.turbineDeployedId = 1;';
 
       $statement = $db->prepare($sql);
 
