@@ -17,6 +17,7 @@ class Site
   public $addrZip;
   public $addrCountry;
 
+
   public function __construct($row) {
     $this->siteId = isset($row['siteId'])   ? intval($row['siteId']) : null;
 
@@ -31,6 +32,7 @@ class Site
     $this->addrState = ($row['addrState']);
     $this->addrZip = intval($row['addrZip']);
     $this->addrCountry = ($row['addrCountry']);
+    
 
   }
   public static function getAllSites(){
