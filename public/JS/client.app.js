@@ -33,11 +33,6 @@ computed: {
 
   created () {
 
-        const url = new URL(window.location.href);
-        const clientId = url.searchParams.get('clientId');
-        console.log('clientId: '+ clientId);
-        this.client.clientId = clientId;
-
     // Do data fetch
     fetch('api/client.php')
     .then( response => response.json() )
