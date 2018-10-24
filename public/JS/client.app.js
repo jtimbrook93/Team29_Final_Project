@@ -2,12 +2,12 @@ var clientApp = new Vue({
   el: '#clientcontainer',
 data: {
   client: {
-    clientId: "",
-    clientName: "",
-    clientDescription: "",
-    gicsSector: "",
-    gicsSubIndustry: "",
-    headquarters: ""
+    clientId: '',
+    clientName: '',
+    clientDescription: '',
+    gicsSector: '',
+    gicsSubIndustry: '',
+    headquarters: ''
 }
 
 },
