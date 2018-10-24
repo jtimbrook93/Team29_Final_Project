@@ -2,38 +2,31 @@
 
 class Turbine
 {
-    public $sensorId;
-    public $sensorName;
-    public $sensorDescription;
-    public $manufacturer;
-    public $totalLifeExpectancyHours;
-    public $sensorDeployedId;
-    public $turbineDeployedId;
-    public $serialNumber;
-    public $deployedDate;
+  public $turbineId;
+  public $turbineName;
+  public $siteId;
+  public $siteName;
 
     public function __construct($data) {
+
      // creating a new object instance using 'id' as integer
 
-      $this->sensorId = intval($data['sensorId']);
-      $this->sensorName = ($data['sensorName']);
-      $this->sensorDescription = ($data['sensorDescription']);
-      $this->manufacturer = ($data['manufacturer']);
-      $this->totalLifeExpectancyHours = intval($data['totalLifeExpectancyHours']);
-      $this->$sensorDeployedId = intval($data['sensorDeployedId']);
-      $this->$turbineDeployedId = intval($data['turbineDeployedId']);
-      $this->$serialNumber = intval($data['serialNumber']);
-      $this->$deployedDate = ($data['deployedDate']);
+      $this->turbineId = intval($data['turbineId']);
+      $this->turbineName = ($data['turbineName']);
+      $this->siteId = intval($data['siteId']);
+      $this->siteName = ($data['siteName']);
+
 
     }
-    public function getAllSensors() {
+    public function getTurbines() {
 
       // 1. Connect to the database
       $db = new PDO(DB_SERVER, DB_USER, DB_PW);
 
       // 2. Prepare the query
-      $sql = 'SELECT * FROM Sensor, Sensor_deploy
-            where Sensor.sensorId = Sensor_deploy.sensorId';
+      $sql = 'SELECT turbineId, turbineName, siteId, siteName
+              FROM Site, Turbine';
+
       $statement = $db->prepare($sql);
 
       // 3. Run the query
@@ -44,13 +37,13 @@ class Turbine
       while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
 
         // 4.a. For each row, make a new work php object
-        $sensorItem =  new Sensor($row);
-        array_push($arr, $sensorItem);
+        $turbineItem =  new Turbine($row);
+        array_push($arr, $turbineItem);
 
       }
 
       // 4.b. return the array of work objects
       return $arr;
     }
-  
+
     }
