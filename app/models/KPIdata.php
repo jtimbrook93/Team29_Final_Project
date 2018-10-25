@@ -13,13 +13,14 @@ class KPIdata
   public $reliability;
   public $firedHours;
   public $trips;
+  public $starts;
 
     public function __construct($data) {
 
      // creating a new object instance using 'id' as integer
-
-      $this->sensorDeployedId = intval($data['sensorDeployedId']);
+      $this->siteId = intval($data['siteId']);
       $this->turbineDeployedId = intval($data['turbineDeployedId']);
+      $this->sensorDeployedId = intval($data['sensorDeployedId']);
       $this->dataCollectedDate = ($data['dataCollectedDate']);
       $this->output = intval($data['output']);
       $this->heartRate = floatval($data['heartRate']);
