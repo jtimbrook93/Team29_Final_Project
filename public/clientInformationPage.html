@@ -75,8 +75,8 @@
       <form id="newCommentForm" @submit.prevent="handleWorkForm">
       <div class="form-group" id="Form">
         <label for="comment">Comment</label>
+        <input type="text" class="form-control" id="clientId" placeholder="Enter Client ID" v-model="commentForm.clientId">
         <input type="text" class="form-control" id="comment" placeholder="Enter Comment" v-model="commentForm.comment">
-        <input type="text" class="form-control" id="clientId" placeholder="Enter Client Id" v-model="commentForm.clientId">
       </div>
 </div>
 
