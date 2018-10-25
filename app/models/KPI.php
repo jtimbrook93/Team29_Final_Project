@@ -20,14 +20,14 @@ class KPI
       $this->sensorDeployedId = intval($data['sensorDeployedId']);
       $this->turbineDeployedId = intval($data['turbineDeployedId']);
       $this->dataCollectedDate = date($data['dataCollectedDate']);
-      $this->output = floatval($data['output']);
-      $this->heartRate = doubleval($data['heartRate']);
-      $this->compressorEfficiency = doubleval($data['compressorEfficiency']);
-      $this->availability = doubleval($data['availability']);
-      $this->reliability = doubleval($data['reliability']);
-      $this->firedHours = doubleval($data['firedHours']);
-      $this->trips = intval($data['trips']);
-      $this->starts = intval($data['starts']);
+      $this->output = ($data['output']);
+      $this->heartRate = ($data['heartRate']);
+      $this->compressorEfficiency = ($data['compressorEfficiency']);
+      $this->availability = ($data['availability']);
+      $this->reliability = ($data['reliability']);
+      $this->firedHours = ($data['firedHours']);
+      $this->trips = ($data['trips']);
+      $this->starts = ($data['starts']);
 
 
 
