@@ -19,7 +19,7 @@ class KPI
      // creating a new object instance using 'id' as integer
       $this->sensorDeployedId = intval($data['sensorDeployedId']);
       $this->turbineDeployedId = intval($data['turbineDeployedId']);
-      $this->dataCollectedDate = intval($data['dataCollectedDate']);
+      $this->dataCollectedDate = date($data['dataCollectedDate']);
       $this->output = doubleval($data['output']);
       $this->heartRate = doubleval($data['heartRate']);
       $this->compressorEfficiency = doubleval($data['compressorEfficiency']);
