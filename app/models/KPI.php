@@ -36,12 +36,12 @@ class KPI
       $db = new PDO(DB_SERVER, DB_USER, DB_PW);
 
       // 2. Prepare the query
-      $sql = 'SELECT Sensor_deploy.turbineDeployedId, AVG(output), avg(heartRate), avg(compressorEfficiency),
+      $sql = 'SELECT Sensor_deploy.turbineDeployedId, avg(output), avg(heartRate), avg(compressorEfficiency),
               avg(availability), avg(reliability), avg(firedHours), avg(trips), avg(starts)
               from Time_Series_for_KPI, Sensor_deploy
               where Time_Series_for_KPI.sensorDeployedId = Sensor_deploy.sensorDeployedId and Sensor_deploy.turbineDeployedId = 1
               union
-              SELECT Sensor_deploy.turbineDeployedId, AVG(output), avg(heartRate), avg(compressorEfficiency),
+              SELECT Sensor_deploy.turbineDeployedId, avg(output), avg(heartRate), avg(compressorEfficiency),
               avg(availability), avg(reliability), avg(firedHours), avg(trips), avg(starts)
               from Time_Series_for_KPI, Sensor_deploy
               where Time_Series_for_KPI.sensorDeployedId = Sensor_deploy.sensorDeployedId and Sensor_deploy.turbineDeployedId = 2;
