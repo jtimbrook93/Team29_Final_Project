@@ -7,8 +7,6 @@ var turbinetable = new Vue({
       siteId: 0,
       siteName: ''
     },
-    turbineArr: [ ],
-    commentForm: { },
 
   },
 
