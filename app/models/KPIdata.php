@@ -5,7 +5,6 @@ class KPIdata
   public $siteId;
   public $turbineDeployedId;
   public $sensorDeployedId;
-  public $dataCollectedDate;
   public $output;
   public $heartRate;
   public $compressorEfficiency;
@@ -21,8 +20,6 @@ class KPIdata
       $this->siteId = intval($data['siteId']);
       $this->turbineDeployedId = intval($data['turbineDeployedId']);
       $this->sensorDeployedId = intval($data['sensorDeployedId']);
-      $this->dataCollectedDate = ($data['dataCollectedDate']);
-      $this->output = intval($data['output']);
       $this->heartRate = floatval($data['heartRate']);
       $this->compressorEfficiency = floatval($data['compressorEfficiency']);
       $this->availability = floatval($data['availability']);

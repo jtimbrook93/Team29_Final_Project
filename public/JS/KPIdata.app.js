@@ -5,7 +5,6 @@ data: {
     siteId: '',
     turbineDeployedId: '',
     sensorDeployedId: '',
-    dataCollectedDate: '',
     output: '',
     heartRate: '',
     compressorEfficiency: '',
