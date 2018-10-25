@@ -3,7 +3,6 @@ var metricsApp = new Vue({
 data: {
   metrics: {
     turbineDeployedId: '',
-    dataCollectedDate: '',
     output: '',
     heartRate: '',
     compressorEfficiency: '',

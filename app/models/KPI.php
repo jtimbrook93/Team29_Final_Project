@@ -3,7 +3,6 @@
 class KPI
 {
   public $turbineDeployedId;
-  public $dataCollectedDate;
   public $output;
   public $heartRate;
   public $compressorEfficiency;
@@ -17,7 +16,6 @@ class KPI
 
      // creating a new object instance using 'id' as integer
       $this->turbineDeployedId = intval($data['turbineDeployedId']);
-      $this->dataCollectedDate = date($data['dataCollectedDate']);
       $this->output = ($data['avg(output)']);
       $this->heartRate = ($data['avg(heartRate)']);
       $this->compressorEfficiency = ($data['avg(compressorEfficiency)']);
