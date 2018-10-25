@@ -24,8 +24,10 @@ class Turbine
       $db = new PDO(DB_SERVER, DB_USER, DB_PW);
 
       // 2. Prepare the query
-      $sql = 'SELECT turbineId, turbineName, siteId, siteName
-              FROM Site, Turbine';
+      $sql = 'SELECT Turbine.turbineId, Turbine.turbineName, Site.siteId, Site.siteName
+      from Site, Turbine, Turbine_deploy
+      where Turbine_deploy.siteId = Site.siteId and
+      Turbine_deploy.turbineID = Turbine.turbineId;';
 
       $statement = $db->prepare($sql);
 
