@@ -66,11 +66,13 @@
           <th>Site Name</th>
         </tr>
       </thead>
-      <tbody id="turbineTableBody" v-for="t in turbineArr">
+      <tbody id="turbineTableBody">
+        <tr v-for="t in turbineArr">
           <td>{{t.turbineId}}</td>
           <td>{{t.turbineName}}</td>
           <td>{{t.siteId}}</td>
           <td>{{t.siteName}}</td>
+        </tr>
       </tbody>
     </table>
 </div>
