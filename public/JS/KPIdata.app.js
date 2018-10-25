@@ -1,4 +1,4 @@
-var KPIdataapp = new Vue({
+var KPIdataApp = new Vue({
   el: '#KPIdata',
 data: {
   KPI: {
@@ -26,7 +26,7 @@ computed: {
       fetch('api/kpidata.php')
       .then( response => response.json() )  // "a => expression" is shorthand function declaration
     .then( json => {
-      KPIdataapp.KPI = json;
+      KPIdataApp.KPI = json;
       //  TODO: Build out client chart
 
     } )
@@ -42,7 +42,7 @@ computed: {
     // Do data fetch
     fetch('api/kpidata.php')
     .then( response => response.json() )
-    .then( json => {KPIdataapp.KPI = json} )
+    .then( json => {KPIdataApp.KPI = json} )
     .catch( err => {
       console.error('KPI data FETCH ERROR:');
       console.error(err);
