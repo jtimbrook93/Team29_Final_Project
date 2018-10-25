@@ -2,9 +2,7 @@ var metricsApp = new Vue({
   el: '#metricscontainer',
 data: {
   metrics: {
-    sensorDeployedId: '',
     turbineDeployedId: '',
-    dataCollectedDate: '',
     output: '',
     heartRate: '',
     compressorEfficiency: '',
@@ -12,7 +10,7 @@ data: {
     reliability: '',
     firedHours: '',
     trips: '',
-    starts: '',
+    starts: ''
 }
 
 },
@@ -22,7 +20,7 @@ computed: {
 
   methods: {
     fetchMetrics(){
-      fetch('api/KPI.php')
+      fetch('api/kpi.php')
       .then( response => response.json() )  // "a => expression" is shorthand function declaration
     .then( json => {
       metricsApp.metrics = json;
@@ -39,7 +37,7 @@ computed: {
   created () {
 
     // Do data fetch
-    fetch('api/KPI.php')
+    fetch('api/kpi.php')
     .then( response => response.json() )
     .then( json => {metricsApp.metrics = json} )
     .catch( err => {
