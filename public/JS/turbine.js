@@ -20,7 +20,7 @@ var turbinetable = new Vue({
           turbinetable.turbine = json;
         } )
         .catch( err => {
-          console.log('CLIENT LIST FETCH ERROR:');
+          console.log('TURBINE LIST FETCH ERROR:');
           console.log(err);
         })
       },
@@ -29,9 +29,9 @@ var turbinetable = new Vue({
       created () {
 
         // Do data fetch
-        fetch('api/client.php')
+        fetch('api/turbine.php')
         .then( response => response.json() )
-        .then( json => {turbinetable.client = json} )
+        .then( json => {turbinetable.turbine = json} )
         .catch( err => {
           console.error('CLIENT FETCH ERROR:');
           console.error(err);
