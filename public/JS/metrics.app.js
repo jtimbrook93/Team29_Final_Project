@@ -12,7 +12,7 @@ data: {
     reliability: '',
     firedHours: '',
     trips: '',
-    starts: '',
+    starts: ''
 }
 
 },
