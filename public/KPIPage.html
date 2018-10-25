@@ -26,7 +26,6 @@
       <table  class="table table-striped table-sm" id="metricsTable">
         <thead>
           <tr>
-            <th>Sensor Deployed ID</th>
             <th>Turbine Deployed ID</th>
             <th>Data Collected Date</th>
             <th>Output</th>
@@ -41,7 +40,6 @@
         </thead>
         <tbody id="metricsTableBody">
           <tr v-for="metrics in metrics" >
-            <td>{{metrics.sensorDeployedId}}</td>
             <td>{{metrics.turbineDeployedId}}</td>
             <td>{{metrics.dataCollectedDate}}</td>
             <td>{{metrics.output}}</td>
