@@ -4,6 +4,7 @@ class Site
 
 {
 
+
   public $siteId;
   public $clientId;
   public $siteName;
@@ -32,7 +33,7 @@ class Site
     $this->addrState = ($row['addrState']);
     $this->addrZip = intval($row['addrZip']);
     $this->addrCountry = ($row['addrCountry']);
-    
+
 
   }
   public static function getAllSites(){
