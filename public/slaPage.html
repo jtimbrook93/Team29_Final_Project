@@ -64,19 +64,27 @@
         </tbody>
       </table>
     </p>
-    <div id="turbines" class="container">
-  <table class="table table-striped table-sm" id="turbineTable">
+    <div id="KPIdata" class="container">
+  <table class="table table-striped table-sm" id="KPITable">
       <thead>
         <tr>
+          <th>Site ID</th>
+          <th>T</th>
+          <th>Site ID</th>
+          <th>Site Name</th>
+          <th>Turbine ID</th>
+          <th>Turbine Name</th>
+          <th>Site ID</th>
+          <th>Site Name</th>
           <th>Turbine ID</th>
           <th>Turbine Name</th>
           <th>Site ID</th>
           <th>Site Name</th>
         </tr>
       </thead>
-      <tbody id="turbineTableBody">
-        <tr v-for="turbine in turbine">
-          <td>{{turbine.turbineId}}</td>
+      <tbody id="KPITableBody">
+        <tr v-for="KPI in KPI">
+          <td>{{KPIdataapp.turbineId}}</td>
           <td>{{turbine.turbineName}}</td>
           <td>{{turbine.siteId}}</td>
           <td>{{turbine.siteName}}</td>
