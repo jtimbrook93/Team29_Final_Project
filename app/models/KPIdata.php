@@ -39,14 +39,13 @@ class KPIdata
       // 2. Prepare the query
       // connect turbine_deploy table and pull in siteID information to connect the tables
     //this will show the sites for each kpi for a turbine
-      $sql = 'SELECT Turbine_deploy.siteID, Sensor_deploy.turbineDeployedId, Time_Series_for_KPI.sensorDeployedId, dataCollectedDate,output, heartRate, compressorEfficiency, availability, reliability, firedHours, trips, starts
+      $sql = 'SELECT Turbine_deploy.siteId, Sensor_deploy.turbineDeployedId, Time_Series_for_KPI.sensorDeployedId, output, heartRate, compressorEfficiency, availability, reliability, firedHours, trips, starts
               FROM Time_Series_for_KPI
               INNER JOIN Sensor_deploy
               ON Time_Series_for_KPI.sensorDeployedId = Sensor_deploy.sensorDeployedId
-              INNER JOIN Sensor_deploy
-              ON Time_Series_for_KPI.turbineDeployedId = Sensor_deploy.turbineDeployedId
               INNER JOIN Turbine_deploy
-              ON Sensor_deploy.turbineDeployedId = Turbine_deploy.turbineDeployedId'; //this needs to be fixed eventually
+              ON Sensor_deploy.turbineDeployedId = Turbine_deploy.turbineDeployedId
+              Group By Turbine_deploy.siteId'; //this needs to be fixed eventually
 
       $statement = $db->prepare($sql);
 
