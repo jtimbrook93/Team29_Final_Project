@@ -2,8 +2,9 @@ var metricsApp = new Vue({
   el: '#metricscontainer',
 data: {
   metrics: {
-    sensorDeployedId: '',
+    siteId: '',
     turbineDeployedId: '',
+    sensorDeployedId: '',
     dataCollectedDate: '',
     output: '',
     heartRate: '',
