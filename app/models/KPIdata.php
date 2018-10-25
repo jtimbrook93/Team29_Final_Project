@@ -2,8 +2,9 @@
 
 class KPIdata
 {
-  public $sensorDeployedId;
+  public $siteId;
   public $turbineDeployedId;
+  public $sensorDeployedId;
   public $dataCollectedDate;
   public $output;
   public $heartRate;
@@ -12,7 +13,6 @@ class KPIdata
   public $reliability;
   public $firedHours;
   public $trips;
-  public $starts;
 
     public function __construct($data) {
 
