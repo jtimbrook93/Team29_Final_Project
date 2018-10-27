@@ -121,7 +121,7 @@ computed: {
 
                     var chartDiv = document.createElement('div');
                     chartDiv.className = 'chart';
-                    document.getElementById('container').appendChild(chartDiv);
+                    document.getElementById('chartcontainer').appendChild(chartDiv);
 
                     Highcharts.chart(chartDiv, {
                         chart: {
