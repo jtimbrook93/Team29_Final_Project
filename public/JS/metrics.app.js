@@ -33,7 +33,7 @@ computed: {
       console.log(err);
     })
   },
-  },
+
   buildMetricChart() {
     Highcharts.chart('metricChart', {
               title: {
@@ -84,7 +84,8 @@ computed: {
                   data: this.metrics
               }]
           });
-        },
+        }
+      },
   created () {
 
     // Do data fetch
