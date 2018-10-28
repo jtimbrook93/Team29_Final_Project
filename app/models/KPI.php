@@ -2,9 +2,7 @@
 
 class KPI
 {
-  public $sensorDeployedId;
   public $turbineDeployedId;
-  public $dataCollectedDate;
   public $output;
   public $heartRate;
   public $compressorEfficiency;
@@ -17,17 +15,15 @@ class KPI
     public function __construct($data) {
 
      // creating a new object instance using 'id' as integer
-     $this->sensorDeployedId = intval($data['sensorDeployedId']);
       $this->turbineDeployedId = intval($data['turbineDeployedId']);
-      $this->dataCollectedDate = intval($data['dataCollectedDate']);
-      $this->output = doubleval($data['output']);
-      $this->heartRate = doubleval($data['heartRate']);
-      $this->compressorEfficiency = doubleval($data['compressorEfficiency']);
-      $this->availability = doubleval($data['availability']);
-      $this->reliability = doubleval($data['reliability']);
-      $this->firedHours = doubleval($data['firedHours']);
-      $this->trips = intval($data['trips']);
-      $this->starts = intval($data['starts']);
+      $this->output = ($data['avg(output)']);
+      $this->heartRate = ($data['avg(heartRate)']);
+      $this->compressorEfficiency = ($data['avg(compressorEfficiency)']);
+      $this->availability = ($data['avg(availability)']);
+      $this->reliability = ($data['avg(reliability)']);
+      $this->firedHours = ($data['avg(firedHours)']);
+      $this->trips = ($data['avg(trips)']);
+      $this->starts = ($data['avg(starts)']);
 
 
 
@@ -38,10 +34,15 @@ class KPI
       $db = new PDO(DB_SERVER, DB_USER, DB_PW);
 
       // 2. Prepare the query
-      $sql = 'SELECT Turbine_deploy.turbineDeployedId, Time_Series_for_KPI.sensorDeployedId, AVG(output), avg(heartRate), avg(compressorEfficiency),
+      $sql = 'SELECT Sensor_deploy.turbineDeployedId, avg(output), avg(heartRate), avg(compressorEfficiency),
               avg(availability), avg(reliability), avg(firedHours), avg(trips), avg(starts)
-              from Time_Series_for_KPI, Sensor_deploy, Turbine_deploy
-              where Time_Series_for_KPI.sensorDeployedId = Sensor_deploy.sensorDeployedId and Sensor_deploy.turbineDeployedId = Turbine_deploy.turbineDeployedId
+              from Time_Series_for_KPI, Sensor_deploy
+              where Time_Series_for_KPI.sensorDeployedId = Sensor_deploy.sensorDeployedId and Sensor_deploy.turbineDeployedId = 1
+              union
+              SELECT Sensor_deploy.turbineDeployedId, avg(output), avg(heartRate), avg(compressorEfficiency),
+              avg(availability), avg(reliability), avg(firedHours), avg(trips), avg(starts)
+              from Time_Series_for_KPI, Sensor_deploy
+              where Time_Series_for_KPI.sensorDeployedId = Sensor_deploy.sensorDeployedId and Sensor_deploy.turbineDeployedId = 2;
               ';
 
       $statement = $db->prepare($sql);

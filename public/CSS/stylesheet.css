@@ -35,7 +35,7 @@ header nav a {
   color: white;
   font-weight: 600;
   text-transform: lowercase;
-  width: 33.33%;
+  width: 25%;
   float: left;
 }
 header nav a:hover {
