@@ -25,7 +25,7 @@ computed: {
       .then( json => {
       metricsApp.metrics = json;
       //  TODO: Build out client chart
-        this.buildChart();
+        this.buildMetricChart();
 
     } )
     .catch( err => {
@@ -34,96 +34,96 @@ computed: {
     })
   },
   },
-  buildChart() {
+  buildMetricChart() {
+        //
+        // // TODO: figure out what all to remove from this shit
+        //
+        // ['mousemove', 'touchmove', 'touchstart'].forEach(function (eventType) {
+        //     document.getElementById('chartcontainer').addEventListener(
+        //         eventType,
+        //         function (e) {
+        //             var chart,
+        //                 point,
+        //                 i,
+        //                 event;
+        //
+        //             for (i = 0; i < Highcharts.charts.length; i = i + 1) {
+        //                 chart = Highcharts.charts[i];
+        //                 // Find coordinates within the chart
+        //                 event = chart.pointer.normalize(e);
+        //                 // Get the hovered point
+        //                 point = chart.series[0].searchPoint(event, true);
+        //
+        //                 if (point) {
+        //                     point.highlight(e);
+        //                 }
+        //             }
+        //         }
+        //     );
+        // });
+        //
+        // /**
+        //  * Override the reset function, we don't need to hide the tooltips and
+        //  * crosshairs.
+        //  */
+        // Highcharts.Pointer.prototype.reset = function () {
+        //     return undefined;
+        // };
+        //
+        // /**
+        //  * Highlight a point by showing tooltip, setting hover state and draw crosshair
+        //  */
+        // Highcharts.Point.prototype.highlight = function (event) {
+        //     event = this.series.chart.pointer.normalize(event);
+        //     this.onMouseOver(); // Show the hover marker
+        //     this.series.chart.tooltip.refresh(this); // Show the tooltip
+        //     this.series.chart.xAxis[0].drawCrosshair(event, this); // Show the crosshair
+        // };
+        //
+        // /**
+        //  * Synchronize zooming through the setExtremes event handler.
+        //  */
+        // function syncExtremes(e) {
+        //     var thisChart = this.chart;
+        //
+        //     if (e.trigger !== 'syncExtremes') { // Prevent feedback loop
+        //         Highcharts.each(Highcharts.charts, function (chart) {
+        //             if (chart !== thisChart) {
+        //                 if (chart.xAxis[0].setExtremes) { // It is null while updating
+        //                     chart.xAxis[0].setExtremes(
+        //                         e.min,
+        //                         e.max,
+        //                         undefined,
+        //                         false,
+        //                         { trigger: 'syncExtremes' }
+        //                     );
+        //                 }
+        //             }
+        //         });
+        //     }
+        // }
+        //
+        // //TODO: figure out what to change in this to get our KPI Time Series data
+        // // Get the data. The contents of the data file can be viewed at
+        //
+        // Highcharts.ajax({
+        //     url: 'https://cdn.rawgit.com/highcharts/highcharts/057b672172ccc6c08fe7dbb27fc17ebca3f5b770/samples/data/activity.json',
+        //     dataType: 'text',
+        //     success: function (activity) {
+        //
+        //         activity = JSON.parse(activity);
+        //         activity.datasets.forEach(function (dataset, i) {
+        //
+        //             // Add X values
+        //             dataset.data = Highcharts.map(dataset.data, function (val, j) {
+        //                 return [activity.xData[j], val];
+        //             });
 
-        // TODO: figure out what all to remove from this shit
-
-        ['mousemove', 'touchmove', 'touchstart'].forEach(function (eventType) {
-            document.getElementById('chartcontainer').addEventListener(
-                eventType,
-                function (e) {
-                    var chart,
-                        point,
-                        i,
-                        event;
-
-                    for (i = 0; i < Highcharts.charts.length; i = i + 1) {
-                        chart = Highcharts.charts[i];
-                        // Find coordinates within the chart
-                        event = chart.pointer.normalize(e);
-                        // Get the hovered point
-                        point = chart.series[0].searchPoint(event, true);
-
-                        if (point) {
-                            point.highlight(e);
-                        }
-                    }
-                }
-            );
-        });
-
-        /**
-         * Override the reset function, we don't need to hide the tooltips and
-         * crosshairs.
-         */
-        Highcharts.Pointer.prototype.reset = function () {
-            return undefined;
-        };
-
-        /**
-         * Highlight a point by showing tooltip, setting hover state and draw crosshair
-         */
-        Highcharts.Point.prototype.highlight = function (event) {
-            event = this.series.chart.pointer.normalize(event);
-            this.onMouseOver(); // Show the hover marker
-            this.series.chart.tooltip.refresh(this); // Show the tooltip
-            this.series.chart.xAxis[0].drawCrosshair(event, this); // Show the crosshair
-        };
-
-        /**
-         * Synchronize zooming through the setExtremes event handler.
-         */
-        function syncExtremes(e) {
-            var thisChart = this.chart;
-
-            if (e.trigger !== 'syncExtremes') { // Prevent feedback loop
-                Highcharts.each(Highcharts.charts, function (chart) {
-                    if (chart !== thisChart) {
-                        if (chart.xAxis[0].setExtremes) { // It is null while updating
-                            chart.xAxis[0].setExtremes(
-                                e.min,
-                                e.max,
-                                undefined,
-                                false,
-                                { trigger: 'syncExtremes' }
-                            );
-                        }
-                    }
-                });
-            }
-        }
-
-        //TODO: figure out what to change in this to get our KPI Time Series data
-        // Get the data. The contents of the data file can be viewed at
-
-        Highcharts.ajax({
-            url: 'https://cdn.rawgit.com/highcharts/highcharts/057b672172ccc6c08fe7dbb27fc17ebca3f5b770/samples/data/activity.json',
-            dataType: 'text',
-            success: function (activity) {
-
-                activity = JSON.parse(activity);
-                activity.datasets.forEach(function (dataset, i) {
-
-                    // Add X values
-                    dataset.data = Highcharts.map(dataset.data, function (val, j) {
-                        return [activity.xData[j], val];
-                    });
-
-                    var chartDiv = document.createElement('div');
+                    var metricChart = document.createElement('metric');
                     chartDiv.className = 'chart';
-                    document.getElementById('chartcontainer').appendChild(chartDiv);
+                    document.getElementById('chartcontainer').appendChild(metricChart);
 
-                    Highcharts.chart(chartDiv, {
+                    Highcharts.chart('metricChart', {
                         chart: {
                             marginLeft: 40, // Keep all charts left aligned
                             spacingTop: 20,
@@ -184,9 +184,9 @@ computed: {
                             }
                         }]
                     });
-                });
-            }
-        });
+        //         });
+        //     }
+        // });
   },
 
 
@@ -200,5 +200,6 @@ computed: {
       console.error('METRIC FETCH ERROR:');
       console.error(err);
     })
+    this.buildMetricChart();
   }
 })
