@@ -16,6 +16,7 @@ data: {
 
 metricsArr: [],
 outputArr: [],
+outputArr2: [],
 heartRateArr: [],
 compressorEfficiencyArr: [],
 availabilityArr: [],
@@ -61,8 +62,8 @@ computed: {
     fetch('api/kpi1.php')
     .then( response => response.json() )  // "a => expression" is shorthand function declaration
     .then( json => {
-    metricsApp.outputArr = json;
-    metricsApp.metricsArr = metricsApp.outputArr;  } )
+    metricsApp.outputArr2 = json;
+    metricsApp.metricsArr = metricsApp.outputArr2;  } )
   .catch( err => {
     console.log('METRIC LIST FETCH ERROR:');
     console.log(err);
