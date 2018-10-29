@@ -15,6 +15,7 @@ data: {
 },
 
 metricsArr: [],
+metricsArr2: [],
 outputArr: [],
 outputArr2: [],
 heartRateArr: [],
