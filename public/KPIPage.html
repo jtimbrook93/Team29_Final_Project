@@ -100,16 +100,16 @@
           </thead>
           <tbody id="metricsTableBody2">
             <tr v-for="metricsArr in metricsArr">
-              <td>{{metricsArr.turbineDeployedId}}</td>
-              <td>{{metricsArr.dataCollectedDate}}</td>
-              <td @click="fetchOutputMetrics2()">{{metricsArr.output}}</td>
-              <td @click="fetchHeartRateMetrics2()">{{metricsArr.heartRate}}</td>
-              <td @click="fetchComressorEfficiencyMetrics2()">{{metricsArr.compressorEfficiency}}</td>
-              <td>{{metricsArr.availability}}</td>
-              <td>{{metricsArr.reliability}}</td>
-              <td>{{metricsArr.firedHours}}</td>
-              <td>{{metricsArr.trips}}</td>
-              <td>{{metricsArr.starts}}</td>
+              <td>{{metricsArr2.turbineDeployedId}}</td>
+              <td>{{metricsArr2.dataCollectedDate}}</td>
+              <td @click="fetchOutputMetrics2()">{{metricsArr2.output}}</td>
+              <td @click="fetchHeartRateMetrics2()">{{metricsArr2.heartRate}}</td>
+              <td @click="fetchComressorEfficiencyMetrics2()">{{metricsArr2.compressorEfficiency}}</td>
+              <td>{{metricsArr2.availability}}</td>
+              <td>{{metricsArr2.reliability}}</td>
+              <td>{{metricsArr2.firedHours}}</td>
+              <td>{{metricsArr2.trips}}</td>
+              <td>{{metricsArr2.starts}}</td>
             </tr>
           </tbody>
         </table>
