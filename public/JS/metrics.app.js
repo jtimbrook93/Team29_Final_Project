@@ -29,13 +29,14 @@ computed: {
       metricsApp.metricsArr = json;
       //  TODO: Build out client chart
         // this.formatDate();
-        this.buildMetricChart();
+
 
     } )
     .catch( err => {
       console.log('METRIC LIST FETCH ERROR:');
       console.log(err);
     })
+      this.buildMetricChart();
   },
   formatDate() {
       this.metricsArr.forEach(
