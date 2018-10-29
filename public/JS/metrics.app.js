@@ -42,8 +42,8 @@ computed: {
         (entry, index, arr) => {
           entry.dataCollectedDate = Date.parse(entry.dataCollectedDate); // Convert to ms since Jan 1, 1970 UTC
 
-      });
-
+      })
+},
   buildMetricChart() {
     Highcharts.chart('metricChart', {
               title: {
