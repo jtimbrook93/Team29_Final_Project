@@ -87,6 +87,22 @@ computed: {
     this.buildHeartRateChart();
   },
 
+  fetchAvalabilityMetrics(){
+    fetch('api/kpi.php')
+    .then( response => response.json() )  // "a => expression" is shorthand function declaration
+    .then( json => {
+    metricsApp.availabilityArr = json;
+    metricsApp.metricsArr = metricsApp.availabilityArr; } )
+  .catch( err => {
+    console.log('METRIC LIST FETCH ERROR:');
+    console.log(err);
+  })
+
+    this.formatDate();
+    this.buildAvailabilityChart();
+  },
+
+
   formatDate() {
       this.metricsArr.forEach(
         function(entry) {
