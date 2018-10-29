@@ -12,7 +12,9 @@ data: {
     firedHours: '',
     trips: '',
     starts: ''
-}
+},
+
+try: []
 
 },
 computed: {
@@ -24,7 +26,7 @@ computed: {
       fetch('api/kpi.php')
       .then( response => response.json() )  // "a => expression" is shorthand function declaration
       .then( json => {
-      metricsApp.metrics = json;
+      metricsApp.try = json;
       //  TODO: Build out client chart
         this.buildMetricChart();
 
@@ -82,7 +84,7 @@ computed: {
                   type: 'area',
                   name: 'Hours (Running Total)',
                   // Data needs [ [date, num], [date2, num2 ], ... ]
-                  data: this.metircs.map( item => [item.dataCollectedDate, item.output] )
+                  data: this.try.map( item => [item.dataCollectedDate, item.output] )
               }]
           });
         }
@@ -92,7 +94,7 @@ computed: {
     // Do data fetch
     fetch('api/kpi.php')
     .then( response => response.json() )
-    .then( json => {metricsApp.metrics = json} )
+    .then( json => {metricsApp.try = json} )
     .catch( err => {
       console.error('METRIC FETCH ERROR:');
       console.error(err);
