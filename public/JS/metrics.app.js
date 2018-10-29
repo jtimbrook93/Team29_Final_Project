@@ -126,8 +126,8 @@ Highcharts.chart('heartRateChart', {
               data: this.heartRateArr.map( item => [item.dataCollectedDate, item.heartRate] )
           }]
       });
-    }
-  },
+    },
+
 buildOutputChart() {
   Highcharts.chart('OutputChart', {
             title: {
