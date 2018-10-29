@@ -46,7 +46,8 @@ computed: {
       fetch('api/kpi.php')
       .then( response => response.json() )  // "a => expression" is shorthand function declaration
       .then( json => {
-      metricsApp.outputArr = json  } )
+      metricsApp.outputArr = json;
+    metricsApp.metricsArr = metricsApp.outputArr;  } )
     .catch( err => {
       console.log('METRIC LIST FETCH ERROR:');
       console.log(err);
