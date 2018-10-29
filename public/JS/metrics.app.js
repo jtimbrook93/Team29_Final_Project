@@ -332,11 +332,9 @@ buildCompressorEfficiencyChart() {
     .catch( err => {
       console.error('METRIC FETCH ERROR:');
       console.error(err);
-    }),
+    })
     // this.buildMetricChart();
-  fetchOutputMetrics();
-  fetchHeartRateMetrics();
-  fetchComressorEfficiencyMetrics();
-  fetchbuildOutputChart2();
+
+
 }
 });
