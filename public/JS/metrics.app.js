@@ -50,11 +50,11 @@ computed: {
                   text: 'KPI Metric Chart'
               },
               xAxis: {
-                  type: 'Data'
+                  type: 'datetime'
               },
               yAxis: {
                   title: {
-                      text: 'Turbine ID'
+                      text: 'output'
                   }
               },
               legend: {
