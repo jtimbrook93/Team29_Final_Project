@@ -222,109 +222,144 @@ Highcharts.chart('heartRateChart', {
       });
     },
 
-buildAvailabilityChart() {
-Highcharts.chart('availabilityChart', {
-          title: {
-              text: 'KPI availability Chart'
-          },
-          xAxis: {
-              type: 'datetime'
-          },
-          yAxis: {
-              title: {
-                  text: 'Availability'
-              }
-          },
-          legend: {
-              enabled: false
-          },
-          plotOptions: {
-              area: {
-                  fillColor: {
-                      linearGradient: {
-                          x1: 0,
-                          y1: 0,
-                          x2: 0,
-                          y2: 1
-                      },
-                      stops: [
-                          [0, Highcharts.getOptions().colors[0]],
-                          [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                      ]
-                  },
-                  marker: {
-                      radius: 2
-                  },
-                  lineWidth: 1,
-                  states: {
-                      hover: {
-                          lineWidth: 1
-                      }
-                  },
-                  threshold: null
-              }
-          },
-
-          series: [{
-              type: 'area',
-              name: 'Sensor Availability',
-              // Data needs [ [date, num], [date2, num2 ], ... ]
-              data: this.availabilityArr.map( item => [item.dataCollectedDate, item.availability] )
-          }]
-      });
-    },
-
-buildReliabilityChart() {
-Highcharts.chart('reliabilityChart', {
-        title: {
-            text: 'KPI reliability Chart'
+    buildAvailabilityAndReliabilityChart() {
+    Highcharts.chart('availabilityAndReliabilityChart', {
+        chart: {
+            type: 'line'
         },
+        title: {
+            text: 'Availability And Reliability'
+        },
+
         xAxis: {
             type: 'datetime'
         },
         yAxis: {
             title: {
-                text: 'Reliability'
+            text: 'Availability and reliability'
             }
-        },
-        legend: {
-            enabled: false
         },
         plotOptions: {
-            area: {
-                fillColor: {
-                    linearGradient: {
-                        x1: 0,
-                        y1: 0,
-                        x2: 0,
-                        y2: 1
-                    },
-                    stops: [
-                        [0, Highcharts.getOptions().colors[0]],
-                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                    ]
+            line: {
+                dataLabels: {
+                    enabled: true
                 },
-                marker: {
-                    radius: 2
-                },
-                lineWidth: 1,
-                states: {
-                    hover: {
-                        lineWidth: 1
-                    }
-                },
-                threshold: null
+                enableMouseTracking: true
             }
         },
+        series: [{
+            name: 'Availability',
+            data: this.availabilityArr.map( item => [item.dataCollectedDate, item.availability] )
+        }, {
+            name: 'Reliability',
+            data: this.reliabilityArr.map( item => [item.dataCollectedDate, item.reliability] )
+        }]
+    });
+}
 
-          series: [{
-              type: 'area',
-              name: 'Sensor Reliability',
-              // Data needs [ [date, num], [date2, num2 ], ... ]
-              data: this.reliabilityArr.map( item => [item.dataCollectedDate, item.reliability] )
-          }]
-      });
-    },
+// buildAvailabilityChart() {
+// Highcharts.chart('availabilityChart', {
+//           title: {
+//               text: 'KPI availability Chart'
+//           },
+//           xAxis: {
+//               type: 'datetime'
+//           },
+//           yAxis: {
+//               title: {
+//                   text: 'Availability'
+//               }
+//           },
+//           legend: {
+//               enabled: false
+//           },
+//           plotOptions: {
+//               area: {
+//                   fillColor: {
+//                       linearGradient: {
+//                           x1: 0,
+//                           y1: 0,
+//                           x2: 0,
+//                           y2: 1
+//                       },
+//                       stops: [
+//                           [0, Highcharts.getOptions().colors[0]],
+//                           [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+//                       ]
+//                   },
+//                   marker: {
+//                       radius: 2
+//                   },
+//                   lineWidth: 1,
+//                   states: {
+//                       hover: {
+//                           lineWidth: 1
+//                       }
+//                   },
+//                   threshold: null
+//               }
+//           },
+//
+//           series: [{
+//               type: 'area',
+//               name: 'Sensor Availability',
+//               // Data needs [ [date, num], [date2, num2 ], ... ]
+//               data: this.availabilityArr.map( item => [item.dataCollectedDate, item.availability] )
+//           }]
+//       });
+//     },
+//
+// buildReliabilityChart() {
+// Highcharts.chart('reliabilityChart', {
+//         title: {
+//             text: 'KPI reliability Chart'
+//         },
+//         xAxis: {
+//             type: 'datetime'
+//         },
+//         yAxis: {
+//             title: {
+//                 text: 'Reliability'
+//             }
+//         },
+//         legend: {
+//             enabled: false
+//         },
+//         plotOptions: {
+//             area: {
+//                 fillColor: {
+//                     linearGradient: {
+//                         x1: 0,
+//                         y1: 0,
+//                         x2: 0,
+//                         y2: 1
+//                     },
+//                     stops: [
+//                         [0, Highcharts.getOptions().colors[0]],
+//                         [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+//                     ]
+//                 },
+//                 marker: {
+//                     radius: 2
+//                 },
+//                 lineWidth: 1,
+//                 states: {
+//                     hover: {
+//                         lineWidth: 1
+//                     }
+//                 },
+//                 threshold: null
+//             }
+//         },
+//
+//           series: [{
+//               type: 'area',
+//               name: 'Sensor Reliability',
+//               // Data needs [ [date, num], [date2, num2 ], ... ]
+//               data: this.reliabilityArr.map( item => [item.dataCollectedDate, item.reliability] )
+//           }]
+//       });
+//     },
 
 buildFiredHoursChart() {
 Highcharts.chart('firedHoursChart', {
