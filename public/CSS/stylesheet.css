@@ -35,7 +35,7 @@ header nav a {
   color: white;
   font-weight: 600;
   text-transform: lowercase;
-  width: 33.33%;
+  width: 25%;
   float: left;
 }
 header nav a:hover {
@@ -186,3 +186,15 @@ main article p {
     border-radius: 4px;
   }
 }
+
+/* code for chart obtained from highcharts.com*/
+/* #metricChart {
+    min-width: 320px;
+    max-width: 800px;
+    height: 220px;
+    margin: 0 auto; */
+
+</style>
+<!-- http://doc.jsfiddle.net/use/hacks.html#css-panel-hack -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
