@@ -237,4 +237,4 @@ computed: {
   fetchHeartRateMetrics();
   fetchComressorEfficiencyMetrics();
 }
-};
+});
