@@ -107,7 +107,6 @@ computed: {
       console.error(err);
     })
     // this.buildMetricChart();
-    this.formatDate();
-    this.buildMetricChart();
+  this.fetchMetrics();
   }
 })
