@@ -4,14 +4,14 @@ data: {
   metrics: {
     turbineDeployedId: '',
     dataCollectedDate: '',
-    output: '',
-    heartRate: '',
-    compressorEfficiency: '',
-    availability: '',
-    reliability: '',
-    firedHours: '',
-    trips: '',
-    starts: ''
+    output: null,
+    heartRate: null,
+    compressorEfficiency: null,
+    availability: null,
+    reliability: null,
+    firedHours: null,
+    trips: null,
+    starts: null
 },
 
 metricsArr: []
