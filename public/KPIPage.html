@@ -26,8 +26,8 @@
     <div class="row">
       <div class="chart" id="metricChart"></div>
     </div>
-<div class="col" @click="fetchMetrics()" >
-Click me
+<div class="col">
+<button @click="fetchMetrics()">Click me</button>
 </div>
   <div id="metricscontainer" class="container">
       <table  class="table table-striped table-sm" id="metricsTable">
@@ -46,7 +46,7 @@ Click me
           </tr>
         </thead>
         <tbody id="metricsTableBody">
-          <tr v-for="metricsArr in metricsArr" >
+          <tr v-for="metricsArr in metricsArr" @click="fetchMetrics()">
             <td>{{metricsArr.turbineDeployedId}}</td>
             <td>{{metricsArr.dataCollectedDate}}</td>
             <td>{{metricsArr.output}}</td>
