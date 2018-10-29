@@ -60,7 +60,7 @@ computed: {
   },
 
   fetchOutputMetrics2(){
-    fetch('api/kpi1.php')
+    fetch('api/kpi2.php')
     .then( response => response.json() )  // "a => expression" is shorthand function declaration
     .then( json => {
     metricsApp.outputArr2 = json;
