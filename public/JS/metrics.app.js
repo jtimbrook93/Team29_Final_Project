@@ -14,7 +14,15 @@ data: {
     starts: null
 },
 
-metricsArr: []
+metricsArr: [],
+outputArr: [],
+heartRateArr: [],
+compressorEfficiencyArr: [],
+availabilityArr: [],
+reliabilityArr: [],
+firedHoursArr: [],
+tripsArr: [],
+startsArr: []
 
 },
 computed: {
@@ -26,7 +34,7 @@ computed: {
       fetch('api/kpi.php')
       .then( response => response.json() )  // "a => expression" is shorthand function declaration
       .then( json => {
-      metricsApp.metricsArr = json  } )
+      metricsApp.outputArr = json  } )
     .catch( err => {
       console.log('METRIC LIST FETCH ERROR:');
       console.log(err);
@@ -39,7 +47,7 @@ computed: {
     fetch('api/kpi.php')
     .then( response => response.json() )  // "a => expression" is shorthand function declaration
     .then( json => {
-    metricsApp.metricsArr = json  } )
+    metricsApp.compressorEfficiencyArr = json  } )
   .catch( err => {
     console.log('METRIC LIST FETCH ERROR:');
     console.log(err);
@@ -52,7 +60,7 @@ computed: {
     fetch('api/kpi.php')
     .then( response => response.json() )  // "a => expression" is shorthand function declaration
     .then( json => {
-    metricsApp.metricsArr = json  } )
+    metricsApp.heartRateArr = json  } )
   .catch( err => {
     console.log('METRIC LIST FETCH ERROR:');
     console.log(err);
@@ -115,7 +123,7 @@ Highcharts.chart('heartRateChart', {
               type: 'area',
               name: 'Sensor HeartRate',
               // Data needs [ [date, num], [date2, num2 ], ... ]
-              data: this.metricsArr.map( item => [item.dataCollectedDate, item.heartRate] )
+              data: this.heartRateArr.map( item => [item.dataCollectedDate, item.heartRate] )
           }]
       });
     }
@@ -167,7 +175,7 @@ buildOutputChart() {
                 type: 'area',
                 name: 'Sensor Output',
                 // Data needs [ [date, num], [date2, num2 ], ... ]
-                data: this.metricsArr.map( item => [item.dataCollectedDate, item.output] )
+                data: this.outputArr.map( item => [item.dataCollectedDate, item.output] )
             }]
         });
       },
@@ -218,7 +226,7 @@ buildCompressorEfficiencyChart() {
                type: 'area',
                name: 'Compressor Efficiency',
                // Data needs [ [date, num], [date2, num2 ], ... ]
-               data: this.metricsArr.map( item => [item.dataCollectedDate, item.compressorEfficiency] )
+               data: this.compressorEfficiencyArr.map( item => [item.dataCollectedDate, item.compressorEfficiency] )
            }]
        });
      },
