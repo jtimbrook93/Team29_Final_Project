@@ -17,12 +17,19 @@ body {
   font-family: sans-serif
 }
 header {
+  background: #495388;
+  font-family: "Times New Roman" , "Arial" , Sans-Serif;
+  font-size: xx-Large;
+  font-weight: Bold;
   color: white;
   padding: 1em;
   background: green;
   text-align: center;
 }
 header h1 {
+  font-family: "Times New Roman" , "Arial" , Sans-Serif;
+  color: #495388;
+  padding: 10px;
   margin: 0;
 }
 header nav {
@@ -184,5 +191,10 @@ main article p {
     color: white;
     border: 1px solid black;
     border-radius: 4px;
+  }
+
+  .button: hover {
+    background-color: #495388;
+    color: white;
   }
 }
