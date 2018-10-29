@@ -27,6 +27,7 @@
         <thead>
           <tr>
             <th>Turbine Deployed ID</th>
+            <th>Date Collected</th>
             <th>Output</th>
             <th>Heart-Rate</th>
             <th>Compressor Efficiency</th>
@@ -40,6 +41,7 @@
         <tbody id="metricsTableBody">
           <tr v-for="metrics in metrics" >
             <td>{{metrics.turbineDeployedId}}</td>
+            <td>{{metrics.dataCollectedDate}}</td>
             <td>{{metrics.output}}</td>
             <td>{{metrics.heartRate}}</td>
             <td>{{metrics.compressorEfficiency}}</td>
