@@ -22,7 +22,7 @@ computed: {
   },
 
   methods: {
-    fetchMetrics(){
+    fetchOutputMetrics(){
       fetch('api/kpi.php')
       .then( response => response.json() )  // "a => expression" is shorthand function declaration
       .then( json => {
@@ -32,11 +32,34 @@ computed: {
       console.log(err);
     })
 
-    // console.log(metricsApp.metricsArr);
-
       this.formatDate();
       this.buildOutputChart();
-      this.buildHearRateChart();
+  },
+  fetchComressorEfficiencyMetrics(){
+    fetch('api/kpi.php')
+    .then( response => response.json() )  // "a => expression" is shorthand function declaration
+    .then( json => {
+    metricsApp.metricsArr = json  } )
+  .catch( err => {
+    console.log('METRIC LIST FETCH ERROR:');
+    console.log(err);
+  })
+
+    this.formatDate();
+    this.buildOutputChart();
+  },
+  fetchHeartRateMetrics(){
+    fetch('api/kpi.php')
+    .then( response => response.json() )  // "a => expression" is shorthand function declaration
+    .then( json => {
+    metricsApp.metricsArr = json  } )
+  .catch( err => {
+    console.log('METRIC LIST FETCH ERROR:');
+    console.log(err);
+  })
+
+    this.formatDate();
+    this.buildOutputChart();
   },
   formatDate() {
       this.metricsArr.forEach(

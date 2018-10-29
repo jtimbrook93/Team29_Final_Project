@@ -48,12 +48,12 @@
           </tr>
         </thead>
         <tbody id="metricsTableBody">
-          <tr v-for="metricsArr in metricsArr" @click="fetchMetrics()">
+          <tr v-for="metricsArr in metricsArr">
             <td>{{metricsArr.turbineDeployedId}}</td>
             <td>{{metricsArr.dataCollectedDate}}</td>
-            <td @click="buildOutputChart()">{{metricsArr.output}}</td>
-            <td @click="buildHeartRateChart()">{{metricsArr.heartRate}}</td>
-            <td @click="buildHeartRateChart()">{{metricsArr.compressorEfficiency}}</td>
+            <td @click="fetchOutputMetrics()">{{metricsArr.output}}</td>
+            <td @click="fetchHeartRateMetrics()">{{metricsArr.heartRate}}</td>
+            <td @click="fetchComressorEfficiencyMetrics()">{{metricsArr.compressorEfficiency}}</td>
             <td>{{metricsArr.availability}}</td>
             <td>{{metricsArr.reliability}}</td>
             <td>{{metricsArr.firedHours}}</td>
