@@ -65,5 +65,68 @@ class KPI
       // 4.b. return the array of work objects
       return $arr;
     }
+    public function getKPIs1() {
 
+      // 1. Connect to the database
+      $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+
+      // 2. Prepare the query
+      $sql = 'SELECT Sensor_deploy.turbineDeployedId, dataCollectedDate, output, heartRate, compressorEfficiency,
+              availability, reliability, firedHours, trips, starts
+              from Time_Series_for_KPI, Sensor_deploy
+              where Time_Series_for_KPI.sensorDeployedId = Sensor_deploy.sensorDeployedId and Sensor_deploy.turbineDeployedId = 1 ORDER BY dataCollectedDate asc;';
+
+      $statement = $db->prepare($sql);
+
+      // 3. Run the query
+      $success = $statement->execute();
+
+      // 4. Handle the results
+      $arr = [];
+      while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+
+        // 4.a. For each row, make a new work php object
+        $kpiItem =  new KPI($row);
+        array_push($arr, $kpiItem);
+
+      }
+
+      // 4.b. return the array of work objects
+      return $arr;
+    }
+    public function getKPIs2() {
+
+      // 1. Connect to the database
+      $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+
+      // 2. Prepare the query
+      $sql = 'SELECT Sensor_deploy.turbineDeployedId, dataCollectedDate, output, heartRate, compressorEfficiency,
+              availability, reliability, firedHours, trips, starts
+              from Time_Series_for_KPI, Sensor_deploy
+              where Time_Series_for_KPI.sensorDeployedId = Sensor_deploy.sensorDeployedId and Sensor_deploy.turbineDeployedId = 1 ORDER BY dataCollectedDate asc
+              union
+              SELECT Sensor_deploy.turbineDeployedId, dataCollectedDate, output, heartRate, compressorEfficiency,
+              availability, reliability, firedHours, trips, starts
+              from Time_Series_for_KPI, Sensor_deploy
+              where Time_Series_for_KPI.sensorDeployedId = Sensor_deploy.sensorDeployedId and Sensor_deploy.turbineDeployedId = 2 ORDER BY dataCollectedDate asc;
+              ';
+
+      $statement = $db->prepare($sql);
+
+      // 3. Run the query
+      $success = $statement->execute();
+
+      // 4. Handle the results
+      $arr = [];
+      while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+
+        // 4.a. For each row, make a new work php object
+        $kpiItem =  new KPI($row);
+        array_push($arr, $kpiItem);
+
+      }
+
+      // 4.b. return the array of work objects
+      return $arr;
+    }
     }
