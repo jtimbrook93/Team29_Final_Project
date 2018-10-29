@@ -28,7 +28,7 @@ computed: {
       .then( json => {
       metricsApp.metricsArr = json;
       //  TODO: Build out client chart
-        this.formatDate();
+        // this.formatDate();
         this.buildMetricChart();
 
     } )
