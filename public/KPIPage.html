@@ -57,11 +57,12 @@
             <td @click="fetchOutputMetrics()">{{metricsArr.output}}</td>
             <td @click="fetchHeartRateMetrics()">{{metricsArr.heartRate}}</td>
             <td @click="fetchComressorEfficiencyMetrics()">{{metricsArr.compressorEfficiency}}</td>
-            <td>{{metricsArr.availability}}</td>
+            <td @click="fetchAvalabilityMetrics()">{{metricsArr.availability}}</td>
             <td>{{metricsArr.reliability}}</td>
             <td>{{metricsArr.firedHours}}</td>
             <td>{{metricsArr.trips}}</td>
             <td>{{metricsArr.starts}}</td>
+
           </tr>
         </tbody>
       </table>
