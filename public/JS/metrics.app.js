@@ -222,8 +222,8 @@ Highcharts.chart('heartRateChart', {
       });
     },
 
-    buildAvailabilityAndReliabilityChart() {
-    Highcharts.chart('availabilityAndReliabilityChart', {
+    buildAvailabilityChart() {
+    Highcharts.chart('availabilityChart', {
         chart: {
             type: 'line'
         },
