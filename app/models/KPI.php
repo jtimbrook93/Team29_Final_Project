@@ -41,8 +41,8 @@ class KPI
               from Time_Series_for_KPI, Sensor_deploy
               where Time_Series_for_KPI.sensorDeployedId = Sensor_deploy.sensorDeployedId and Sensor_deploy.turbineDeployedId = 1
               union
-              SELECT Sensor_deploy.turbineDeployedId, avg(output), avg(heartRate), avg(compressorEfficiency),
-              avg(availability), avg(reliability), avg(firedHours), avg(trips), avg(starts)
+              SELECT Sensor_deploy.turbineDeployedId, dataCollectedDate, output, heartRate, compressorEfficiency,
+              availability, reliability, firedHours, trips, starts
               from Time_Series_for_KPI, Sensor_deploy
               where Time_Series_for_KPI.sensorDeployedId = Sensor_deploy.sensorDeployedId and Sensor_deploy.turbineDeployedId = 2;
               ';
