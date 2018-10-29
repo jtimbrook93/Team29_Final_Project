@@ -147,8 +147,8 @@ computed: {
                       data: this.metricsArr.map( item => [item.dataCollectedDate, item.output] )
                   }]
               });
-            }
-          },
+            },
+
   created () {
 
     // Do data fetch
