@@ -16,3 +16,23 @@ $json = json_encode($kpiArr,  JSON_PRETTY_PRINT);
 // 3. Print
 header ('Content-type: application/json;charset=utf-8');
 echo json_encode($kpiArr);
+
+
+$kpiArr1 = KPI::getKPIs1();
+
+// 2. Convert to JSON
+$json = json_encode($kpiArr1,  JSON_PRETTY_PRINT);
+
+// 3. Print
+header ('Content-type: application/json;charset=utf-8');
+echo json_encode($kpiArr1);
+
+
+$kpiArr2 = KPI::getKPIs2();
+
+// 2. Convert to JSON
+$json = json_encode($kpiArr2,  JSON_PRETTY_PRINT);
+
+// 3. Print
+header ('Content-type: application/json;charset=utf-8');
+echo json_encode($kpiArr2);
