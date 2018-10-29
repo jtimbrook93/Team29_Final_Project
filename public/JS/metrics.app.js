@@ -64,7 +64,7 @@ computed: {
     .then( response => response.json() )  // "a => expression" is shorthand function declaration
     .then( json => {
     metricsApp.outputArr2 = json;
-    metricsApp.metricsArr = metricsApp.outputArr2;  } )
+    metricsApp.metricsArr2 = metricsApp.outputArr2;  } )
   .catch( err => {
     console.log('METRIC LIST FETCH ERROR:');
     console.log(err);
@@ -263,7 +263,7 @@ buildOutputChart() {
                       type: 'area',
                       name: 'Sensor Output',
                       // Data needs [ [date, num], [date2, num2 ], ... ]
-                      data: this.outputArr.map( item => [item.dataCollectedDate, item.output] )
+                      data: this.outputArr2.map( item => [item.dataCollectedDate, item.output] )
                   }]
               });
             },
@@ -338,7 +338,7 @@ buildCompressorEfficiencyChart() {
     }),
     fetch('api/kpi2.php')
     .then( response => response.json() )
-    .then( json => {metricsApp.metricsArr = json} )
+    .then( json => {metricsApp.metricsArr2 = json} )
     .catch( err => {
       console.error('METRIC FETCH ERROR:');
       console.error(err);
