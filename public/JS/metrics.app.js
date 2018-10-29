@@ -242,7 +242,7 @@ Highcharts.chart('heartRateChart', {
         plotOptions: {
             line: {
                 dataLabels: {
-                    enabled: true
+                    enabled: false
                 },
                 enableMouseTracking: true
             }
