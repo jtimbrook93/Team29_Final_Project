@@ -51,9 +51,9 @@
           <tr v-for="metricsArr in metricsArr" @click="fetchMetrics()">
             <td>{{metricsArr.turbineDeployedId}}</td>
             <td>{{metricsArr.dataCollectedDate}}</td>
-            <td>{{metricsArr.output}}</td>
-            <td>{{metricsArr.heartRate}}</td>
-            <td>{{metricsArr.compressorEfficiency}}</td>
+            <td @click="buildOutputChart()">{{metricsArr.output}}</td>
+            <td @click="buildHeartRateChart()">{{metricsArr.heartRate}}</td>
+            <td @click="buildHeartRateChart()">{{metricsArr.compressorEfficiency}}</td>
             <td>{{metricsArr.availability}}</td>
             <td>{{metricsArr.reliability}}</td>
             <td>{{metricsArr.firedHours}}</td>

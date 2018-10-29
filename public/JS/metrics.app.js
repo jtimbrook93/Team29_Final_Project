@@ -35,7 +35,8 @@ computed: {
     // console.log(metricsApp.metricsArr);
 
       this.formatDate();
-      this.buildMetricChart();
+      this.buildOutputChart();
+      this.buildHearRateChart();
   },
   formatDate() {
       this.metricsArr.forEach(
@@ -44,17 +45,17 @@ computed: {
 
       });
 },
-  buildMetricChart() {
-    Highcharts.chart('metricChart', {
+  buildHeartRateChart() {
+    Highcharts.chart('heartRateChart', {
               title: {
-                  text: 'KPI Metric Chart'
+                  text: 'KPI HeartRate Chart'
               },
               xAxis: {
                   type: 'datetime'
               },
               yAxis: {
                   title: {
-                      text: 'output'
+                      text: 'HeartRate'
                   }
               },
               legend: {
@@ -89,13 +90,65 @@ computed: {
 
               series: [{
                   type: 'area',
-                  name: 'Sensor Output',
+                  name: 'Sensor HeartRate',
                   // Data needs [ [date, num], [date2, num2 ], ... ]
-                  data: this.metricsArr.map( item => [item.dataCollectedDate, item.output] )
+                  data: this.metricsArr.map( item => [item.dataCollectedDate, item.heartRate] )
               }]
           });
         }
       },
+     buildOutputChart() {
+        Highcharts.chart('OutputChart', {
+                  title: {
+                      text: 'KPI Output Chart'
+                  },
+                  xAxis: {
+                      type: 'datetime'
+                  },
+                  yAxis: {
+                      title: {
+                          text: 'output'
+                      }
+                  },
+                  legend: {
+                      enabled: false
+                  },
+                  plotOptions: {
+                      area: {
+                          fillColor: {
+                              linearGradient: {
+                                  x1: 0,
+                                  y1: 0,
+                                  x2: 0,
+                                  y2: 1
+                              },
+                              stops: [
+                                  [0, Highcharts.getOptions().colors[0]],
+                                  [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                              ]
+                          },
+                          marker: {
+                              radius: 2
+                          },
+                          lineWidth: 1,
+                          states: {
+                              hover: {
+                                  lineWidth: 1
+                              }
+                          },
+                          threshold: null
+                      }
+                  },
+
+                  series: [{
+                      type: 'area',
+                      name: 'Sensor Output',
+                      // Data needs [ [date, num], [date2, num2 ], ... ]
+                      data: this.metricsArr.map( item => [item.dataCollectedDate, item.output] )
+                  }]
+              });
+            }
+          },
   created () {
 
     // Do data fetch
