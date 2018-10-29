@@ -35,16 +35,16 @@ computed: {
       console.log('METRIC LIST FETCH ERROR:');
       console.log(err);
     })
-    this.formatDate();
 
+      this.formatDate();
       this.buildMetricChart();
   },
   formatDate() {
       this.metricsArr.forEach(
-        (enmetricsArr, index, arr) => {
-          enmetricsArr.dataCollectedDate = Date.parse(enmetricsArr.dataCollectedDate); // Convert to ms since Jan 1, 1970 UTC
+        function(entry) {
+          entry.dataCollectedDate = Date.parse(entry.dataCollectedDate); // Convert to ms since Jan 1, 1970 UTC
 
-      })
+      });
 },
   buildMetricChart() {
     Highcharts.chart('metricChart', {
