@@ -334,7 +334,6 @@ buildCompressorEfficiencyChart() {
       console.error(err);
     }),
     // this.buildMetricChart();
-  fetchMetrics();
   fetchOutputMetrics();
   fetchHeartRateMetrics();
   fetchComressorEfficiencyMetrics();
