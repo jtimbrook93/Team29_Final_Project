@@ -82,7 +82,7 @@ computed: {
                   type: 'area',
                   name: 'Hours (Running Total)',
                   // Data needs [ [date, num], [date2, num2 ], ... ]
-                  data: this.metircs.map()
+                  data: this.metircs.map(item => [item.date, item.output])
               }]
           });
         }
