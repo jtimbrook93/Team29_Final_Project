@@ -28,7 +28,6 @@ computed: {
       .then( json => {
       metricsApp.metricsArr = json;
       //  TODO: Build out client chart
-        // this.formatDate();
 
 
     } )
@@ -36,6 +35,8 @@ computed: {
       console.log('METRIC LIST FETCH ERROR:');
       console.log(err);
     })
+    this.formatDate();
+
       this.buildMetricChart();
   },
   formatDate() {
@@ -107,6 +108,6 @@ computed: {
       console.error('METRIC FETCH ERROR:');
       console.error(err);
     })
-    this.buildMetricChart();
+    // this.buildMetricChart();
   }
 })
