@@ -14,7 +14,7 @@ data: {
     starts: ''
 },
 
-try: []
+metricsArr: []
 
 },
 computed: {
@@ -26,7 +26,7 @@ computed: {
       fetch('api/kpi.php')
       .then( response => response.json() )  // "a => expression" is shorthand function declaration
       .then( json => {
-      metricsApp.try = json;
+      metricsApp.metricsArr = json;
       //  TODO: Build out client chart
         this.formatDate();
         this.buildMetricChart();
@@ -38,9 +38,9 @@ computed: {
     })
   },
   formatDate() {
-      this.try.forEach(
-        (entry, index, arr) => {
-          entry.dataCollectedDate = Date.parse(entry.dataCollectedDate); // Convert to ms since Jan 1, 1970 UTC
+      this.metricsArr.forEach(
+        (enmetricsArr, index, arr) => {
+          enmetricsArr.dataCollectedDate = Date.parse(enmetricsArr.dataCollectedDate); // Convert to ms since Jan 1, 1970 UTC
 
       })
 },
@@ -91,7 +91,7 @@ computed: {
                   type: 'area',
                   name: 'Hours (Running Total)',
                   // Data needs [ [date, num], [date2, num2 ], ... ]
-                  data: this.try.map( item => [item.dataCollectedDate, item.output] )
+                  data: this.metricsArr.map( item => [item.dataCollectedDate, item.output] )
               }]
           });
         }
@@ -101,7 +101,7 @@ computed: {
     // Do data fetch
     fetch('api/kpi.php')
     .then( response => response.json() )
-    .then( json => {metricsApp.try = json} )
+    .then( json => {metricsApp.metricsArr = json} )
     .catch( err => {
       console.error('METRIC FETCH ERROR:');
       console.error(err);

@@ -44,17 +44,17 @@
           </tr>
         </thead>
         <tbody id="metricsTableBody">
-          <tr v-for="try in try" >
-            <td>{{try.turbineDeployedId}}</td>
-            <td>{{try.dataCollectedDate}}</td>
-            <td>{{try.output}}</td>
-            <td>{{try.heartRate}}</td>
-            <td>{{try.compressorEfficiency}}</td>
-            <td>{{try.availability}}</td>
-            <td>{{try.reliability}}</td>
-            <td>{{try.firedHours}}</td>
-            <td>{{try.trips}}</td>
-            <td>{{try.starts}}</td>
+          <tr v-for="metricsArr in metricsArr" >
+            <td>{{metricsArr.turbineDeployedId}}</td>
+            <td>{{metricsArr.dataCollectedDate}}</td>
+            <td>{{metricsArr.output}}</td>
+            <td>{{metricsArr.heartRate}}</td>
+            <td>{{metricsArr.compressorEfficiency}}</td>
+            <td>{{metricsArr.availability}}</td>
+            <td>{{metricsArr.reliability}}</td>
+            <td>{{metricsArr.firedHours}}</td>
+            <td>{{metricsArr.trips}}</td>
+            <td>{{metricsArr.starts}}</td>
           </tr>
         </tbody>
       </table>
