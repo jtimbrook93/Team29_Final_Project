@@ -18,14 +18,14 @@ class KPI
      // creating a new object instance using 'id' as integer
       $this->turbineDeployedId = intval($data['turbineDeployedId']);
       $this->dataCollectedDate = date($data['dataCollectedDate']);
-      $this->output = ($data['output']);
-      $this->heartRate = ($data['heartRate']);
-      $this->compressorEfficiency = ($data['compressorEfficiency']);
-      $this->availability = ($data['availability']);
-      $this->reliability = ($data['reliability']);
-      $this->firedHours = ($data['firedHours']);
-      $this->trips = ($data['trips']);
-      $this->starts = ($data['starts']);
+      $this->output = floatval($data['output']);
+      $this->heartRate = floatval($data['heartRate']);
+      $this->compressorEfficiency = floatval($data['compressorEfficiency']);
+      $this->availability = floatval($data['availability']);
+      $this->reliability = floatval($data['reliability']);
+      $this->firedHours = floatval($data['firedHours']);
+      $this->trips = intval($data['trips']);
+      $this->starts = intval($data['starts']);
 
 
 
