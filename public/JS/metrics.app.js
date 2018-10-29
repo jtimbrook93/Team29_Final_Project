@@ -14,7 +14,6 @@ data: {
     starts: ''
 },
 
-try: []
 
 },
 computed: {
