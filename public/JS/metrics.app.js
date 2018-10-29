@@ -233,6 +233,8 @@ computed: {
       console.error(err);
     })
     // this.buildMetricChart();
-  this.fetchMetrics();
-  }
-})
+  fetchOutputMetrics();
+  fetchHeartRateMetrics();
+  fetchComressorEfficiencyMetrics();
+}
+};
