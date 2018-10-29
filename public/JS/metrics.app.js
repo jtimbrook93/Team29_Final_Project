@@ -26,15 +26,13 @@ computed: {
       fetch('api/kpi.php')
       .then( response => response.json() )  // "a => expression" is shorthand function declaration
       .then( json => {
-      metricsApp.metricsArr = json;
-      //  TODO: Build out client chart
-
-
-    } )
+      metricsApp.metricsArr = json  } )
     .catch( err => {
       console.log('METRIC LIST FETCH ERROR:');
       console.log(err);
     })
+
+    console.log(metricsArr);
 
       this.formatDate();
       this.buildMetricChart();
