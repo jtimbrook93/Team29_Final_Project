@@ -89,7 +89,7 @@ computed: {
 
               series: [{
                   type: 'area',
-                  name: 'Hours (Running Total)',
+                  name: 'Sensor Output',
                   // Data needs [ [date, num], [date2, num2 ], ... ]
                   data: this.metricsArr.map( item => [item.dataCollectedDate, item.output] )
               }]
