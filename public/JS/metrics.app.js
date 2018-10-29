@@ -255,7 +255,7 @@ Highcharts.chart('heartRateChart', {
             data: this.reliabilityArr.map( item => [item.dataCollectedDate, item.reliability] )
         }]
     });
-}
+},
 
 // buildAvailabilityChart() {
 // Highcharts.chart('availabilityChart', {
