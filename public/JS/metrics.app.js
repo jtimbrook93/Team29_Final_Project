@@ -107,6 +107,6 @@ computed: {
       console.error('METRIC FETCH ERROR:');
       console.error(err);
     })
-    // this.buildMetricChart();
+    this.buildMetricChart();
   }
 })
