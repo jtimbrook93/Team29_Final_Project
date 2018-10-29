@@ -39,12 +39,12 @@ class KPI
       $sql = 'SELECT Sensor_deploy.turbineDeployedId, dataCollectedDate, output, heartRate, compressorEfficiency,
               availability, reliability, firedHours, trips, starts
               from Time_Series_for_KPI, Sensor_deploy
-              where Time_Series_for_KPI.sensorDeployedId = Sensor_deploy.sensorDeployedId and Sensor_deploy.turbineDeployedId = 1
+              where Time_Series_for_KPI.sensorDeployedId = Sensor_deploy.sensorDeployedId and Sensor_deploy.turbineDeployedId = 1 ORDER BY dataCollectedDate asc;
               union
               SELECT Sensor_deploy.turbineDeployedId, dataCollectedDate, output, heartRate, compressorEfficiency,
               availability, reliability, firedHours, trips, starts
               from Time_Series_for_KPI, Sensor_deploy
-              where Time_Series_for_KPI.sensorDeployedId = Sensor_deploy.sensorDeployedId and Sensor_deploy.turbineDeployedId = 2;
+              where Time_Series_for_KPI.sensorDeployedId = Sensor_deploy.sensorDeployedId and Sensor_deploy.turbineDeployedId = 2 ORDER BY dataCollectedDate asc;
               ';
 
       $statement = $db->prepare($sql);
