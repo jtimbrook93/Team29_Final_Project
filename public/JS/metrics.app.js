@@ -57,6 +57,21 @@ computed: {
       this.buildOutputChart();
   },
 
+  fetchOutputMetrics2(){
+    fetch('api/kpi.php')
+    .then( response => response.json() )  // "a => expression" is shorthand function declaration
+    .then( json => {
+    metricsApp.outputArr = json;
+    metricsApp.metricsArr = metricsApp.outputArr;  } )
+  .catch( err => {
+    console.log('METRIC LIST FETCH ERROR:');
+    console.log(err);
+  })
+
+    this.formatDate();
+    this.buildOutputChart2();
+},
+
   fetchComressorEfficiencyMetrics(){
     fetch('api/kpi.php')
     .then( response => response.json() )  // "a => expression" is shorthand function declaration
@@ -198,6 +213,58 @@ buildOutputChart() {
             }]
         });
       },
+
+      buildOutputChart2() {
+        Highcharts.chart('OutputChart2', {
+                  title: {
+                      text: 'KPI Output Chart 2'
+                  },
+                  xAxis: {
+                      type: 'datetime'
+                  },
+                  yAxis: {
+                      title: {
+                          text: 'output'
+                      }
+                  },
+                  legend: {
+                      enabled: false
+                  },
+                  plotOptions: {
+                      area: {
+                          fillColor: {
+                              linearGradient: {
+                                  x1: 0,
+                                  y1: 0,
+                                  x2: 0,
+                                  y2: 1
+                              },
+                              stops: [
+                                  [0, Highcharts.getOptions().colors[0]],
+                                  [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                              ]
+                          },
+                          marker: {
+                              radius: 2
+                          },
+                          lineWidth: 1,
+                          states: {
+                              hover: {
+                                  lineWidth: 1
+                              }
+                          },
+                          threshold: null
+                      }
+                  },
+
+                  series: [{
+                      type: 'area',
+                      name: 'Sensor Output',
+                      // Data needs [ [date, num], [date2, num2 ], ... ]
+                      data: this.outputArr.map( item => [item.dataCollectedDate, item.output] )
+                  }]
+              });
+            },
 buildCompressorEfficiencyChart() {
  Highcharts.chart('CompressorEfficiencyChart', {
            title: {
