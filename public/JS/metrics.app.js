@@ -1,4 +1,4 @@
-var metricsApp = new Vue({
+var metricsApp = new Vue ({
   el: '#metricscontainer',
 data: {
   metrics: {
@@ -229,7 +229,8 @@ buildCompressorEfficiencyChart() {
                data: this.compressorEfficiencyArr.map( item => [item.dataCollectedDate, item.compressorEfficiency] )
            }]
        });
-     },
+     }
+   },
   created () {
 
     // Do data fetch
@@ -239,7 +240,7 @@ buildCompressorEfficiencyChart() {
     .catch( err => {
       console.error('METRIC FETCH ERROR:');
       console.error(err);
-    })
+    }),
     // this.buildMetricChart();
   fetchOutputMetrics();
   fetchHeartRateMetrics();
