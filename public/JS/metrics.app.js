@@ -47,7 +47,7 @@ computed: {
       .then( response => response.json() )  // "a => expression" is shorthand function declaration
       .then( json => {
       metricsApp.outputArr = json;
-    metricsApp.metricsArr = metricsApp.outputArr;  } )
+      metricsApp.metricsArr = metricsApp.outputArr;  } )
     .catch( err => {
       console.log('METRIC LIST FETCH ERROR:');
       console.log(err);
@@ -61,7 +61,8 @@ computed: {
     fetch('api/kpi.php')
     .then( response => response.json() )  // "a => expression" is shorthand function declaration
     .then( json => {
-    metricsApp.compressorEfficiencyArr = json  } )
+    metricsApp.compressorEfficiencyArr = json;
+    metricsApp.metricsArr = metricsApp.compressorEfficiencyArr;  } )
   .catch( err => {
     console.log('METRIC LIST FETCH ERROR:');
     console.log(err);
@@ -75,7 +76,8 @@ computed: {
     fetch('api/kpi.php')
     .then( response => response.json() )  // "a => expression" is shorthand function declaration
     .then( json => {
-    metricsApp.heartRateArr = json  } )
+    metricsApp.heartRateArr = json;
+    metricsApp.metricsArr = metricsApp.heartRateArr; } )
   .catch( err => {
     console.log('METRIC LIST FETCH ERROR:');
     console.log(err);
