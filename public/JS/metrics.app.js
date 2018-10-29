@@ -55,6 +55,7 @@ computed: {
       this.formatDate();
       this.buildOutputChart();
   },
+
   fetchComressorEfficiencyMetrics(){
     fetch('api/kpi.php')
     .then( response => response.json() )  // "a => expression" is shorthand function declaration
@@ -68,6 +69,7 @@ computed: {
     this.formatDate();
     this.buildCompressorEfficiencyChart();
   },
+
   fetchHeartRateMetrics(){
     fetch('api/kpi.php')
     .then( response => response.json() )  // "a => expression" is shorthand function declaration
@@ -81,6 +83,7 @@ computed: {
     this.formatDate();
     this.buildHeartRateChart();
   },
+
   formatDate() {
       this.metricsArr.forEach(
         function(entry) {
@@ -88,6 +91,7 @@ computed: {
 
       });
 },
+
 buildHeartRateChart() {
 Highcharts.chart('heartRateChart', {
           title: {
@@ -254,6 +258,7 @@ buildCompressorEfficiencyChart() {
       console.error(err);
     }),
     // this.buildMetricChart();
+  fetchMetrics();
   fetchOutputMetrics();
   fetchHeartRateMetrics();
   fetchComressorEfficiencyMetrics();
