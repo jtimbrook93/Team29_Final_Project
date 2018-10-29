@@ -27,7 +27,7 @@
       <div class="chart" id="metricChart"></div>
     </div>
 <div class="col">
-<button @click="fetchMetrics()">Click me</button>
+<button v-for="metricsArr in metricsArr" @click="fetchMetrics()">generate chart</button>
 </div>
   <div id="metricscontainer" class="container">
       <table  class="table table-striped table-sm" id="metricsTable">
