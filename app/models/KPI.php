@@ -82,17 +82,17 @@ class KPI
       $success = $statement->execute();
 
       // 4. Handle the results
-      $arr = [];
+      $arr1 = [];
       while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
 
         // 4.a. For each row, make a new work php object
-        $kpiItem =  new KPI($row);
-        array_push($arr, $kpiItem);
+        $kpiItem1 =  new KPI($row);
+        array_push($arr1, $kpiItem1);
 
       }
 
       // 4.b. return the array of work objects
-      return $arr;
+      return $arr1;
     }
     public function getKPIs2() {
 
