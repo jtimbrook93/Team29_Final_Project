@@ -32,7 +32,7 @@ computed: {
       console.log(err);
     })
 
-    console.log(metricsArr);
+    console.log(metricsApp.metricsArr);
 
       this.formatDate();
       this.buildMetricChart();
