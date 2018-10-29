@@ -3,7 +3,7 @@
 class KPI
 {
   public $turbineDeployedId;
-  public $dataCollectedDate
+  public $dataCollectedDate;
   public $output;
   public $heartRate;
   public $compressorEfficiency;
