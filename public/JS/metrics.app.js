@@ -132,6 +132,22 @@ computed: {
     this.buildFiredHoursChart();
   },
 
+  fetchTripsMetrics(){
+    fetch('api/kpi.php')
+    .then( response => response.json() )  // "a => expression" is shorthand function declaration
+    .then( json => {
+    metricsApp.tripsArr = json;
+    metricsApp.metricsArr = metricsApp.tripsArr; } )
+  .catch( err => {
+    console.log('METRIC LIST FETCH ERROR:');
+    console.log(err);
+  })
+
+    this.formatDate();
+    this.buildTripsChart();
+  },
+
+
   formatDate() {
       this.metricsArr.forEach(
         function(entry) {
