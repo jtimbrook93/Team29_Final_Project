@@ -6,6 +6,10 @@ class Turbine
   public $turbineName;
   public $siteId;
   public $siteName;
+  public $turbineDescription;
+  public $capacity;
+  public $rampUpTime;
+  public $maintenanceInterval;
 
     public function __construct($data) {
 
@@ -15,6 +19,10 @@ class Turbine
       $this->turbineName = ($data['turbineName']);
       $this->siteId = intval($data['siteId']);
       $this->siteName = ($data['siteName']);
+      $this->turbineDescription = ($data['turbineDescription']);
+      $this->capacity = ($data['capacity']);
+      $this->rampUpTime = ($data['rampUpTime']);
+      $this->maintaintenceInterval = ($data['maintenanceInterval']);
 
 
     }
@@ -25,7 +33,7 @@ class Turbine
 
       // 2. Prepare the query
       $sql = 'SELECT Turbine.turbineId, Turbine.turbineName, Site.siteId, Site.siteName,
-       Turbine.turbineDescription, Turbine.capacity, Turbine.rampUpTime, Turbine.maintaintenceInterval
+       Turbine.turbineDescription, Turbine.capacity, Turbine.rampUpTime, Turbine.maintenanceInterval
       from Site, Turbine, Turbine_deploy
       where Turbine_deploy.siteId = Site.siteId and
       Turbine_deploy.turbineID = Turbine.turbineId;';
