@@ -31,7 +31,8 @@ computed: {
 
   methods: {
 
-    fetchMetrics(){
+    fetchMetrics()
+    {
       fetch('api/kpi.php')
       .then( response => response.json() )  // "a => expression" is shorthand function declaration
       .then( json => {
@@ -42,7 +43,8 @@ computed: {
     })
   },
 
-    fetchOutputMetrics(){
+    fetchOutputMetrics()
+    {
       fetch('api/kpi.php')
       .then( response => response.json() )  // "a => expression" is shorthand function declaration
       .then( json => {
@@ -57,7 +59,8 @@ computed: {
       this.buildOutputChart();
   },
 
-    fetchComressorEfficiencyMetrics(){
+    fetchComressorEfficiencyMetrics()
+    {
       fetch('api/kpi.php')
       .then( response => response.json() )  // "a => expression" is shorthand function declaration
       .then( json => {
@@ -72,7 +75,8 @@ computed: {
       this.buildCompressorEfficiencyChart();
     },
 
-    fetchHeartRateMetrics(){
+    fetchHeartRateMetrics()
+    {
       fetch('api/kpi.php')
       .then( response => response.json() )  // "a => expression" is shorthand function declaration
       .then( json => {
@@ -87,7 +91,8 @@ computed: {
       this.buildHeartRateChart();
     },
 
-    fetchAvalabilityMetrics(){
+    fetchAvalabilityMetrics()
+    {
       fetch('api/kpi.php')
       .then( response => response.json() )  // "a => expression" is shorthand function declaration
       .then( json => {
@@ -102,7 +107,8 @@ computed: {
       this.buildAvailabilityChart();
     },
 
-    fetchReliabilityMetrics(){
+    fetchReliabilityMetrics()
+    {
       fetch('api/kpi.php')
       .then( response => response.json() )  // "a => expression" is shorthand function declaration
       .then( json => {
@@ -117,7 +123,8 @@ computed: {
       this.buildReliabilityChart();
     },
 
-    fetchFiredHoursMetrics(){
+    fetchFiredHoursMetrics()
+    {
       fetch('api/kpi.php')
       .then( response => response.json() )  // "a => expression" is shorthand function declaration
       .then( json => {
@@ -132,7 +139,8 @@ computed: {
       this.buildFiredHoursChart();
     },
 
-    fetchTripsMetrics(){
+    fetchTripsMetrics()
+    {
       fetch('api/kpi.php')
       .then( response => response.json() )  // "a => expression" is shorthand function declaration
       .then( json => {
@@ -147,7 +155,8 @@ computed: {
       this.buildTripsChart();
     },
 
-    fetchStartsMetrics(){
+    fetchStartsMetrics()
+    {
       fetch('api/kpi.php')
       .then( response => response.json() )  // "a => expression" is shorthand function declaration
       .then( json => {
@@ -162,7 +171,8 @@ computed: {
       this.buildStartsChart();
     },
 
-    formatDate() {
+    formatDate()
+    {
         this.metricsArr.forEach(
           function(entry) {
             entry.dataCollectedDate = Date.parse(entry.dataCollectedDate); // Convert to ms since Jan 1, 1970 UTC
@@ -170,57 +180,58 @@ computed: {
         });
   },
 
-buildHeartRateChart() {
-Highcharts.chart('heartRateChart', {
-          title: {
-              text: 'KPI HeartRate Chart'
-          },
-          xAxis: {
-              type: 'datetime'
-          },
-          yAxis: {
+    buildHeartRateChart()
+    {
+    Highcharts.chart('heartRateChart', {
               title: {
-                  text: 'HeartRate'
-              }
-          },
-          legend: {
-              enabled: false
-          },
-          plotOptions: {
-              area: {
-                  fillColor: {
-                      linearGradient: {
-                          x1: 0,
-                          y1: 0,
-                          x2: 0,
-                          y2: 1
+                  text: 'KPI HeartRate Chart'
+              },
+              xAxis: {
+                  type: 'datetime'
+              },
+              yAxis: {
+                  title: {
+                      text: 'HeartRate'
+                  }
+              },
+              legend: {
+                  enabled: false
+              },
+              plotOptions: {
+                  area: {
+                      fillColor: {
+                          linearGradient: {
+                              x1: 0,
+                              y1: 0,
+                              x2: 0,
+                              y2: 1
+                          },
+                          stops: [
+                              [0, Highcharts.getOptions().colors[0]],
+                              [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                          ]
                       },
-                      stops: [
-                          [0, Highcharts.getOptions().colors[0]],
-                          [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                      ]
-                  },
-                  marker: {
-                      radius: 2
-                  },
-                  lineWidth: 1,
-                  states: {
-                      hover: {
-                          lineWidth: 1
-                      }
-                  },
-                  threshold: null
-              }
-          },
+                      marker: {
+                          radius: 2
+                      },
+                      lineWidth: 1,
+                      states: {
+                          hover: {
+                              lineWidth: 1
+                          }
+                      },
+                      threshold: null
+                  }
+              },
 
-          series: [{
-              type: 'area',
-              name: 'Sensor HeartRate',
-              // Data needs [ [date, num], [date2, num2 ], ... ]
-              data: this.heartRateArr.map( item => [item.dataCollectedDate, item.heartRate] )
-          }]
-      });
-    },
+              series: [{
+                  type: 'area',
+                  name: 'Sensor HeartRate',
+                  // Data needs [ [date, num], [date2, num2 ], ... ]
+                  data: this.heartRateArr.map( item => [item.dataCollectedDate, item.heartRate] )
+              }]
+          });
+        },
 
     buildAvailabilityChart() {
     Highcharts.chart('availabilityChart', {
@@ -361,57 +372,57 @@ Highcharts.chart('heartRateChart', {
 //       });
 //     },
 
-buildFiredHoursChart() {
-Highcharts.chart('firedHoursChart', {
-        title: {
-            text: 'KPI fired hours Chart'
-        },
-        xAxis: {
-            type: 'datetime'
-        },
-        yAxis: {
-            title: {
-                text: 'FiredHours'
-            }
-        },
-        legend: {
-            enabled: false
-        },
-        plotOptions: {
-            area: {
-                fillColor: {
-                    linearGradient: {
-                        x1: 0,
-                        y1: 0,
-                        x2: 0,
-                        y2: 1
-                    },
-                    stops: [
-                        [0, Highcharts.getOptions().colors[0]],
-                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                    ]
-                },
-                marker: {
-                    radius: 2
-                },
-                lineWidth: 1,
-                states: {
-                    hover: {
-                        lineWidth: 1
-                    }
-                },
-                threshold: null
-            }
-        },
+      buildFiredHoursChart() {
+      Highcharts.chart('firedHoursChart', {
+              title: {
+                  text: 'KPI fired hours Chart'
+              },
+              xAxis: {
+                  type: 'datetime'
+              },
+              yAxis: {
+                  title: {
+                      text: 'FiredHours'
+                  }
+              },
+              legend: {
+                  enabled: false
+              },
+              plotOptions: {
+                  area: {
+                      fillColor: {
+                          linearGradient: {
+                              x1: 0,
+                              y1: 0,
+                              x2: 0,
+                              y2: 1
+                          },
+                          stops: [
+                              [0, Highcharts.getOptions().colors[0]],
+                              [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                          ]
+                      },
+                      marker: {
+                          radius: 2
+                      },
+                      lineWidth: 1,
+                      states: {
+                          hover: {
+                              lineWidth: 1
+                          }
+                      },
+                      threshold: null
+                  }
+              },
 
-          series: [{
-              type: 'area',
-              name: 'Sensor Fired Hours',
-              // Data needs [ [date, num], [date2, num2 ], ... ]
-              data: this.firedHoursArr.map( item => [item.dataCollectedDate, item.firedHours] )
-          }]
-      });
-    },
+                series: [{
+                    type: 'area',
+                    name: 'Sensor Fired Hours',
+                    // Data needs [ [date, num], [date2, num2 ], ... ]
+                    data: this.firedHoursArr.map( item => [item.dataCollectedDate, item.firedHours] )
+                }]
+            });
+          },
 
     buildTripsChart() {
     Highcharts.chart('tripsChart', {
@@ -465,161 +476,161 @@ Highcharts.chart('firedHoursChart', {
           });
         },
 
-buildStartsChart() {
-Highcharts.chart('startsChart', {
-        title: {
-            text: 'KPI starts Chart'
-        },
-        xAxis: {
-            type: 'datetime'
-        },
-        yAxis: {
-            title: {
-                text: 'Starts'
-            }
-        },
-        legend: {
-            enabled: false
-        },
-        plotOptions: {
-            area: {
-                fillColor: {
-                    linearGradient: {
-                        x1: 0,
-                        y1: 0,
-                        x2: 0,
-                        y2: 1
-                    },
-                    stops: [
-                        [0, Highcharts.getOptions().colors[0]],
-                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                    ]
-                },
-                marker: {
-                    radius: 2
-                },
-                lineWidth: 1,
-                states: {
-                    hover: {
-                        lineWidth: 1
-                    }
-                },
-                threshold: null
-            }
-        },
+      buildStartsChart() {
+      Highcharts.chart('startsChart', {
+              title: {
+                  text: 'KPI starts Chart'
+              },
+              xAxis: {
+                  type: 'datetime'
+              },
+              yAxis: {
+                  title: {
+                      text: 'Starts'
+                  }
+              },
+              legend: {
+                  enabled: false
+              },
+              plotOptions: {
+                  area: {
+                      fillColor: {
+                          linearGradient: {
+                              x1: 0,
+                              y1: 0,
+                              x2: 0,
+                              y2: 1
+                          },
+                          stops: [
+                              [0, Highcharts.getOptions().colors[0]],
+                              [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                          ]
+                      },
+                      marker: {
+                          radius: 2
+                      },
+                      lineWidth: 1,
+                      states: {
+                          hover: {
+                              lineWidth: 1
+                          }
+                      },
+                      threshold: null
+                  }
+              },
 
-          series: [{
-              type: 'area',
-              name: 'Sensor Starts',
-              // Data needs [ [date, num], [date2, num2 ], ... ]
-              data: this.startsArr.map( item => [item.dataCollectedDate, item.starts] )
-          }]
-      });
-    },
+                series: [{
+                    type: 'area',
+                    name: 'Sensor Starts',
+                    // Data needs [ [date, num], [date2, num2 ], ... ]
+                    data: this.startsArr.map( item => [item.dataCollectedDate, item.starts] )
+                }]
+            });
+          },
 
-buildOutputChart() {
-  Highcharts.chart('OutputChart', {
-            title: {
-                text: 'KPI Output Chart'
-            },
-            xAxis: {
-                type: 'datetime'
-            },
-            yAxis: {
-                title: {
-                    text: 'output'
-                }
-            },
-            legend: {
-                enabled: false
-            },
-            plotOptions: {
-                area: {
-                    fillColor: {
-                        linearGradient: {
-                            x1: 0,
-                            y1: 0,
-                            x2: 0,
-                            y2: 1
-                        },
-                        stops: [
-                            [0, Highcharts.getOptions().colors[0]],
-                            [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                        ]
-                    },
-                    marker: {
-                        radius: 2
-                    },
-                    lineWidth: 1,
-                    states: {
-                        hover: {
-                            lineWidth: 1
-                        }
-                    },
-                    threshold: null
-                }
-            },
+      buildOutputChart() {
+        Highcharts.chart('OutputChart', {
+                  title: {
+                      text: 'KPI Output Chart'
+                  },
+                  xAxis: {
+                      type: 'datetime'
+                  },
+                  yAxis: {
+                      title: {
+                          text: 'output'
+                      }
+                  },
+                  legend: {
+                      enabled: false
+                  },
+                  plotOptions: {
+                      area: {
+                          fillColor: {
+                              linearGradient: {
+                                  x1: 0,
+                                  y1: 0,
+                                  x2: 0,
+                                  y2: 1
+                              },
+                              stops: [
+                                  [0, Highcharts.getOptions().colors[0]],
+                                  [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                              ]
+                          },
+                          marker: {
+                              radius: 2
+                          },
+                          lineWidth: 1,
+                          states: {
+                              hover: {
+                                  lineWidth: 1
+                              }
+                          },
+                          threshold: null
+                      }
+                  },
 
-            series: [{
-                type: 'area',
-                name: 'Sensor Output',
-                // Data needs [ [date, num], [date2, num2 ], ... ]
-                data: this.outputArr.map( item => [item.dataCollectedDate, item.output] )
-            }]
-        });
-      },
-buildCompressorEfficiencyChart() {
- Highcharts.chart('CompressorEfficiencyChart', {
-           title: {
-               text: 'KPI Compressor Efficiency Chart'
-           },
-           xAxis: {
-               type: 'datetime'
-           },
-           yAxis: {
-               title: {
-                   text: 'Compressor Efficiency'
-               }
-           },
-           legend: {
-               enabled: false
-           },
-           plotOptions: {
-               area: {
-                   fillColor: {
-                       linearGradient: {
-                           x1: 0,
-                           y1: 0,
-                           x2: 0,
-                           y2: 1
-                       },
-                       stops: [
-                           [0, Highcharts.getOptions().colors[0]],
-                           [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                       ]
-                   },
-                   marker: {
-                       radius: 2
-                   },
-                   lineWidth: 1,
-                   states: {
-                       hover: {
-                           lineWidth: 1
-                       }
-                   },
-                   threshold: null
-               }
-           },
+                  series: [{
+                      type: 'area',
+                      name: 'Sensor Output',
+                      // Data needs [ [date, num], [date2, num2 ], ... ]
+                      data: this.outputArr.map( item => [item.dataCollectedDate, item.output] )
+                  }]
+              });
+            },
+      buildCompressorEfficiencyChart() {
+       Highcharts.chart('CompressorEfficiencyChart', {
+                 title: {
+                     text: 'KPI Compressor Efficiency Chart'
+                 },
+                 xAxis: {
+                     type: 'datetime'
+                 },
+                 yAxis: {
+                     title: {
+                         text: 'Compressor Efficiency'
+                     }
+                 },
+                 legend: {
+                     enabled: false
+                 },
+                 plotOptions: {
+                     area: {
+                         fillColor: {
+                             linearGradient: {
+                                 x1: 0,
+                                 y1: 0,
+                                 x2: 0,
+                                 y2: 1
+                             },
+                             stops: [
+                                 [0, Highcharts.getOptions().colors[0]],
+                                 [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                             ]
+                         },
+                         marker: {
+                             radius: 2
+                         },
+                         lineWidth: 1,
+                         states: {
+                             hover: {
+                                 lineWidth: 1
+                             }
+                         },
+                         threshold: null
+                     }
+                 },
 
-           series: [{
-               type: 'area',
-               name: 'Compressor Efficiency',
-               // Data needs [ [date, num], [date2, num2 ], ... ]
-               data: this.compressorEfficiencyArr.map( item => [item.dataCollectedDate, item.compressorEfficiency] )
-           }]
-       });
-     }
-   },
+                 series: [{
+                     type: 'area',
+                     name: 'Compressor Efficiency',
+                     // Data needs [ [date, num], [date2, num2 ], ... ]
+                     data: this.compressorEfficiencyArr.map( item => [item.dataCollectedDate, item.compressorEfficiency] )
+                 }]
+             });
+           }
+         },
   created () {
 
     // Do data fetch
