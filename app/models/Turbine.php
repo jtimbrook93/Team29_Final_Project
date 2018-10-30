@@ -24,7 +24,8 @@ class Turbine
       $db = new PDO(DB_SERVER, DB_USER, DB_PW);
 
       // 2. Prepare the query
-      $sql = 'SELECT Turbine.turbineId, Turbine.turbineName, Site.siteId, Site.siteName
+      $sql = 'SELECT Turbine.turbineId, Turbine.turbineName, Site.siteId, Site.siteName,
+       Turbine.turbineDescription, Turbine.capacity, Turbine.rampUpTime, Turbine.maintaintenceInterval
       from Site, Turbine, Turbine_deploy
       where Turbine_deploy.siteId = Site.siteId and
       Turbine_deploy.turbineID = Turbine.turbineId;';
