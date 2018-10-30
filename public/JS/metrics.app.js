@@ -312,13 +312,13 @@ buildCompressorEfficiencyChart() {
   created () {
 
     // Do data fetch
-    fetch('api/kpi.php')
-    .then( response => response.json() )
-    .then( json => {metricsApp.metricsArr = json} )
-    .catch( err => {
-      console.error('METRIC FETCH ERROR:');
-      console.error(err);
-    }),
+    // fetch('api/kpi.php')
+    // .then( response => response.json() )
+    // .then( json => {metricsApp.metricsArr = json} )
+    // .catch( err => {
+    //   console.error('METRIC FETCH ERROR:');
+    //   console.error(err);
+    // }),
 
     fetch('api/kpi2.php')
     .then( response => response.json() )
