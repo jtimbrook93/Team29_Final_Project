@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
 }
 
 // 1. Go to the database and get all work associated with the $taskId
-$kpiArr = KPI::getKPIs();
+$kpiArr = KPI::getKPIs1();
 
 // 2. Convert to JSON
 $json = json_encode($kpiArr,  JSON_PRETTY_PRINT);
