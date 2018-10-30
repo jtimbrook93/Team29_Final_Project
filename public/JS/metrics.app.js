@@ -331,7 +331,7 @@ buildCompressorEfficiencyChart() {
       console.error(err);
     })
 
-    fetchOutputMetrics(){
+    fetchOutputMetrics()
       fetch('api/kpi.php')
       .then( response => response.json() )  // "a => expression" is shorthand function declaration
       .then( json => {
@@ -342,9 +342,9 @@ buildCompressorEfficiencyChart() {
       console.log(err);
     })
 
-  }
 
-    fetchOutputMetrics2(){
+
+    fetchOutputMetrics2()
     fetch('api/kpi2.php')
     .then( response => response.json() )  // "a => expression" is shorthand function declaration
     .then( json => {
@@ -355,8 +355,8 @@ buildCompressorEfficiencyChart() {
     console.log(err);
     })
 
-  }
-    fetchComressorEfficiencyMetrics(){
+
+    fetchComressorEfficiencyMetrics()
     fetch('api/kpi.php')
     .then( response => response.json() )  // "a => expression" is shorthand function declaration
     .then( json => {
@@ -367,9 +367,9 @@ buildCompressorEfficiencyChart() {
     console.log(err);
     })
 
-    }
 
-    fetchHeartRateMetrics(){
+
+    fetchHeartRateMetrics()
     fetch('api/kpi.php')
     .then( response => response.json() )  // "a => expression" is shorthand function declaration
     .then( json => {
@@ -380,13 +380,13 @@ buildCompressorEfficiencyChart() {
     console.log(err);
     })
 
-    }
 
-    formatDate() {
+
+    formatDate()
       this.metricsArr.forEach(
         function(entry) {
           entry.dataCollectedDate = Date.parse(entry.dataCollectedDate); // Convert to ms since Jan 1, 1970 UTC
 
       })
 }
-}});
+});
