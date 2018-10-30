@@ -22,7 +22,7 @@
 </nav>
 </header>
   <body>
-  <div id="contentbox">
+  <div id="contentbox" align="left">
   <div id="clientcontainer" class="container">
       <h3>Client Information</h3>
     <table class="table table-striped table-sm" id="clientTable">
@@ -50,10 +50,12 @@
           </div>
           <div id="commentContainer" class="container">
           <h3>Client Comments...</h3>
+          Service managers can view and enter new comments on how to provide
+          service to each client below. <br /><br />
         <table class="table table-striped table-sm" id="commentTable">
             <thead>
               <tr>
-                <th>Id</th>
+                <th>Comment ID</th>
                 <th>Client ID</th>
                 <th>Comment</th>
               </tr>
@@ -69,7 +71,7 @@
 
       <form id="newCommentForm" @submit.prevent="handleWorkForm">
       <div class="form-group" id="Form">
-        <label for="comment">Comment</label>
+        <label for="comment">Enter Service Comment Below:</label>
         <input type="text" class="form-control" id="clientId" placeholder="Enter Client ID" v-model="commentForm.clientId">
         <input type="text" class="form-control" id="comment" placeholder="Enter Comment" v-model="commentForm.comment">
       </div>
