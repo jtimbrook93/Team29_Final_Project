@@ -1,6 +1,6 @@
 <?php
 
-class KPI
+class KPI2
 {
   public $turbineDeployedId;
   public $dataCollectedDate;
@@ -30,7 +30,7 @@ class KPI
 
 },
 
-    public function getKPIs1() {
+    public function getKPIs2() {
 
       // 1. Connect to the database
       $db = new PDO(DB_SERVER, DB_USER, DB_PW);
@@ -39,7 +39,8 @@ class KPI
       $sql = 'SELECT Sensor_deploy.turbineDeployedId, dataCollectedDate, output, heartRate, compressorEfficiency,
               availability, reliability, firedHours, trips, starts
               from Time_Series_for_KPI, Sensor_deploy
-              where Time_Series_for_KPI.sensorDeployedId = Sensor_deploy.sensorDeployedId and Sensor_deploy.turbineDeployedId = 1 ORDER BY dataCollectedDate asc;';
+              where Time_Series_for_KPI.sensorDeployedId = Sensor_deploy.sensorDeployedId and Sensor_deploy.turbineDeployedId = 2 ORDER BY dataCollectedDate asc;
+              ';
 
       $statement = $db->prepare($sql);
 
@@ -47,17 +48,17 @@ class KPI
       $success = $statement->execute();
 
       // 4. Handle the results
-      $arr = [];
+      $arr2 = [];
       while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
 
         // 4.a. For each row, make a new work php object
-        $kpiItem =  new KPI($row);
-        array_push($arr, $kpiItem);
+        $kpiItem2 =  new KPI2($row);
+        array_push($arr2, $kpiItem2);
 
       }
 
       // 4.b. return the array of work objects
-      return $arr1;
+      return $arr2;
     }
 
   }
