@@ -57,7 +57,7 @@ class KPI
       }
 
       // 4.b. return the array of work objects
-      return $arr1;
+      return $arr;
     }
 
   }
