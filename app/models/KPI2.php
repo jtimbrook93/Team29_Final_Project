@@ -28,7 +28,7 @@ class KPI2
       $this->starts = intval($data['starts']);
 
 
-},
+}
 
     public function getKPIs2() {
 
