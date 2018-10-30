@@ -332,6 +332,5 @@ buildCompressorEfficiencyChart() {
     // })
     // this.buildMetricChart();
 
-
 }
 });
