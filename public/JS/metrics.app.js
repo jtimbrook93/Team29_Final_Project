@@ -35,7 +35,7 @@ computed: {
 
 
     fetchOutputMetrics(){
-      fetch('api/kpi1.php')
+      fetch('api/kpi.php')
       .then( response => response.json() )  // "a => expression" is shorthand function declaration
       .then( json => {
       metricsApp.outputArr = json;
@@ -310,7 +310,10 @@ buildCompressorEfficiencyChart() {
      }
    },
   created () {
-
+  // fetchOutputMetrics();
+  // fetchOutputMetrics2();
+  // fetchComressorEfficiencyMetrics();
+  // fetchHeartRateMetrics();
     // Do data fetch
     fetch('api/kpi.php')
     .then( response => response.json() )
@@ -318,14 +321,8 @@ buildCompressorEfficiencyChart() {
     .catch( err => {
       console.error('METRIC FETCH ERROR:');
       console.error(err);
-    }),
-    fetch('api/kpi1.php')
-    .then( response => response.json() )
-    .then( json => {metricsApp.metricsArr = json} )
-    .catch( err => {
-      console.error('METRIC FETCH ERROR:');
-      console.error(err);
-    }),
+    })
+
     fetch('api/kpi2.php')
     .then( response => response.json() )
     .then( json => {metricsApp.metricsArr2 = json} )
@@ -333,8 +330,63 @@ buildCompressorEfficiencyChart() {
       console.error('METRIC FETCH ERROR:');
       console.error(err);
     })
-    // this.buildMetricChart();
+
+    fetchOutputMetrics()
+      fetch('api/kpi.php')
+      .then( response => response.json() )  // "a => expression" is shorthand function declaration
+      .then( json => {
+      metricsApp.outputArr = json;
+      metricsApp.metricsArr = metricsApp.outputArr;  } )
+    .catch( err => {
+      console.log('METRIC LIST FETCH ERROR:');
+      console.log(err);
+    })
 
 
+
+    fetchOutputMetrics2()
+    fetch('api/kpi2.php')
+    .then( response => response.json() )  // "a => expression" is shorthand function declaration
+    .then( json => {
+    metricsApp.outputArr2 = json;
+    metricsApp.metricsArr2 = metricsApp.outputArr2;  } )
+    .catch( err => {
+    console.log('METRIC LIST FETCH ERROR:');
+    console.log(err);
+    })
+
+
+    fetchComressorEfficiencyMetrics()
+    fetch('api/kpi.php')
+    .then( response => response.json() )  // "a => expression" is shorthand function declaration
+    .then( json => {
+    metricsApp.compressorEfficiencyArr = json;
+    metricsApp.metricsArr = metricsApp.compressorEfficiencyArr;  } )
+    .catch( err => {
+    console.log('METRIC LIST FETCH ERROR:');
+    console.log(err);
+    })
+
+
+
+    fetchHeartRateMetrics()
+    fetch('api/kpi.php')
+    .then( response => response.json() )  // "a => expression" is shorthand function declaration
+    .then( json => {
+    metricsApp.heartRateArr = json;
+    metricsApp.metricsArr = metricsApp.heartRateArr; } )
+    .catch( err => {
+    console.log('METRIC LIST FETCH ERROR:');
+    console.log(err);
+    })
+
+
+
+    formatDate()
+      this.metricsArr.forEach(
+        function(entry) {
+          entry.dataCollectedDate = Date.parse(entry.dataCollectedDate); // Convert to ms since Jan 1, 1970 UTC
+
+      })
 }
 });
