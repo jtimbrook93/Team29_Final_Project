@@ -63,7 +63,7 @@
 
     <div id="turbines" class="container">
       <h3>Turbine Information</h3>
-      Service managers can view information on each turbine below.<br /><br />
+      Service managers can view information on each deployed turbine below.<br /><br />
   <table class="table table-striped table-sm" id="turbineTable">
       <thead>
         <tr>
@@ -71,6 +71,10 @@
           <th>Turbine Name</th>
           <th>Site ID</th>
           <th>Site Name</th>
+          <th>Turbine Description</th>
+          <th>Capacity</th>
+          <th>Ramp Up Time</th>
+          <th>Maintenance Interval</th>
         </tr>
       </thead>
       <tbody id="turbineTableBody">
@@ -79,6 +83,10 @@
           <td>{{turbine.turbineName}}</td>
           <td>{{turbine.siteId}}</td>
           <td>{{turbine.siteName}}</td>
+          <td>{{turbine.turbineDescription}}</td>
+          <td>{{turbine.capacity}}</td>
+          <td>{{turbine.rampUpTime}}</td>
+          <td>{{turbine.maintenanceInterval}}</td>
         </tr>
       </tbody>
     </table>
