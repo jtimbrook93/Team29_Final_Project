@@ -192,6 +192,11 @@ main article p {
     border: 1px solid black;
     border-radius: 4px;
   }
+
+  .button:hover {
+       background-color: #495388;
+       color: white;
+   }
 }
 
 /* code for chart obtained from highcharts.com*/
