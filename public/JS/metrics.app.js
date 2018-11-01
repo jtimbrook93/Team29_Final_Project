@@ -520,6 +520,7 @@ buildCompressorEfficiencyChart() {
     console.log(err);
     })
 
+
     fetchreliabilityMetrics()
     fetch('api/kpi.php')
     .then( response => response.json() )  // "a => expression" is shorthand function declaration
