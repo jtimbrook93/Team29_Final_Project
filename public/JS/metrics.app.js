@@ -170,6 +170,9 @@ computed: {
     console.log('METRIC LIST FETCH ERROR:');
     console.log(err);
   })
+  this.formatDate();
+  this.buildreliabilityChart();
+},
 
   fetchreliabilityMetrics2(){
     fetch('api/kpi2.php')
