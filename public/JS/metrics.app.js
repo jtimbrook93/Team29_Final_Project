@@ -532,11 +532,11 @@ buildCompressorEfficiencyChart() {
     })
 
     fetchreliabilityMetrics2()
-    fetch('api/kpi.php')
+    fetch('api/kpi2.php')
     .then( response => response.json() )  // "a => expression" is shorthand function declaration
     .then( json => {
-    metricsApp.reliabilityArr = json;
-    metricsApp.metricsArr = metricsApp.reliabilityArr; } )
+    metricsApp.reliabilityArr2 = json;
+    metricsApp.metricsArr2 = metricsApp.reliabilityArr2; } )
     .catch( err => {
     console.log('METRIC LIST FETCH ERROR:');
     console.log(err);
