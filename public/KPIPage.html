@@ -25,7 +25,7 @@
 
     <div class="row">
       <div class="col placeholder">
-          <div class="chart" id="OutputChart2"></div>
+          <div class="chart" id="CompressorEfficiencyChart"></div>
       </div>
 
       <div class="col placeholder">
@@ -41,16 +41,71 @@
 
   <div class="row">
     <div class="col">
-      <h2>KPI Compressor Efficiency Chart</h2>
-      <div class="chart" id="CompressorEfficiencyChart"></div>
+      <h2>Compressor Efficiency Chart</h2>
+      <div class="chart" id="compressorEfficiencyChart"></div>
+      <div class="chart" id="compressorEfficiencyChart2"></div>
     </div>
 
     <div class="col">
-      <h2>KPI Output Chart</h2>
-      <div class="ban">{{ days_left }} days</div>
+      <h2>Output Chart</h2>
+        <div class="chart" id="OutputChart"></div>
+        <div class="chart" id="OutputChart2"></div>
     </div>
   </div>
 </section>
+
+<div class="row">
+  <div class="col">
+    <h2>heartRateChart</h2>
+    <div class="chart" id="heartRateChart"></div>
+    <div class="chart" id="heartRateChart2"></div>
+  </div>
+<div>
+
+
+  <div class="col">
+    <h2>KPI Output Chart</h2>
+      <div class="chart" id="availabilityChart"></div>
+      <div class="chart" id="availabilityChart2"></div>
+  </div>
+</div>
+</section>
+
+<div class="row">
+  <div class="col">
+    <h2>heartRateChart</h2>
+    <div class="chart" id="reliabilityChart"></div>
+    <div class="chart" id="reliabilityChart2"></div>
+  </div>
+<div>
+
+
+  <div class="col">
+    <h2>KPI Output Chart</h2>
+      <div class="chart" id="firedHoursChart"></div>
+      <div class="chart" id="firedHoursChart2"></div>
+  </div>
+</div>
+</section>
+
+<div class="row">
+  <div class="col">
+    <h2>heartRateChart</h2>
+    <div class="chart" id="tripsChart"></div>
+    <div class="chart" id="tripsChart2"></div>
+  </div>
+<div>
+
+
+  <div class="col">
+    <h2>KPI Output Chart</h2>
+      <div class="chart" id="startsChart"></div>
+      <div class="chart" id="startsChart2"></div>
+  </div>
+</div>
+</section>
+
+
 
   <div id="metricscontainer" class="container">
       <table  class="table table-striped table-sm" id="metricsTable">
