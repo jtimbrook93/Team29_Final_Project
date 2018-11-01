@@ -202,6 +202,48 @@ this.formatDate();
 this.buildfiredHoursChart();
 },
 
+fetchfiredHoursMetrics2(){
+  fetch('api/kpi2.php')
+  .then( response => response.json() )  // "a => expression" is shorthand function declaration
+  .then( json => {
+  metricsApp.firedHoursArr2 = json;
+  metricsApp.metricsArr2 = metricsApp.firedHoursArr2;  } )
+.catch( err => {
+  console.log('METRIC LIST FETCH ERROR:');
+  console.log(err);
+})
+this.formatDate();
+this.buildfiredHoursChart2();
+},
+
+fetchtripsMetrics(){
+  fetch('api/kpi.php')
+  .then( response => response.json() )  // "a => expression" is shorthand function declaration
+  .then( json => {
+  metricsApp.tripsArr = json;
+  metricsApp.metricsArr = metricsApp.tripsArr;  } )
+.catch( err => {
+  console.log('METRIC LIST FETCH ERROR:');
+  console.log(err);
+})
+this.formatDate();
+this.buildtripsChart();
+},
+
+fetchtripsMetrics2(){
+  fetch('api/kpi2.php')
+  .then( response => response.json() )  // "a => expression" is shorthand function declaration
+  .then( json => {
+  metricsApp.tripsArr2 = json;
+  metricsApp.metricsArr2 = metricsApp.tripsArr2;  } )
+.catch( err => {
+  console.log('METRIC LIST FETCH ERROR:');
+  console.log(err);
+})
+this.formatDate();
+this.buildtripsChart2();
+},
+
 
 
   formatDate() {
