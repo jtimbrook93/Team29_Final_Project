@@ -71,7 +71,7 @@ computed: {
     this.buildOutputChart2();
 },
 
-  fetchComressorEfficiencyMetrics(){
+  fetchCompressorEfficiencyMetrics(){
     fetch('api/kpi.php')
     .then( response => response.json() )  // "a => expression" is shorthand function declaration
     .then( json => {
@@ -86,7 +86,7 @@ computed: {
     this.buildCompressorEfficiencyChart();
   },
 
-  fetchComressorEfficiencyMetrics2(){
+  fetchCompressorEfficiencyMetrics2(){
     fetch('api/kpi2.php')
     .then( response => response.json() )  // "a => expression" is shorthand function declaration
     .then( json => {
@@ -141,6 +141,9 @@ computed: {
     console.log('METRIC LIST FETCH ERROR:');
     console.log(err);
   })
+      this.formatDate();
+      this.buildavailabilityChart();
+    },
 
   fetchavailabilityMetrics2(){
     fetch('api/kpi2.php')
@@ -154,7 +157,7 @@ computed: {
   })
 
     this.formatDate();
-    this.buildCompressorEfficiencyChart();
+    this.buildavailabilityChart2();
   },
 
   fetchreliabilityMetrics(){
@@ -449,7 +452,7 @@ buildCompressorEfficiencyChart() {
 
 
 
-    fetchComressorEfficiencyMetrics()
+    fetchCompressorEfficiencyMetrics()
     fetch('api/kpi.php')
     .then( response => response.json() )  // "a => expression" is shorthand function declaration
     .then( json => {
