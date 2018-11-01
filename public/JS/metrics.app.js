@@ -336,6 +336,58 @@ Highcharts.chart('heartRateChart', {
       });
     },
 
+    buildHeartRateChart2() {
+    Highcharts.chart('heartRateChart2', {
+              title: {
+                  text: 'KPI HeartRate Chart'
+              },
+              xAxis: {
+                  type: 'datetime'
+              },
+              yAxis: {
+                  title: {
+                      text: 'HeartRate'
+                  }
+              },
+              legend: {
+                  enabled: false
+              },
+              plotOptions: {
+                  area: {
+                      fillColor: {
+                          linearGradient: {
+                              x1: 0,
+                              y1: 0,
+                              x2: 0,
+                              y2: 1
+                          },
+                          stops: [
+                              [0, Highcharts.getOptions().colors[0]],
+                              [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                          ]
+                      },
+                      marker: {
+                          radius: 2
+                      },
+                      lineWidth: 1,
+                      states: {
+                          hover: {
+                              lineWidth: 1
+                          }
+                      },
+                      threshold: null
+                  }
+              },
+
+              series: [{
+                  type: 'area',
+                  name: 'Sensor HeartRate',
+                  // Data needs [ [date, num], [date2, num2 ], ... ]
+                  data: this.heartRateArr2.map( item => [item.dataCollectedDate, item.heartRate] )
+              }]
+          });
+        },
+
 buildOutputChart() {
   Highcharts.chart('OutputChart', {
             title: {
@@ -541,6 +593,57 @@ buildCompressorEfficiencyChart() {
                 }]
             });
           },
+          buildavailabilityChart() {
+           Highcharts.chart('availabilityChart', {
+                     title: {
+                         text: 'KPI Availability Chart'
+                     },
+                     xAxis: {
+                         type: 'datetime'
+                     },
+                     yAxis: {
+                         title: {
+                             text: 'Availability'
+                         }
+                     },
+                     legend: {
+                         enabled: false
+                     },
+                     plotOptions: {
+                         area: {
+                             fillColor: {
+                                 linearGradient: {
+                                     x1: 0,
+                                     y1: 0,
+                                     x2: 0,
+                                     y2: 1
+                                 },
+                                 stops: [
+                                     [0, Highcharts.getOptions().colors[0]],
+                                     [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                                 ]
+                             },
+                             marker: {
+                                 radius: 2
+                             },
+                             lineWidth: 1,
+                             states: {
+                                 hover: {
+                                     lineWidth: 1
+                                 }
+                             },
+                             threshold: null
+                         }
+                     },
+
+                     series: [{
+                         type: 'area',
+                         name: 'Availability',
+                         // Data needs [ [date, num], [date2, num2 ], ... ]
+                         data: this.availabilityArr.map( item => [item.dataCollectedDate, item.availability] )
+                     }]
+                 });
+               },
    },
   created () {
   // fetchOutputMetrics();
