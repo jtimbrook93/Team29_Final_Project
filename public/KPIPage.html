@@ -131,11 +131,11 @@
             <td @click="fetchOutputMetrics()">{{metricsArr.output}}</td>
             <td @click="fetchHeartRateMetrics()">{{metricsArr.heartRate}}</td>
             <td @click="fetchComressorEfficiencyMetrics()">{{metricsArr.compressorEfficiency}}</td>
-            <td>{{metricsArr.availability}}</td>
-            <td>{{metricsArr.reliability}}</td>
-            <td>{{metricsArr.firedHours}}</td>
-            <td>{{metricsArr.trips}}</td>
-            <td>{{metricsArr.starts}}</td>
+            <td @click="fetchavailabilityMetrics()">{{metricsArr.availability}}</td>
+            <td @click="fetchreliabilityMetrics()">{{metricsArr.reliability}}</td>
+            <td @click="fetchfiredHoursMetrics()">{{metricsArr.firedHours}}</td>
+            <td @click="fetchtripsMetrics()">{{metricsArr.trips}}</td>
+            <td @click="fetchstartsMetrics()">{{metricsArr.starts}}</td>
           </tr>
         </tbody>
       </table>
@@ -161,11 +161,11 @@
               <td @click="fetchOutputMetrics2()">{{metricsArr2.output}}</td>
               <td @click="fetchHeartRateMetrics2()">{{metricsArr2.heartRate}}</td>
               <td @click="fetchComressorEfficiencyMetrics2()">{{metricsArr2.compressorEfficiency}}</td>
-              <td>{{metricsArr2.availability}}</td>
-              <td>{{metricsArr2.reliability}}</td>
-              <td>{{metricsArr2.firedHours}}</td>
-              <td>{{metricsArr2.trips}}</td>
-              <td>{{metricsArr2.starts}}</td>
+              <td @click="fetchavailabilityMetrics2()">{{metricsArr2.availability}}</td>
+              <td @click="fetchreliabilityMetrics2()">{{metricsArr2.reliability}}</td>
+              <td @click="fetchfiredHoursMetrics2()">{{metricsArr2.firedHours}}</td>
+              <td @click="fetchtripsMetrics2()">{{metricsArr2.trips}}</td>
+              <td @click="fetchstartsMetrics2()">{{metricsArr2.starts}}</td>
             </tr>
           </tbody>
         </table>
