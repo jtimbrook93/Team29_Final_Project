@@ -1051,7 +1051,7 @@ buildCompressorEfficiencyChart() {
                                                              data: this.startsArr.map( item => [item.dataCollectedDate, item.starts] )
                                                          }]
                                                      });
-                                                     buildstartsChart2() {
+                                                     buildstartsChart2(); {
                                                      Highcharts.chart('startsChart2', {
                                                                title: {
                                                                    text: 'KPI Starts Chart'
@@ -1098,9 +1098,10 @@ buildCompressorEfficiencyChart() {
                                                                    type: 'area',
                                                                    name: 'Starts',
                                                                    // Data needs [ [date, num], [date2, num2 ], ... ]
-                                                                   data: this.startsArr2.map( item => [item.dataCollectedDate, item.starts] )
+                                                                   data: this.startsArr.map( item => [item.dataCollectedDate, item.starts] )
                                                                }]
-                                                           });                                                  },
+                                                           });
+                                                                                                           },
 },
   created () {
   // fetchOutputMetrics();
@@ -1318,4 +1319,4 @@ buildCompressorEfficiencyChart() {
 
       })
 }
-});
+}});
