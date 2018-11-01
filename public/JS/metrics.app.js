@@ -509,6 +509,39 @@ buildCompressorEfficiencyChart() {
     console.log(err);
     })
 
+    fetchavailabilityMetrics2()
+    fetch('api/kpi2.php')
+    .then( response => response.json() )  // "a => expression" is shorthand function declaration
+    .then( json => {
+    metricsApp.availabilityArr2 = json;
+    metricsApp.metricsArr2 = metricsApp.availabilityArr2; } )
+    .catch( err => {
+    console.log('METRIC LIST FETCH ERROR:');
+    console.log(err);
+    })
+
+    fetchreliabilityMetrics()
+    fetch('api/kpi.php')
+    .then( response => response.json() )  // "a => expression" is shorthand function declaration
+    .then( json => {
+    metricsApp.reliabilityArr = json;
+    metricsApp.metricsArr = metricsApp.reliabilityArr; } )
+    .catch( err => {
+    console.log('METRIC LIST FETCH ERROR:');
+    console.log(err);
+    })
+
+    fetchreliabilityMetrics2()
+    fetch('api/kpi.php')
+    .then( response => response.json() )  // "a => expression" is shorthand function declaration
+    .then( json => {
+    metricsApp.reliabilityArr = json;
+    metricsApp.metricsArr = metricsApp.reliabilityArr; } )
+    .catch( err => {
+    console.log('METRIC LIST FETCH ERROR:');
+    console.log(err);
+    })
+
 
 
     formatDate()
