@@ -188,6 +188,20 @@ computed: {
   this.buildreliabilityChart2();
 },
 
+fetchfiredHoursMetrics(){
+  fetch('api/kpi.php')
+  .then( response => response.json() )  // "a => expression" is shorthand function declaration
+  .then( json => {
+  metricsApp.firedHoursArr = json;
+  metricsApp.metricsArr = metricsApp.firedHoursArr;  } )
+.catch( err => {
+  console.log('METRIC LIST FETCH ERROR:');
+  console.log(err);
+})
+this.formatDate();
+this.buildfiredHoursChart();
+},
+
 
 
   formatDate() {
