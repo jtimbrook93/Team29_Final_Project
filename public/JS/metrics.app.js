@@ -463,6 +463,17 @@ buildCompressorEfficiencyChart() {
     console.log(err);
     })
 
+    fetchCompressorEfficiencyMetrics2()
+    fetch('api/kpi2.php')
+    .then( response => response.json() )  // "a => expression" is shorthand function declaration
+    .then( json => {
+    metricsApp.compressorEfficiencyArr2 = json;
+    metricsApp.metricsArr2 = metricsApp.compressorEfficiencyArr2;  } )
+    .catch( err => {
+    console.log('METRIC LIST FETCH ERROR:');
+    console.log(err);
+    })
+
 
 
     fetchHeartRateMetrics()
@@ -471,6 +482,17 @@ buildCompressorEfficiencyChart() {
     .then( json => {
     metricsApp.heartRateArr = json;
     metricsApp.metricsArr = metricsApp.heartRateArr; } )
+    .catch( err => {
+    console.log('METRIC LIST FETCH ERROR:');
+    console.log(err);
+    })
+
+    fetchHeartRateMetrics2()
+    fetch('api/kpi2.php')
+    .then( response => response.json() )  // "a => expression" is shorthand function declaration
+    .then( json => {
+    metricsApp.heartRateArr2 = json;
+    metricsApp.metricsArr2 = metricsApp.heartRateArr2; } )
     .catch( err => {
     console.log('METRIC LIST FETCH ERROR:');
     console.log(err);
