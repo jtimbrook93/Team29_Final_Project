@@ -1119,3 +1119,4 @@ var metricsApp = new Vue ({
                                                                this.formatDate2();
                                                              }
                                                            });
+
