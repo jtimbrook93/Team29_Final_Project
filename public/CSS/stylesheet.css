@@ -187,6 +187,13 @@ main article p {
   }
 }
 
+#metricsTable{
+  overflow: auto;
+}
+#metricsTable2 {
+  overflow: auto;
+}
+
 /* code for chart obtained from highcharts.com*/
 /* #metricChart {
     min-width: 320px;
