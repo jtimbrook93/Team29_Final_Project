@@ -1147,5 +1147,4 @@ var metricsApp = new Vue ({
                                                                this.formatDate();
                                                                this.formatDate2();
                                                              }
-                                                           }
                                                            });
