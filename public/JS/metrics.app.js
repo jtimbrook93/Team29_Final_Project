@@ -1145,6 +1145,6 @@ var metricsApp = new Vue ({
                                                                this.fetchstartsMetrics();
                                                                this.fetchstartsMetrics2();
                                                                this.formatDate();
-                                                               this.formatDate2();
+                                                                this.formatDate2();
                                                              }
                                                            });
