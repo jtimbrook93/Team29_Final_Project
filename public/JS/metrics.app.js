@@ -962,7 +962,7 @@ var metricsApp = new Vue ({
                                               },
 
                                             series: [{
-                                              type: 'area',
+      
                                               name: 'Trips',
                                               // Data needs [ [date, num], [date2, num2 ], ... ]
                                               data: this.tripsArr.map( item => [item.dataCollectedDate, item.trips] )
