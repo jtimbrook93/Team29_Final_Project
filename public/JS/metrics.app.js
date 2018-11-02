@@ -597,210 +597,245 @@ var metricsApp = new Vue ({
                                             }]
                                           });
                                         },
-                                        buildavailabilityChart() {
-                                          Highcharts.chart('availabilityChart', {
-                                            title: {
-                                              text: 'Turbine 1'
-                                            },
-                                            xAxis: {
-                                              type: 'datetime'
-                                            },
-                                            yAxis: {
-                                              title: {
-                                                text: 'Availability'
-                                              }
-                                            },
-                                            legend: {
-                                              enabled: false
-                                            },
-                                            plotOptions: {
-                                              area: {
-                                                fillColor: {
-                                                  linearGradient: {
-                                                    x1: 0,
-                                                    y1: 0,
-                                                    x2: 0,
-                                                    y2: 1
-                                                  },
-                                                  stops: [
-                                                    [0, Highcharts.getOptions().colors[0]],
-                                                    [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                                                  ]
-                                                },
-                                                marker: {
-                                                  radius: 2
-                                                },
-                                                lineWidth: 1,
-                                                states: {
-                                                  hover: {
-                                                    lineWidth: 1
-                                                  }
-                                                },
-                                                threshold: null
-                                              }
-                                            },
 
-                                            series: [{
-                                              type: 'area',
-                                              name: 'Availability',
-                                              // Data needs [ [date, num], [date2, num2 ], ... ]
-                                              data: this.availabilityArr.map( item => [item.dataCollectedDate, item.availability] )
-                                            }]
-                                          });
-                                        },
-                                        buildavailabilityChart2() {
-                                          Highcharts.chart('availabilityChart2', {
-                                            title: {
-                                              text: 'Turbine 2'
-                                            },
-                                            xAxis: {
-                                              type: 'datetime'
-                                            },
-                                            yAxis: {
-                                              title: {
-                                                text: 'Availability'
-                                              }
-                                            },
-                                            legend: {
-                                              enabled: false
-                                            },
-                                            plotOptions: {
-                                              area: {
-                                                fillColor: {
-                                                  linearGradient: {
-                                                    x1: 0,
-                                                    y1: 0,
-                                                    x2: 0,
-                                                    y2: 1
-                                                  },
-                                                  stops: [
-                                                    [0, Highcharts.getOptions().colors[0]],
-                                                    [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                                                  ]
+                                        buildAvailabilityChart() {
+                                            Highcharts.chart('availabilityChart', {
+                                                chart: {
+                                                    type: 'line'
                                                 },
-                                                marker: {
-                                                  radius: 2
+                                                title: {
+                                                    text: 'Turbine 1'
                                                 },
-                                                lineWidth: 1,
-                                                states: {
-                                                  hover: {
-                                                    lineWidth: 1
-                                                  }
-                                                },
-                                                threshold: null
-                                              }
-                                            },
 
-                                            series: [{
-                                              type: 'area',
-                                              name: 'Availability',
-                                              // Data needs [ [date, num], [date2, num2 ], ... ]
-                                              data: this.availabilityArr2.map( item => [item.dataCollectedDate, item.availability] )
-                                            }]
-                                          });
+                                                xAxis: {
+                                                    type: 'datetime'
+                                                },
+                                                yAxis: {
+                                                    title: {
+                                                    text: 'Percentage'
+                                                    }
+                                                },
+                                                plotOptions: {
+                                                    line: {
+                                                        dataLabels: {
+                                                            enabled: false
+                                                        },
+                                                        enableMouseTracking: true
+                                                    }
+                                                },
+                                                series: [{
+                                                    name: 'Availability',
+                                                    data: this.availabilityArr.map( item => [item.dataCollectedDate, item.availability] )
+                                                }, {
+                                                    name: 'Reliability',
+                                                    data: this.reliabilityArr.map( item => [item.dataCollectedDate, item.reliability] )
+                                                }]
+                                            });
                                         },
-                                        buildreliabilityChart() {
-                                          Highcharts.chart('reliabilityChart', {
-                                            title: {
-                                              text: 'Turbine 1'
-                                            },
-                                            xAxis: {
-                                              type: 'datetime'
-                                            },
-                                            yAxis: {
-                                              title: {
-                                                text: 'Reliability'
-                                              }
-                                            },
-                                            legend: {
-                                              enabled: false
-                                            },
-                                            plotOptions: {
-                                              area: {
-                                                fillColor: {
-                                                  linearGradient: {
-                                                    x1: 0,
-                                                    y1: 0,
-                                                    x2: 0,
-                                                    y2: 1
-                                                  },
-                                                  stops: [
-                                                    [0, Highcharts.getOptions().colors[0]],
-                                                    [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                                                  ]
-                                                },
-                                                marker: {
-                                                  radius: 2
-                                                },
-                                                lineWidth: 1,
-                                                states: {
-                                                  hover: {
-                                                    lineWidth: 1
-                                                  }
-                                                },
-                                                threshold: null
-                                              }
-                                            },
-
-                                            series: [{
-                                              type: 'area',
-                                              name: 'Reliability',
-                                              // Data needs [ [date, num], [date2, num2 ], ... ]
-                                              data: this.reliabilityArr.map( item => [item.dataCollectedDate, item.reliability] )
-                                            }]
-                                          });
-                                        },
-                                        buildreliabilityChart2() {
-                                          Highcharts.chart('reliabilityChart2', {
-                                            title: {
-                                              text: 'Turbine 2'
-                                            },
-                                            xAxis: {
-                                              type: 'datetime'
-                                            },
-                                            yAxis: {
-                                              title: {
-                                                text: 'Reliability'
-                                              }
-                                            },
-                                            legend: {
-                                              enabled: false
-                                            },
-                                            plotOptions: {
-                                              area: {
-                                                fillColor: {
-                                                  linearGradient: {
-                                                    x1: 0,
-                                                    y1: 0,
-                                                    x2: 0,
-                                                    y2: 1
-                                                  },
-                                                  stops: [
-                                                    [0, Highcharts.getOptions().colors[0]],
-                                                    [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                                                  ]
-                                                },
-                                                marker: {
-                                                  radius: 2
-                                                },
-                                                lineWidth: 1,
-                                                states: {
-                                                  hover: {
-                                                    lineWidth: 1
-                                                  }
-                                                },
-                                                threshold: null
-                                              }
-                                            },
-
-                                            series: [{
-                                              type: 'area',
-                                              name: 'Reliability',
-                                              // Data needs [ [date, num], [date2, num2 ], ... ]
-                                              data: this.reliabilityArr2.map( item => [item.dataCollectedDate, item.reliability] )
-                                            }]
-                                          });
-                                        },
+                                        // buildavailabilityChart() {
+                                        //   Highcharts.chart('availabilityChart', {
+                                        //     title: {
+                                        //       text: 'Turbine 1'
+                                        //     },
+                                        //     xAxis: {
+                                        //       type: 'datetime'
+                                        //     },
+                                        //     yAxis: {
+                                        //       title: {
+                                        //         text: 'Availability'
+                                        //       }
+                                        //     },
+                                        //     legend: {
+                                        //       enabled: false
+                                        //     },
+                                        //     plotOptions: {
+                                        //       area: {
+                                        //         fillColor: {
+                                        //           linearGradient: {
+                                        //             x1: 0,
+                                        //             y1: 0,
+                                        //             x2: 0,
+                                        //             y2: 1
+                                        //           },
+                                        //           stops: [
+                                        //             [0, Highcharts.getOptions().colors[0]],
+                                        //             [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                                        //           ]
+                                        //         },
+                                        //         marker: {
+                                        //           radius: 2
+                                        //         },
+                                        //         lineWidth: 1,
+                                        //         states: {
+                                        //           hover: {
+                                        //             lineWidth: 1
+                                        //           }
+                                        //         },
+                                        //         threshold: null
+                                        //       }
+                                        //     },
+                                        //
+                                        //     series: [{
+                                        //       type: 'area',
+                                        //       name: 'Availability',
+                                        //       // Data needs [ [date, num], [date2, num2 ], ... ]
+                                        //       data: this.availabilityArr.map( item => [item.dataCollectedDate, item.availability] )
+                                        //     }]
+                                        //   });
+                                        // },
+                                        // buildavailabilityChart2() {
+                                        //   Highcharts.chart('availabilityChart2', {
+                                        //     title: {
+                                        //       text: 'Turbine 2'
+                                        //     },
+                                        //     xAxis: {
+                                        //       type: 'datetime'
+                                        //     },
+                                        //     yAxis: {
+                                        //       title: {
+                                        //         text: 'Availability'
+                                        //       }
+                                        //     },
+                                        //     legend: {
+                                        //       enabled: false
+                                        //     },
+                                        //     plotOptions: {
+                                        //       area: {
+                                        //         fillColor: {
+                                        //           linearGradient: {
+                                        //             x1: 0,
+                                        //             y1: 0,
+                                        //             x2: 0,
+                                        //             y2: 1
+                                        //           },
+                                        //           stops: [
+                                        //             [0, Highcharts.getOptions().colors[0]],
+                                        //             [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                                        //           ]
+                                        //         },
+                                        //         marker: {
+                                        //           radius: 2
+                                        //         },
+                                        //         lineWidth: 1,
+                                        //         states: {
+                                        //           hover: {
+                                        //             lineWidth: 1
+                                        //           }
+                                        //         },
+                                        //         threshold: null
+                                        //       }
+                                        //     },
+                                        //
+                                        //     series: [{
+                                        //       type: 'area',
+                                        //       name: 'Availability',
+                                        //       // Data needs [ [date, num], [date2, num2 ], ... ]
+                                        //       data: this.availabilityArr2.map( item => [item.dataCollectedDate, item.availability] )
+                                        //     }]
+                                        //   });
+                                        // },
+                                        // buildreliabilityChart() {
+                                        //   Highcharts.chart('reliabilityChart', {
+                                        //     title: {
+                                        //       text: 'Turbine 1'
+                                        //     },
+                                        //     xAxis: {
+                                        //       type: 'datetime'
+                                        //     },
+                                        //     yAxis: {
+                                        //       title: {
+                                        //         text: 'Reliability'
+                                        //       }
+                                        //     },
+                                        //     legend: {
+                                        //       enabled: false
+                                        //     },
+                                        //     plotOptions: {
+                                        //       area: {
+                                        //         fillColor: {
+                                        //           linearGradient: {
+                                        //             x1: 0,
+                                        //             y1: 0,
+                                        //             x2: 0,
+                                        //             y2: 1
+                                        //           },
+                                        //           stops: [
+                                        //             [0, Highcharts.getOptions().colors[0]],
+                                        //             [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                                        //           ]
+                                        //         },
+                                        //         marker: {
+                                        //           radius: 2
+                                        //         },
+                                        //         lineWidth: 1,
+                                        //         states: {
+                                        //           hover: {
+                                        //             lineWidth: 1
+                                        //           }
+                                        //         },
+                                        //         threshold: null
+                                        //       }
+                                        //     },
+                                        //
+                                        //     series: [{
+                                        //       type: 'area',
+                                        //       name: 'Reliability',
+                                        //       // Data needs [ [date, num], [date2, num2 ], ... ]
+                                        //       data: this.reliabilityArr.map( item => [item.dataCollectedDate, item.reliability] )
+                                        //     }]
+                                        //   });
+                                        // },
+                                        // buildreliabilityChart2() {
+                                        //   Highcharts.chart('reliabilityChart2', {
+                                        //     title: {
+                                        //       text: 'Turbine 2'
+                                        //     },
+                                        //     xAxis: {
+                                        //       type: 'datetime'
+                                        //     },
+                                        //     yAxis: {
+                                        //       title: {
+                                        //         text: 'Reliability'
+                                        //       }
+                                        //     },
+                                        //     legend: {
+                                        //       enabled: false
+                                        //     },
+                                        //     plotOptions: {
+                                        //       area: {
+                                        //         fillColor: {
+                                        //           linearGradient: {
+                                        //             x1: 0,
+                                        //             y1: 0,
+                                        //             x2: 0,
+                                        //             y2: 1
+                                        //           },
+                                        //           stops: [
+                                        //             [0, Highcharts.getOptions().colors[0]],
+                                        //             [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                                        //           ]
+                                        //         },
+                                        //         marker: {
+                                        //           radius: 2
+                                        //         },
+                                        //         lineWidth: 1,
+                                        //         states: {
+                                        //           hover: {
+                                        //             lineWidth: 1
+                                        //           }
+                                        //         },
+                                        //         threshold: null
+                                        //       }
+                                        //     },
+                                        //
+                                        //     series: [{
+                                        //       type: 'area',
+                                        //       name: 'Reliability',
+                                        //       // Data needs [ [date, num], [date2, num2 ], ... ]
+                                        //       data: this.reliabilityArr2.map( item => [item.dataCollectedDate, item.reliability] )
+                                        //     }]
+                                        //   });
+                                        // },
                                         buildfiredHoursChart() {
                                           Highcharts.chart('firedHoursChart', {
                                             title: {
