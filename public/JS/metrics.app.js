@@ -253,7 +253,7 @@ var metricsApp = new Vue ({
                                       console.log(err);
                                     })
                                     this.formatDate();
-                                    this.buildtripsChart();
+                                    this.buildstartsChart();
                                   },
 
                                   fetchstartsMetrics2(){
@@ -267,7 +267,7 @@ var metricsApp = new Vue ({
                                         console.log(err);
                                       })
                                       this.formatDate2();
-                                      this.buildtripsChart();
+                                      this.buildstartsChart();
                                     },
 
                                     formatDate2(){
