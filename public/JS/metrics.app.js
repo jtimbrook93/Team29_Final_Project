@@ -36,10 +36,7 @@ var metricsApp = new Vue ({
   },
   computed: {
 
-  },
 
-  methods: {
-    fetchOutputMetrics(){
       fetch('api/kpi.php')
       .then( response => response.json() )  // "a => expression" is shorthand function declaration
       .then( json => {
@@ -50,53 +47,7 @@ var metricsApp = new Vue ({
           console.log(err);
         })
 
-        this.formatDate();
-        this.buildOutputChart();
-      },
 
-      fetchOutputMetrics2(){
-        fetch('api/kpi2.php')
-        .then( response => response.json() )  // "a => expression" is shorthand function declaration
-        .then( json => {
-          metricsApp.outputArr2 = json;
-          metricsApp.metricsArr2 = metricsApp.outputArr2;  } )
-          .catch( err => {
-            console.log('METRIC LIST FETCH ERROR:');
-            console.log(err);
-          })
-
-          this.formatDate2();
-          this.buildOutputChart2();
-        },
-
-        fetchCompressorEfficiencyMetrics(){
-          fetch('api/kpi.php')
-          .then( response => response.json() )  // "a => expression" is shorthand function declaration
-          .then( json => {
-            metricsApp.compressorEfficiencyArr = json;
-            metricsApp.metricsArr = metricsApp.compressorEfficiencyArr;  } )
-            .catch( err => {
-              console.log('METRIC LIST FETCH ERROR:');
-              console.log(err);
-            })
-
-            this.formatDate();
-            this.buildCompressorEfficiencyChart();
-          },
-
-          fetchCompressorEfficiencyMetrics2(){
-            fetch('api/kpi2.php')
-            .then( response => response.json() )  // "a => expression" is shorthand function declaration
-            .then( json => {
-              metricsApp.compressorEfficiencyArr2 = json;
-              metricsApp.metricsArr2 = metricsApp.compressorEfficiencyArr2;  } )
-              .catch( err => {
-                console.log('METRIC LIST FETCH ERROR:');
-                console.log(err);
-              })
-
-              this.formatDate2();
-              this.buildCompressorEfficiencyChart2();
             },
 
             fetchHeartRateMetrics(){
