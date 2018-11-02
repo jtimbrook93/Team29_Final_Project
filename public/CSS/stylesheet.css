@@ -76,7 +76,6 @@ p + p {
   margin-top: .75em;
 }
 div {
-  padding: 1.5em;
   background: white;
 }
 div h3 {
@@ -197,6 +196,15 @@ main article p {
        background-color: #495388;
        color: white;
    }
+}
+
+#metricsTable{
+  max-height: 400px;
+  overflow: auto;
+}
+#metricsTable2 {
+  max-height: 400px;
+  overflow: auto;
 }
 
 /* code for chart obtained from highcharts.com*/

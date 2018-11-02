@@ -17,15 +17,50 @@
   <h4>Alternative Green Systems</h4>
   <a href="clientInformationPage.html">Client</a>
   <a href="SitesPage.html">Sites</a>
-  <a href="KPIPage.html">Metrics</a>
-  <a href="slaPage.html">SLA's</a>
+  <a href="KPIPage.html">Dashboard</a>
 </nav>
 </header>
-  <body>
+<body>
 
-    <div class="row">
+  <!-- <div class="row">
+  <div class="col placeholder">
+  <div class="chart" id="CompressorEfficiencyChart"></div>
+</div>
+
+<div class="col placeholder">
+<div class="chart" id="OutputChart"></div>
+</div>
+
+<div class="col placeholder">
+<div class="chart" id="heartRateChart"></div>
+</div>
+</div> -->
+
+<section class="col">
+
+  <div class="row">
+    <h2>Compressor Efficiency</h2>
+    <div class="col">
       <div class="chart" id="CompressorEfficiencyChart"></div>
+    </div>
+    <div class="col">
+      <div class="chart" id="CompressorEfficiencyChart2"></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <h2>Output</h2>
+    <div class="col">
       <div class="chart" id="OutputChart"></div>
+    </div>
+    <div class="col">
+      <div class="chart" id="OutputChart2"></div>
+    </div>
+
+  </div>
+  <div class="row">
+    <h2>Heart-Rate</h2>
+    <div class="col">
       <div class="chart" id="heartRateChart"></div>
       <div class="chart" id="availabilityChart"></div>
       <div class="chart" id="reliabilityChart"></div>
@@ -33,60 +68,137 @@
       <div class="chart" id="tripsChart"></div>
       <div class="chart" id="startsChart"></div>
     </div>
-
-  <div id="metricscontainer" class="container">
-      <table  class="table table-striped table-sm" id="metricsTable">
-        <thead>
-          <tr>
-            <th>Turbine Deployed ID</th>
-            <th>Date Collected</th>
-            <th>Output</th>
-            <th>Heart-Rate</th>
-            <th>Compressor Efficiency</th>
-            <th>Availability</th>
-            <th>Reliability</th>
-            <th>Fired Hours</th>
-            <th>Trips</th>
-            <th>Starts</th>
-          </tr>
-        </thead>
-        <tbody id="metricsTableBody">
-          <tr v-for="metricsArr in metricsArr">
-            <td>{{metricsArr.turbineDeployedId}}</td>
-            <td>{{metricsArr.dataCollectedDate}}</td>
-            <td @click="fetchOutputMetrics()">{{metricsArr.output}}</td>
-            <td @click="fetchHeartRateMetrics()">{{metricsArr.heartRate}}</td>
-            <td @click="fetchComressorEfficiencyMetrics()">{{metricsArr.compressorEfficiency}}</td>
-            <td @click="fetchAvalabilityMetrics()">{{metricsArr.availability}}</td>
-            <td @click="fetchReliabilityMetrics()">{{metricsArr.reliability}}</td>
-            <td @click="fetchFiredHoursMetrics()">{{metricsArr.firedHours}}</td>
-            <td @click="fetchTripsMetrics()">{{metricsArr.trips}}</td>
-            <td @click="fetchStartsMetrics()">{{metricsArr.starts}}</td>
-
-          </tr>
-        </tbody>
-      </table>
+    <div class="col">
+      <div class="chart" id="heartRateChart2"></div>
     </div>
+  </div>
+
+  <div class="row">
+    <h2>Availability</h2>
+    <div class="col">
+      <div class="chart" id="availabilityChart"></div>
+    </div>
+    <div class="col">
+      <div class="chart" id="availabilityChart2"></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <h2>Reliability</h2>
+    <div class="col">
+      <div class="chart" id="reliabilityChart"></div>
+    </div>
+    <div class="col">
+      <div class="chart" id="reliabilityChart2"></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <h2>Fired</h2>
+    <div class="col-sm-6">
+      <div class="chart" id="firedHoursChart"></div>
+    </div>
+    <div class="col-sm-6">
+      <div class="chart" id="firedHoursChart2"></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <h2>Trips</h2>
+    <div class="col">
+      <div class="chart" id="tripsChart"></div>
+    </div>
+    <div class="col">
+      <div class="chart" id="tripsChart2"></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <h2>Starts</h2>
+    <div class="col">
+      <div class="chart" id="startsChart"></div>
+    </div>
+    <div class="col">
+      <div class="chart" id="startsChart2"></div>
+    </div>
+  </div>
+
+
+</section>
 
 
 
-    <!--code borrowed from highcharts.com -->
+<div id="metricscontainer" class="container">
+  <table  class="table table-responsive table-striped table-sm" id="metricsTable">
+    <thead>
+      <tr>
+        <th>Turbine Deployed ID</th>
+        <th>Date Collected</th>
+        <th>Output</th>
+        <th>Heart-Rate</th>
+        <th>Compressor Efficiency</th>
+        <th>Availability</th>
+        <th>Reliability</th>
+        <th>Fired Hours</th>
+        <th>Trips</th>
+        <th>Starts</th>
+      </tr>
+    </thead>
+    <tbody id="metricsTableBody">
+      <tr v-for="metricsArr in metricsArr">
+        <td>{{metricsArr.turbineDeployedId}}</td>
+        <td>{{metricsArr.dataCollectedDate}}</td>
+        <td @click="fetchOutputMetrics()">{{metricsArr.output}}</td>
+        <td @click="fetchHeartRateMetrics()">{{metricsArr.heartRate}}</td>
+        <td @click="fetchCompressorEfficiencyMetrics()">{{metricsArr.compressorEfficiency}}</td>
+        <td @click="fetchavailabilityMetrics()">{{metricsArr.availability}}</td>
+        <td @click="fetchreliabilityMetrics()">{{metricsArr.reliability}}</td>
+        <td @click="fetchfiredHoursMetrics()">{{metricsArr.firedHours}}</td>
+        <td @click="fetchtripsMetrics()">{{metricsArr.trips}}</td>
+        <td @click="fetchstartsMetrics()">{{metricsArr.starts}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <table  class="table table-responsive table-striped table-sm" id="metricsTable2">
+    <thead>
+      <tr>
+        <th>Turbine Deployed ID</th>
+        <th>Date Collected</th>
+        <th>Output</th>
+        <th>Heart-Rate</th>
+        <th>Compressor Efficiency</th>
+        <th>Availability</th>
+        <th>Reliability</th>
+        <th>Fired Hours</th>
+        <th>Trips</th>
+        <th>Starts</th>
+      </tr>
+    </thead>
+    <tbody id="metricsTableBody2">
+      <tr v-for="metricsArr2 in metricsArr2">
+        <td>{{metricsArr2.turbineDeployedId}}</td>
+        <td>{{metricsArr2.dataCollectedDate}}</td>
+        <td @click="fetchOutputMetrics2()">{{metricsArr2.output}}</td>
+        <td @click="fetchHeartRateMetrics2()">{{metricsArr2.heartRate}}</td>
+        <td @click="fetchCompressorEfficiencyMetrics2()">{{metricsArr2.compressorEfficiency}}</td>
+        <td @click="fetchavailabilityMetrics2()">{{metricsArr2.availability}}</td>
+        <td @click="fetchreliabilityMetrics2()">{{metricsArr2.reliability}}</td>
+        <td @click="fetchfiredHoursMetrics2()">{{metricsArr2.firedHours}}</td>
+        <td @click="fetchtripsMetrics2()">{{metricsArr2.trips}}</td>
+        <td @click="fetchstartsMetrics2()">{{metricsArr2.starts}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 
+<!--code borrowed from highcharts.com -->
 
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <!-- <script src="https://code.highcharts.com/modules/data.js"></script> -->
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+<!-- <script src="https://code.highcharts.com/modules/data.js"></script> -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
-    <script src="JS/metrics.app.js"></script>
-  </body>
+
 </html>
