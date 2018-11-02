@@ -36,7 +36,10 @@ var metricsApp = new Vue ({
   },
   computed: {
 
+  },
 
+  methods: {
+    fetchOutputMetrics(){
       fetch('api/kpi.php')
       .then( response => response.json() )  // "a => expression" is shorthand function declaration
       .then( json => {
@@ -47,7 +50,53 @@ var metricsApp = new Vue ({
           console.log(err);
         })
 
+        this.formatDate();
+        this.buildOutputChart();
+      },
 
+      fetchOutputMetrics2(){
+        fetch('api/kpi2.php')
+        .then( response => response.json() )  // "a => expression" is shorthand function declaration
+        .then( json => {
+          metricsApp.outputArr2 = json;
+          metricsApp.metricsArr2 = metricsApp.outputArr2;  } )
+          .catch( err => {
+            console.log('METRIC LIST FETCH ERROR:');
+            console.log(err);
+          })
+
+          this.formatDate2();
+          this.buildOutputChart2();
+        },
+
+        fetchCompressorEfficiencyMetrics(){
+          fetch('api/kpi.php')
+          .then( response => response.json() )  // "a => expression" is shorthand function declaration
+          .then( json => {
+            metricsApp.compressorEfficiencyArr = json;
+            metricsApp.metricsArr = metricsApp.compressorEfficiencyArr;  } )
+            .catch( err => {
+              console.log('METRIC LIST FETCH ERROR:');
+              console.log(err);
+            })
+
+            this.formatDate();
+            this.buildCompressorEfficiencyChart();
+          },
+
+          fetchCompressorEfficiencyMetrics2(){
+            fetch('api/kpi2.php')
+            .then( response => response.json() )  // "a => expression" is shorthand function declaration
+            .then( json => {
+              metricsApp.compressorEfficiencyArr2 = json;
+              metricsApp.metricsArr2 = metricsApp.compressorEfficiencyArr2;  } )
+              .catch( err => {
+                console.log('METRIC LIST FETCH ERROR:');
+                console.log(err);
+              })
+
+              this.formatDate2();
+              this.buildCompressorEfficiencyChart2();
             },
 
             fetchHeartRateMetrics(){
@@ -855,66 +904,47 @@ var metricsApp = new Vue ({
                                           });
                                         },
                                         buildtripsChart() {
-                                          Highcharts.chart('container', {
-                                            chart: {
-                                              type: 'scatter',
-                                              zoomType: 'xy'
-                                            },
-
-
-
+                                          Highcharts.chart('tripsChart', {
                                             title: {
                                               text: 'Turbine 1'
                                             },
                                             xAxis: {
-                                              title:{
-                                                enabled: true,
-                                                text: 'Date'
-                                              },
-                                              startOnTick: true,
-                                              endOnTick: true,
-                                              showLastLabel: true
+                                              type: 'datetime'
                                             },
-
                                             yAxis: {
                                               title: {
                                                 text: 'Trips'
                                               }
                                             },
                                             legend: {
-                                              layout: 'vertical',
-                                              align: 'left',
-                                              verticalAlign: 'top',
-                                              x: 100,
-                                              y: 70,
-                                              floating: true,
-                                              backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
-                                              borderWidth: 1
+                                              enabled: false
                                             },
                                             plotOptions: {
-                                                  scatter: {
-                                                      marker: {
-                                                          radius: 5,
-                                                          states: {
-                                                              hover: {
-                                                                  enabled: true,
-                                                                  lineColor: 'rgb(100,100,100)'
-                                                              }
-                                                          }
-                                                      },
-                                                      states: {
-                                                          hover: {
-                                                              marker: {
-                                                                  enabled: false
-                                                              }
-                                                          }
-                                                      },
-                                                      tooltip: {
-                                                          headerFormat: '<b>{series.name}</b><br>',
-                                                          pointFormat: '{point.x} cm, {point.y} kg'
-                                                      }
+                                              area: {
+                                                fillColor: {
+                                                  linearGradient: {
+                                                    x1: 0,
+                                                    y1: 0,
+                                                    x2: 0,
+                                                    y2: 1
+                                                  },
+                                                  stops: [
+                                                    [0, Highcharts.getOptions().colors[0]],
+                                                    [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                                                  ]
+                                                },
+                                                marker: {
+                                                  radius: 2
+                                                },
+                                                lineWidth: 1,
+                                                states: {
+                                                  hover: {
+                                                    lineWidth: 1
                                                   }
-                                              },
+                                                },
+                                                threshold: null
+                                              }
+                                            },
 
                                             series: [{
                                               type: 'area',
@@ -923,8 +953,7 @@ var metricsApp = new Vue ({
                                               data: this.tripsArr.map( item => [item.dataCollectedDate, item.trips] )
                                             }]
                                           });
-                                        }
-                                      },
+                                        },
                                         buildtripsChart2() {
                                           Highcharts.chart('tripsChart2', {
                                             title: {
@@ -1116,6 +1145,6 @@ var metricsApp = new Vue ({
                                                                this.fetchstartsMetrics();
                                                                this.fetchstartsMetrics2();
                                                                this.formatDate();
-                                                               this.formatDate2();
+                                                                this.formatDate2();
                                                              }
                                                            });
