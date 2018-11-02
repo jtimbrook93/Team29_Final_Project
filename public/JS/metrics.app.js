@@ -285,6 +285,9 @@ var metricsApp = new Vue ({
 
                                         });
                                       },
+                                      pretty_date: function (d) {
+                                      return moment(d).format('l')
+                                      },
 
 
 
@@ -335,7 +338,7 @@ var metricsApp = new Vue ({
                                             type: 'area',
                                             name: 'Sensor HeartRate',
                                             // Data needs [ [date, num], [date2, num2 ], ... ]
-                                            data: this.heartRateArr.map( item => [item.dataCollectedDate, item.heartRate] )
+                                            data: this.heartRateArr.map( item => [this.pretty_date(item.dataCollectedDate), item.heartRate] )
                                           }]
                                         });
                                       },
