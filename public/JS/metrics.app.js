@@ -625,7 +625,7 @@ var metricsApp = new Vue ({
                                                 },
                                                 series: [{
                                                     name: 'Availability',
-                                                    data: data: this.availabilityArr.map( item => [item.dataCollectedDate, item.availability] )
+                                                    data: this.availabilityArr.map( item => [item.dataCollectedDate, item.availability] )
                                                 }, {
                                                     name: 'Reliability',
                                                     data: this.reliabilityArr.map( item => [item.dataCollectedDate, item.reliability] )
