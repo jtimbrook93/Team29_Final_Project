@@ -188,12 +188,10 @@ main article p {
 }
 
 #metricsTable{
-  width: 200px;
   max-height: 400px;
   overflow: auto;
 }
 #metricsTable2 {
-  width: 200px;
   max-height: 400px;
   overflow: auto;
 }
