@@ -267,7 +267,7 @@ var metricsApp = new Vue ({
                                         console.log(err);
                                       })
                                       this.formatDate2();
-                                      this.buildstartsChart();
+                                      this.buildstartsChart2();
                                     },
 
                                     formatDate2(){
