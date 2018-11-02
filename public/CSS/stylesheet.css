@@ -188,9 +188,13 @@ main article p {
 }
 
 #metricsTable{
+  width: 200px;
+ height: 400px;
   overflow: auto;
 }
 #metricsTable2 {
+  width: 200px;
+ height: 400px;
   overflow: auto;
 }
 
