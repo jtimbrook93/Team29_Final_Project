@@ -297,6 +297,7 @@ var metricsApp = new Vue ({
                                             text: 'Turbine 1'
                                           },
                                           xAxis: {
+                                            Title: 'Date',
                                             type: 'datetime'
                                           },
                                           yAxis: {
