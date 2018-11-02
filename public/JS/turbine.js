@@ -5,7 +5,11 @@ var turbinetable = new Vue({
       turbineId: 0,
       turbineName: '',
       siteId: 0,
-      siteName: ''
+      siteName: '',
+      turbineDescription: '',
+      capacity: '',
+      rampUpTime: '',
+      maintenanceInterval: ''
     },
 
   },
