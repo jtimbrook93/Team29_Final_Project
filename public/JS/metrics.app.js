@@ -632,6 +632,41 @@ var metricsApp = new Vue ({
                                                 }]
                                             });
                                         },
+
+                                        buildAvailabilityChart2() {
+                                            Highcharts.chart('availabilityChart2', {
+                                                chart: {
+                                                    type: 'line'
+                                                },
+                                                title: {
+                                                    text: 'Turbine 2'
+                                                },
+
+                                                xAxis: {
+                                                    type: 'datetime'
+                                                },
+                                                yAxis: {
+                                                    title: {
+                                                    text: 'Avaliability and Reliability'
+                                                    }
+                                                },
+                                                plotOptions: {
+                                                    line: {
+                                                        dataLabels: {
+                                                            enabled: false
+                                                        },
+                                                        enableMouseTracking: true
+                                                    }
+                                                },
+                                                series: [{
+                                                    name: 'Availability',
+                                                    data: this.availabilityArr2.map( item => [item.dataCollectedDate, item.availability] )
+                                                }, {
+                                                    name: 'Reliability',
+                                                    data: this.reliabilityArr2.map( item => [item.dataCollectedDate, item.reliability] )
+                                                }]
+                                            });
+                                        },
                                         // buildavailabilityChart() {
                                         //   Highcharts.chart('availabilityChart', {
                                         //     title: {
