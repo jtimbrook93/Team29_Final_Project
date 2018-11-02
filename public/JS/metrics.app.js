@@ -65,7 +65,7 @@ var metricsApp = new Vue ({
             console.log(err);
           })
 
-          this.formatDate();
+          this.formatDate2();
           this.buildOutputChart2();
         },
 
@@ -95,7 +95,7 @@ var metricsApp = new Vue ({
                 console.log(err);
               })
 
-              this.formatDate();
+              this.formatDate2();
               this.buildCompressorEfficiencyChart2();
             },
 
@@ -125,7 +125,7 @@ var metricsApp = new Vue ({
                     console.log(err);
                   })
 
-                  this.formatDate();
+                  this.formatDate2();
                   this.buildHeartRateChart2();
                 },
 
@@ -154,7 +154,7 @@ var metricsApp = new Vue ({
                         console.log(err);
                       })
 
-                      this.formatDate();
+                      this.formatDate2();
                       this.buildavailabilityChart2();
                     },
 
@@ -182,7 +182,7 @@ var metricsApp = new Vue ({
                             console.log('METRIC LIST FETCH ERROR:');
                             console.log(err);
                           })
-                          this.formatDate();
+                          this.formatDate2();
                           this.buildreliabilityChart2();
                         },
 
@@ -210,7 +210,7 @@ var metricsApp = new Vue ({
                                 console.log('METRIC LIST FETCH ERROR:');
                                 console.log(err);
                               })
-                              this.formatDate();
+                              this.formatDate2();
                               this.buildfiredHoursChart2();
                             },
 
@@ -238,7 +238,7 @@ var metricsApp = new Vue ({
                                     console.log('METRIC LIST FETCH ERROR:');
                                     console.log(err);
                                   })
-                                  this.formatDate();
+                                  this.formatDate2();
                                   this.buildtripsChart2();
                                 },
 
@@ -266,11 +266,17 @@ var metricsApp = new Vue ({
                                         console.log('METRIC LIST FETCH ERROR:');
                                         console.log(err);
                                       })
-                                      this.formatDate();
+                                      this.formatDate2();
                                       this.buildtripsChart();
                                     },
 
+                                    formatDate2(){
+                                      this.metricsArr2.forEach(
+                                        function(entry) {
+                                          entry.dataCollectedDate = Date.parse(entry.dataCollectedDate); // Convert to ms since Jan 1, 1970 UTC
 
+                                        });
+                                    },
 
                                     formatDate() {
                                       this.metricsArr.forEach(
@@ -1136,5 +1142,6 @@ var metricsApp = new Vue ({
                                       this.fetchstartsMetrics();
                                       this.fetchstartsMetrics2();
                                       this.formatDate();
+                                      this.formatDate2();
                                     }
                                   });
