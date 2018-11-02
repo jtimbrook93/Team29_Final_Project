@@ -904,7 +904,7 @@ var metricsApp = new Vue ({
                                           });
                                         },
                                         buildtripsChart() {
-                                          Highcharts.chart('container', {
+                                          Highcharts.chart('tripsChart', {
                                             chart: {
                                               type: 'scatter',
                                               zoomType: 'xy'
