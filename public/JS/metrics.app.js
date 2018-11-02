@@ -968,8 +968,7 @@ var metricsApp = new Vue ({
                                               data: this.tripsArr.map( item => [item.dataCollectedDate, item.trips] )
                                             }]
                                           });
-                                        }
-                                      },​
+                                        },
                                         buildtripsChart2() {
                                           Highcharts.chart('tripsChart2', {
                                             title: {
