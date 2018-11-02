@@ -19,3 +19,4 @@ require 'models/Site.php';
 require 'models/Turbine.php';
 require 'models/KPIdata.php';
 require 'models/Comment.php';
+require 'models/KPI2.php';

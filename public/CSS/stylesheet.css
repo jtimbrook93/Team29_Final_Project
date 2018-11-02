@@ -70,7 +70,6 @@ p + p {
   margin-top: .75em;
 }
 div {
-  padding: 1.5em;
   background: white;
 }
 div h3 {
@@ -185,6 +184,15 @@ main article p {
     border: 1px solid black;
     border-radius: 4px;
   }
+}
+
+#metricsTable{
+  max-height: 400px;
+  overflow: auto;
+}
+#metricsTable2 {
+  max-height: 400px;
+  overflow: auto;
 }
 
 /* code for chart obtained from highcharts.com*/
