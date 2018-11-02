@@ -291,7 +291,7 @@ var metricsApp = new Vue ({
                                       buildHeartRateChart() {
                                         Highcharts.chart('heartRateChart', {
                                           title: {
-                                            text: 'KPI HeartRate Chart'
+                                            text: 'Turbine 1'
                                           },
                                           xAxis: {
                                             type: 'datetime'
@@ -342,7 +342,7 @@ var metricsApp = new Vue ({
                                       buildHeartRateChart2() {
                                         Highcharts.chart('heartRateChart2', {
                                           title: {
-                                            text: 'KPI HeartRate Chart'
+                                            text: 'Turbine 2'
                                           },
                                           xAxis: {
                                             type: 'datetime'
@@ -393,7 +393,7 @@ var metricsApp = new Vue ({
                                       buildOutputChart() {
                                         Highcharts.chart('OutputChart', {
                                           title: {
-                                            text: 'KPI Output Chart'
+                                            text: 'Turbine 1'
                                           },
                                           xAxis: {
                                             type: 'datetime'
@@ -444,7 +444,7 @@ var metricsApp = new Vue ({
                                       buildOutputChart2() {
                                         Highcharts.chart('OutputChart2', {
                                           title: {
-                                            text: 'KPI Output Chart 2'
+                                            text: 'Turbine 2'
                                           },
                                           xAxis: {
                                             type: 'datetime'
@@ -495,7 +495,7 @@ var metricsApp = new Vue ({
                                       buildCompressorEfficiencyChart() {
                                         Highcharts.chart('CompressorEfficiencyChart', {
                                           title: {
-                                            text: 'KPI Compressor Efficiency Chart'
+                                            text: 'Turbine 1'
                                           },
                                           xAxis: {
                                             type: 'datetime'
@@ -546,7 +546,7 @@ var metricsApp = new Vue ({
                                       buildCompressorEfficiencyChart2() {
                                         Highcharts.chart('CompressorEfficiencyChart2', {
                                           title: {
-                                            text: 'KPI Compressor Efficiency Chart'
+                                            text: 'Turbine 2'
                                           },
                                           xAxis: {
                                             type: 'datetime'
@@ -597,7 +597,7 @@ var metricsApp = new Vue ({
                                       buildavailabilityChart() {
                                         Highcharts.chart('availabilityChart', {
                                           title: {
-                                            text: 'KPI Availability Chart'
+                                            text: 'Turbine 1'
                                           },
                                           xAxis: {
                                             type: 'datetime'
@@ -648,7 +648,7 @@ var metricsApp = new Vue ({
                                       buildavailabilityChart2() {
                                         Highcharts.chart('availabilityChart2', {
                                           title: {
-                                            text: 'KPI Availability Chart'
+                                            text: 'Turbine 2'
                                           },
                                           xAxis: {
                                             type: 'datetime'
@@ -699,7 +699,7 @@ var metricsApp = new Vue ({
                                       buildreliabilityChart() {
                                         Highcharts.chart('reliabilityChart', {
                                           title: {
-                                            text: 'KPI Reliability Chart'
+                                            text: 'Turbine 1'
                                           },
                                           xAxis: {
                                             type: 'datetime'
@@ -750,7 +750,7 @@ var metricsApp = new Vue ({
                                       buildreliabilityChart2() {
                                         Highcharts.chart('reliabilityChart2', {
                                           title: {
-                                            text: 'KPI Reliability Chart'
+                                            text: 'Turbine 2'
                                           },
                                           xAxis: {
                                             type: 'datetime'
@@ -801,7 +801,7 @@ var metricsApp = new Vue ({
                                       buildfiredHoursChart() {
                                         Highcharts.chart('firedHoursChart', {
                                           title: {
-                                            text: 'KPI Fired Hours Chart'
+                                            text: 'Turbine 1'
                                           },
                                           xAxis: {
                                             type: 'datetime'
@@ -852,7 +852,7 @@ var metricsApp = new Vue ({
                                       buildfiredHoursChart2() {
                                         Highcharts.chart('firedHoursChart2', {
                                           title: {
-                                            text: 'KPI Fired Hours Chart'
+                                            text: 'Turbine 2'
                                           },
                                           xAxis: {
                                             type: 'datetime'
@@ -903,7 +903,7 @@ var metricsApp = new Vue ({
                                       buildtripsChart() {
                                         Highcharts.chart('tripsChart', {
                                           title: {
-                                            text: 'KPI Trips Chart'
+                                            text: 'Turbine 1'
                                           },
                                           xAxis: {
                                             type: 'datetime'
@@ -954,7 +954,7 @@ var metricsApp = new Vue ({
                                       buildtripsChart2() {
                                         Highcharts.chart('tripsChart2', {
                                           title: {
-                                            text: 'KPI Trips Chart'
+                                            text: 'Turbine 2'
                                           },
                                           xAxis: {
                                             type: 'datetime'
@@ -1005,7 +1005,7 @@ var metricsApp = new Vue ({
                                       buildstartsChart() {
                                         Highcharts.chart('startsChart', {
                                           title: {
-                                            text: 'KPI Starts Chart'
+                                            text: 'Turbine 1'
                                           },
                                           xAxis: {
                                             type: 'datetime'
@@ -1056,7 +1056,7 @@ var metricsApp = new Vue ({
                                       buildstartsChart2() {
                                         Highcharts.chart('startsChart2', {
                                           title: {
-                                            text: 'KPI Starts Chart'
+                                            text: 'Turbine 2'
                                           },
                                           xAxis: {
                                             type: 'datetime'
