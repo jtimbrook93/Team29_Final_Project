@@ -612,7 +612,7 @@ var metricsApp = new Vue ({
                                                 },
                                                 yAxis: {
                                                     title: {
-                                                    text: 'Percentage'
+                                                    text: 'Avaliability and Reliability'
                                                     }
                                                 },
                                                 plotOptions: {
@@ -625,7 +625,7 @@ var metricsApp = new Vue ({
                                                 },
                                                 series: [{
                                                     name: 'Availability',
-                                                    data: this.availabilityArr.map( item => [item.dataCollectedDate, item.availability] )
+                                                    data: data: this.availabilityArr.map( item => [item.dataCollectedDate, item.availability] )
                                                 }, {
                                                     name: 'Reliability',
                                                     data: this.reliabilityArr.map( item => [item.dataCollectedDate, item.reliability] )
