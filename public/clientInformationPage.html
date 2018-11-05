@@ -77,7 +77,7 @@
     <input type="text" class="form-control" id="clientId" placeholder="Enter Client Id" v-model="commentForm.clientId">
     </div>
 
-    <button form="newCommentForm" type="submit" id="submitNewComment" class="btn btn-primary">Submit</button>
+    <button v-on:submit="handleWorkForm" form="newCommentForm" type="submit" class="btn btn-primary">Submit</button>
   </form>
     </div>
 </body>
