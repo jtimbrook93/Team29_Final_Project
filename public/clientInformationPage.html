@@ -70,15 +70,15 @@
             </tbody>
           </table>
 </div>
-<form id="newCommentForm" @submit.prevent="handleWorkForm">
+<form id="newCommentForm" @submit.prevent="handleWorkForm()">
     <div class="form-group" id="Form">
     <label for="comment">Comment</label>
     <input type="text" class="form-control" id="comment" placeholder="Enter Comment" v-model="commentForm.comment">
     <input type="text" class="form-control" id="clientId" placeholder="Enter Client Id" v-model="commentForm.clientId">
     </div>
-  </form>
 
-    <button @click="handleWorkForm" type="submit" id="submitNewComment" class="btn btn-primary">Submit</button>
+    <button @click="handleWorkForm()" type="submit" id="submitNewComment" class="btn btn-primary">Submit</button>
+  </form>
     </div>
 </body>
 
