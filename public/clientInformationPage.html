@@ -70,16 +70,16 @@
             </tbody>
           </table>
 </div>
-      <form id="commentContainer" @submit.prevent="handleWorkForm">
-      <div class="form-group" id="Form">
-        <label for="comment">Enter Service Comment Below:</label>
-        <input type="text" class="form-control" id="clientId" placeholder="Enter Client ID" v-model="commentForm.clientId">
-        <input type="text" class="form-control" id="comment" placeholder="Enter Comment" v-model="commentForm.comment">
-      </div>
-      <button type="submit" id="submitNewComment" class="btn btn-primary">Submit</button>
-</form>
+<form id="newCommentForm" @submit.prevent="handleWorkForm">
+    <div class="form-group" id="Form">
+    <label for="comment">Comment</label>
+    <input type="text" class="form-control" id="comment" placeholder="Enter Comment" v-model="commentForm.comment">
+    <input type="text" class="form-control" id="clientId" placeholder="Enter Client Id" v-model="commentForm.clientId">
+    </div>
 
-</div>
+    <button type="submit" id="submitNewComment" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
 </body>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
